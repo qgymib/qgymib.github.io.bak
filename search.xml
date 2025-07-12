@@ -1106,6 +1106,23 @@
 ]]></content>
   </entry>
   <entry>
+    <title>让 wsl 支持 cmake</title>
+    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
+    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
+<span id="more"></span>
+
+<ol>
+<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Reboot wsl:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>记一次由于头文件版本映射引入的死机问题</title>
     <url>/2021/08/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%94%B1%E4%BA%8E%E5%A4%B4%E6%96%87%E4%BB%B6%E7%89%88%E6%9C%AC%E6%98%A0%E5%B0%84%E5%BC%95%E5%85%A5%E7%9A%84%E6%AD%BB%E6%9C%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>蜂鸟平台基线项目中出现了极其偶发性的死机问题，本文章回溯了整个问题的排查过程。</p>
@@ -1163,23 +1180,6 @@
 <li>问题分析导向为栈溢出</li>
 <li>所集成的库是多个，通过映射方式指向同一份头文件，有存在版本不一致的可能</li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>让 wsl 支持 cmake</title>
-    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
-    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
-<span id="more"></span>
-
-<ol>
-<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Reboot wsl:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>

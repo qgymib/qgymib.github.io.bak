@@ -232,6 +232,20 @@
 ]]></content>
   </entry>
   <entry>
+    <title>MyLifeOrganized Portable</title>
+    <url>/2021/02/21/mylifeorganized-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Neovim Portable</title>
     <url>/2021/08/09/neovim-portable/</url>
     <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 NeoVim 封装配置。</p>
@@ -256,20 +270,6 @@
 <li>在 NeovimPortable 终端中执行 <code>npm install -g neovim</code></li>
 <li>在 NeovimPortable 终端中执行 <code>npm install -g yarn</code></li>
 </ol>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>MyLifeOrganized Portable</title>
-    <url>/2021/02/21/mylifeorganized-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
-<span id="more"></span>
-
-<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
 ]]></content>
       <categories>
         <category>PortableApps</category>
@@ -307,13 +307,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Unraid 支持 Intel GPU 硬解</title>
-    <url>/2021/02/10/unraid-%E6%94%AF%E6%8C%81-intel-gpu-%E7%A1%AC%E8%A7%A3/</url>
-    <content><![CDATA[<p>编辑go文件，添加 modprobe i915，使其内容如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Intel GPU</span></span><br><span class="line">modprobe i915</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the Management Utility</span></span><br><span class="line">/usr/local/sbin/emhttp &amp;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>SecureCRT + SecureFX 绿色单文件打包方法</title>
     <url>/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>我们使用 <a href="https://enigmaprotector.com/en/aboutvb.html">Enigma Virtual Box</a> 对 <a href="https://www.vandyke.com/cgi-bin/releases.php?product=securecrt"> SecureCRT + SecureFX</a> 进行打包。</p>
@@ -339,6 +332,13 @@
 <p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/regedit_hklm.png"></p>
 <h2 id="Storage-配置"><a href="#Storage-配置" class="headerlink" title="Storage 配置"></a>Storage 配置</h2><p>勾选 <code>Save changes of virtual files to</code> 复选框，并设置文件保存路径为 <code>%ApplicationData FOLDER%\enigmavb\sandbox\sfx-x64-bsafe.9.6.2.3540</code></p>
 <p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_storage.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Unraid 支持 Intel GPU 硬解</title>
+    <url>/2021/02/10/unraid-%E6%94%AF%E6%8C%81-intel-gpu-%E7%A1%AC%E8%A7%A3/</url>
+    <content><![CDATA[<p>编辑go文件，添加 modprobe i915，使其内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Intel GPU</span></span><br><span class="line">modprobe i915</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the Management Utility</span></span><br><span class="line">/usr/local/sbin/emhttp &amp;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -488,6 +488,13 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Windows 10 下添加路由表</title>
+    <url>/2021/08/23/windows-10-%E4%B8%8B%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%A1%A8/</url>
+    <content><![CDATA[<p>使用管理员权限执行以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route add 10.0.0.0 mask 255.255.0.0 172.16.0.1</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>WSL2 访问宿主机服务</title>
     <url>/2021/08/04/wsl2-%E8%AE%BF%E9%97%AE%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<p>默认情况下 wsl2 无法访问宿主机端口，我们可以通过如下步骤使得wsl2能够访问宿主机：</p>
@@ -524,13 +531,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows 10 下添加路由表</title>
-    <url>/2021/08/23/windows-10-%E4%B8%8B%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%A1%A8/</url>
-    <content><![CDATA[<p>使用管理员权限执行以下指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route add 10.0.0.0 mask 255.255.0.0 172.16.0.1</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Windows 下安装 Qt6</title>
     <url>/2024/03/02/windows-%E4%B8%8B%E5%AE%89%E8%A3%85-qt6/</url>
     <content><![CDATA[<p>Windows 下建议使用 <a href="https://www.msys2.org/">MSYS2</a> 来安装 Qt6。官方安装包总有各种各样的问题。</p>
@@ -549,6 +549,12 @@
     <content><![CDATA[<h2 id="查看当前网络连接"><a href="#查看当前网络连接" class="headerlink" title="查看当前网络连接"></a>查看当前网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use</span><br><span class="line">会记录新的网络连接。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">状态       本地        远程                      网络</span><br><span class="line"></span><br><span class="line"><span class="literal">-------------------------------------------------------------------------------</span></span><br><span class="line">OK           X:        \\<span class="number">192.168</span>.<span class="number">1.221</span>\I<span class="literal">-Userfiles</span>\XDRHW</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">OK           Y:        \\<span class="number">192.168</span>.<span class="number">1.18</span>\<span class="number">592</span>        Microsoft Windows Network</span><br><span class="line">OK           Z:        \\<span class="number">192.168</span>.<span class="number">1.66</span>\<span class="number">6001413</span>        Microsoft Windows Network</span><br><span class="line">OK                     \\<span class="number">192.168</span>.<span class="number">2.209</span>\UserDesktop</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">已断开                 \\<span class="number">192.168</span>.<span class="number">1.100</span>\share       Microsoft Windows Network</span><br></pre></td></tr></table></figure>
 
 <h2 id="删除指定网络连接"><a href="#删除指定网络连接" class="headerlink" title="删除指定网络连接"></a>删除指定网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use \\<span class="number">192.168</span>.<span class="number">1.100</span>\share /delete</span><br><span class="line">\\<span class="number">192.168</span>.<span class="number">1.100</span>\share 已经删除。</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>cron 生成网站</title>
+    <url>/2021/11/18/cron-%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p><a href="https://crontab.guru/">crontab guru</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -599,12 +605,6 @@
 
 <p>启动此服务：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl --user enable --now app-vmware-user.service</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>cron 生成网站</title>
-    <url>/2021/11/18/cron-%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p><a href="https://crontab.guru/">crontab guru</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -725,6 +725,25 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Valgrind Gdbserver 使用方法</title>
+    <url>/2021/07/27/valgrind-gdbserver-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>Valgrind 支持 gdbserver (AKA. <code>vgdb</code>)，这使得在运行valgrind时，能够同时挂上gdb来进行调试。</p>
+<span id="more"></span>
+
+<p>Valgrind启动参数如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">valgrind -v --vgdb=full --vgdb-error=0 --leak-check=full --track-fds=<span class="built_in">yes</span> --show-reachable=<span class="built_in">yes</span> --trace-children=<span class="built_in">yes</span> --tool=memcheck --num-callers=64 --log-file=valgrind.log --track-origins=<span class="built_in">yes</span> path/to/bin</span><br></pre></td></tr></table></figure>
+
+<p>使用如上指令启动Valgrind之后，程序不会立即运行，这是因为valgrind在等待gdb的连接。</p>
+<p>gdb启动参数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb path/to/bin</span><br></pre></td></tr></table></figure>
+
+<p>随后在gdb中输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">target remote | vgdb</span><br></pre></td></tr></table></figure>
+
+<p>这样gdb就连接上了valgrind。在gdb中输入 <code>c</code> 并回车，valgrind即开始运行。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>x86_64 下使用 opcode 进行大于 4GB 地址的远距离跳转</title>
     <url>/2021/11/04/x86-64-%E4%B8%8B%E4%BD%BF%E7%94%A8-opcode-%E8%BF%9B%E8%A1%8C%E5%A4%A7%E4%BA%8E-4gb-%E5%9C%B0%E5%9D%80%E7%9A%84%E8%BF%9C%E8%B7%9D%E7%A6%BB%E8%B7%B3%E8%BD%AC/</url>
     <content><![CDATA[<p>解决方案来源：<a href="https://stackoverflow.com/a/53876008">JMP instruction - Hex code</a></p>
@@ -746,25 +765,6 @@
 <figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Sub</span> Main</span><br><span class="line">    xsh.Screen.Synchronous = <span class="literal">True</span></span><br><span class="line">	xsh.Screen.Send <span class="string">&quot;sudo TZ=&#x27;Asia/Shanghai&#x27; date -s &quot;&quot;&quot;</span> &amp; <span class="built_in">FormatDateTime</span>(<span class="built_in">Now</span>(), vbGeneralDate) &amp; <span class="string">&quot;&quot;&quot;&quot;</span> &amp; VbCr</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
 
 <p>在Xshell的会话属性中，选择“连接-&gt;登陆脚本-&gt;连接会话时运行脚本”，选择上述脚本即可。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Valgrind Gdbserver 使用方法</title>
-    <url>/2021/07/27/valgrind-gdbserver-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>Valgrind 支持 gdbserver (AKA. <code>vgdb</code>)，这使得在运行valgrind时，能够同时挂上gdb来进行调试。</p>
-<span id="more"></span>
-
-<p>Valgrind启动参数如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">valgrind -v --vgdb=full --vgdb-error=0 --leak-check=full --track-fds=<span class="built_in">yes</span> --show-reachable=<span class="built_in">yes</span> --trace-children=<span class="built_in">yes</span> --tool=memcheck --num-callers=64 --log-file=valgrind.log --track-origins=<span class="built_in">yes</span> path/to/bin</span><br></pre></td></tr></table></figure>
-
-<p>使用如上指令启动Valgrind之后，程序不会立即运行，这是因为valgrind在等待gdb的连接。</p>
-<p>gdb启动参数：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb path/to/bin</span><br></pre></td></tr></table></figure>
-
-<p>随后在gdb中输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">target remote | vgdb</span><br></pre></td></tr></table></figure>
-
-<p>这样gdb就连接上了valgrind。在gdb中输入 <code>c</code> 并回车，valgrind即开始运行。</p>
 ]]></content>
   </entry>
   <entry>

@@ -276,6 +276,22 @@
       </categories>
   </entry>
   <entry>
+    <title>Scoop 重建开始菜单项</title>
+    <url>/2023/02/07/scoop-%E9%87%8D%E5%BB%BA%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E9%A1%B9/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ scoop reset *</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>在升级 <code>Windows 11, version 22H2</code> 后，<a href="https://scoop.sh/">Scoop</a> 的开始菜单项丢失。 执行如上命令可找回开始菜单项。</p>
+<blockquote>
+<p>来源：<a href="https://github.com/ScoopInstaller/Scoop/issues/2233">Windows 10 April 2018 Update Removes Scoop Shortcuts from Start Menu</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>scoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Procedure Call Standard</title>
     <url>/2021/08/02/procedure-call-standard/</url>
     <content><![CDATA[<ul>
@@ -317,22 +333,6 @@
 <h2 id="Storage-配置"><a href="#Storage-配置" class="headerlink" title="Storage 配置"></a>Storage 配置</h2><p>勾选 <code>Save changes of virtual files to</code> 复选框，并设置文件保存路径为 <code>%ApplicationData FOLDER%\enigmavb\sandbox\sfx-x64-bsafe.9.6.2.3540</code></p>
 <p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_storage.png"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Scoop 重建开始菜单项</title>
-    <url>/2023/02/07/scoop-%E9%87%8D%E5%BB%BA%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E9%A1%B9/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ scoop reset *</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>在升级 <code>Windows 11, version 22H2</code> 后，<a href="https://scoop.sh/">Scoop</a> 的开始菜单项丢失。 执行如上命令可找回开始菜单项。</p>
-<blockquote>
-<p>来源：<a href="https://github.com/ScoopInstaller/Scoop/issues/2233">Windows 10 April 2018 Update Removes Scoop Shortcuts from Start Menu</a></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>scoop</tag>
-      </tags>
   </entry>
   <entry>
     <title>Unraid 支持 Intel GPU 硬解</title>
@@ -488,13 +488,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Windows 10 下添加路由表</title>
-    <url>/2021/08/23/windows-10-%E4%B8%8B%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%A1%A8/</url>
-    <content><![CDATA[<p>使用管理员权限执行以下指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route add 10.0.0.0 mask 255.255.0.0 172.16.0.1</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>WSL2 访问宿主机服务</title>
     <url>/2021/08/04/wsl2-%E8%AE%BF%E9%97%AE%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<p>默认情况下 wsl2 无法访问宿主机端口，我们可以通过如下步骤使得wsl2能够访问宿主机：</p>
@@ -529,6 +522,13 @@
       <tags>
         <tag>wsl2</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Windows 10 下添加路由表</title>
+    <url>/2021/08/23/windows-10-%E4%B8%8B%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%A1%A8/</url>
+    <content><![CDATA[<p>使用管理员权限执行以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route add 10.0.0.0 mask 255.255.0.0 172.16.0.1</span><br></pre></td></tr></table></figure>
+]]></content>
   </entry>
   <entry>
     <title>Windows 下安装 Qt6</title>
@@ -608,13 +608,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>lede 开启 hello world</title>
-    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
-    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>cutest 技术分析</title>
     <url>/2023/01/06/cutest-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又花了一些时间将 C 语言单元测试框架 <a href="https://github.com/qgymib/cutest">cutest</a> 完善了一下，已经基本可以覆盖绝大部分 <a href="https://github.com/google/googletest">googletest</a> 的常用功能。</p>
@@ -662,6 +655,13 @@
 <p>在 Linux 中，为了输出彩色颜色，我们需要添加一些控制字符，例如 <code>\033[0;33m</code> 等，这些特殊字符是无法通过文本编辑器正常显示的，正是它们造成了乱码。</p>
 <p>而 <a href="https://github.com/qgymib/cutest">cutest</a> 通过 <code>isatty()</code> 接口对输出设备进行了判断（代码来源于 <a href="https://github.com/google/googletest">googletest</a>），仅当输出设备为 <code>tty</code> 时，才输出颜色，否则仅输出文本。</p>
 <!-- links -->
+]]></content>
+  </entry>
+  <entry>
+    <title>lede 开启 hello world</title>
+    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
+    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -808,49 +808,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>使用 ffmpge 合并音视频</title>
-    <url>/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[<p><a href="https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg">https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg</a><br><a href="https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue">https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue</a></p>
-<span id="more"></span>
-
-<h2 id="Merging-video-and-audio-with-audio-re-encoding"><a href="#Merging-video-and-audio-with-audio-re-encoding" class="headerlink" title="Merging video and audio, with audio re-encoding"></a>Merging video and audio, with audio re-encoding</h2><p>See this example, taken from <a href="http://crazedmuleproductions.blogspot.com/2005/12/using-ffmpeg-to-combine-audio-and.html">this blog entry</a> but updated for newer syntax. It should be something to the effect of:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>Here, we assume that the video file does not contain any audio stream yet, and that you want to have the same output format (here, MP4) as the input format.</p>
-<p>The above command transcodes the audio, since MP4s cannot carry PCM audio streams. You can use any other desired audio codec if you want. See the <a href="https://trac.ffmpeg.org/wiki/Encode/AAC">FFmpeg Wiki: AAC Encoding Guide</a> for more info.</p>
-<p>If your audio or video stream is longer, you can add the <code>-shortest</code> option so that ffmpeg will stop encoding once one file ends.</p>
-<h2 id="Copying-the-audio-without-re-encoding"><a href="#Copying-the-audio-without-re-encoding" class="headerlink" title="Copying the audio without re-encoding"></a>Copying the audio without re-encoding</h2><p>If your output container can handle (almost) any codec – like MKV – then you can simply copy both audio and video streams:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv</span><br></pre></td></tr></table></figure>
-
-<h2 id="Replacing-audio-stream"><a href="#Replacing-audio-stream" class="headerlink" title="Replacing audio stream"></a>Replacing audio stream</h2><p>If your input video already contains audio, and you want to replace it, you need to tell ffmpeg which audio stream to take:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>The <a href="https://trac.ffmpeg.org/wiki/Map"><code>-map</code> option</a> makes ffmpeg only use the first video stream from the first input and the first audio stream from the second input for the output file.</p>
-<h2 id="Mix-video-and-audio-from-another-video"><a href="#Mix-video-and-audio-from-another-video" class="headerlink" title="Mix video and audio (from another video)"></a>Mix video and audio (from another video)</h2><h3 id="Overview-of-inputs"><a href="#Overview-of-inputs" class="headerlink" title="Overview of inputs"></a>Overview of inputs</h3><p><code>input_0.mp4</code> has the desired video stream and <code>input_1.mp4</code> has the desired audio stream:</p>
-<p><img src="/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/mapping_diagram.png" alt="mapping diagram"></p>
-<p>In <code>ffmpeg</code> the streams look like this:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4</span><br><span class="line"></span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_0.mp4&#x27;:</span><br><span class="line">  Duration: 00:01:48.50, start: 0.000000, bitrate: 4144 kb/s</span><br><span class="line">    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720, 4014 kb/s, SAR 115:87 DAR 1840:783, 23.98 fps, 23.98 tbr, 16k tbn, 47.95 tbc (default)</span><br><span class="line">    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 124 kb/s (default)</span><br><span class="line"></span><br><span class="line">Input #1, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_1.mp4&#x27;:</span><br><span class="line">  Duration: 00:00:30.05, start: 0.000000, bitrate: 1754 kb/s</span><br><span class="line">    Stream #1:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 720x480 [SAR 8:9 DAR 4:3], 1687 kb/s, 59.94 fps, 59.94 tbr, 60k tbn, 119.88 tbc (default)</span><br><span class="line">    Stream #1:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 55 kb/s (default)</span><br></pre></td></tr></table></figure>
-
-<h3 id="ID-numbers"><a href="#ID-numbers" class="headerlink" title="ID numbers"></a>ID numbers</h3><p><code>ffmpeg</code> refers to input files and streams with index numbers. The format is <code>input_file_id:input_stream_id</code>. Since <code>ffmpeg</code> starts counting from 0, stream <code>1:1</code> refers to the audio from <code>input_1.mp4</code>.</p>
-<h3 id="Stream-specifiers"><a href="#Stream-specifiers" class="headerlink" title="Stream specifiers"></a>Stream specifiers</h3><p>This can be enhanced with <a href="http://ffmpeg.org/ffmpeg.html#Stream-specifiers-1">stream specifiers</a>. For example, you can tell <code>ffmpeg</code> that you want the first video stream from the first input (<code>0:v:0</code>), and the first audio stream from the second input (<code>1:a:0</code>). I prefer this method because it’s more efficient. Also, it is less prone to accidental mapping because <code>1:1</code> can refer to any type of stream, while <code>2:v:3</code> only refers to the fourth video stream of the third input file.</p>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>The <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option</a> instructs <code>ffmpeg</code> what streams you want. To copy the video from <code>input_0.mp4</code> and audio from <code>input_1.mp4</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:0 -map 1:1 -shortest out.mp4</span><br></pre></td></tr></table></figure>
-
-<p>This next example will do the same thing:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:v:0 -map 1:a:0 -shortest out.mp4</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-map 0:v:0</code> can be translated as: from the first input (<code>0</code>), select video stream type (<code>v</code>), first video stream (<code>0</code>)</li>
-<li><code>-map 1:a:0</code> can be translated as: from the second input (<code>1</code>), select audio stream type (<code>a</code>), first audio stream (<code>0</code>)</li>
-</ul>
-<h3 id="Additional-Notes"><a href="#Additional-Notes" class="headerlink" title="Additional Notes"></a>Additional Notes</h3><ul>
-<li>With <code>-c copy</code> the streams will be <a href="http://ffmpeg.org/ffmpeg.html#Stream-copy">stream copied</a>, not re-encoded, so there will be no quality loss. If you want to re-encode, see <a href="https://trac.ffmpeg.org/wiki/Encode/H.264">FFmpeg Wiki: H.264 Encoding Guide</a>.</li>
-<li>The <code>-shortest</code> option will cause the output duration to match the duration of the shortest input stream.</li>
-<li>See the <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option documentation</a> for more info.</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>在 Linux 客户机中启用 HGFS</title>
     <url>/2023/01/31/%E5%9C%A8-linux-%E5%AE%A2%E6%88%B7%E6%9C%BA%E4%B8%AD%E5%90%AF%E7%94%A8-hgfs/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>VMware Workstation 中启用共享文件夹之后，<code>/mnt/hgfs</code>仅会出现一次，重启即消失，需要手动挂载。</p>
@@ -909,6 +866,49 @@
       <categories>
         <category>PortableApps</category>
       </categories>
+  </entry>
+  <entry>
+    <title>使用 ffmpge 合并音视频</title>
+    <url>/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/</url>
+    <content><![CDATA[<p><a href="https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg">https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg</a><br><a href="https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue">https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue</a></p>
+<span id="more"></span>
+
+<h2 id="Merging-video-and-audio-with-audio-re-encoding"><a href="#Merging-video-and-audio-with-audio-re-encoding" class="headerlink" title="Merging video and audio, with audio re-encoding"></a>Merging video and audio, with audio re-encoding</h2><p>See this example, taken from <a href="http://crazedmuleproductions.blogspot.com/2005/12/using-ffmpeg-to-combine-audio-and.html">this blog entry</a> but updated for newer syntax. It should be something to the effect of:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>Here, we assume that the video file does not contain any audio stream yet, and that you want to have the same output format (here, MP4) as the input format.</p>
+<p>The above command transcodes the audio, since MP4s cannot carry PCM audio streams. You can use any other desired audio codec if you want. See the <a href="https://trac.ffmpeg.org/wiki/Encode/AAC">FFmpeg Wiki: AAC Encoding Guide</a> for more info.</p>
+<p>If your audio or video stream is longer, you can add the <code>-shortest</code> option so that ffmpeg will stop encoding once one file ends.</p>
+<h2 id="Copying-the-audio-without-re-encoding"><a href="#Copying-the-audio-without-re-encoding" class="headerlink" title="Copying the audio without re-encoding"></a>Copying the audio without re-encoding</h2><p>If your output container can handle (almost) any codec – like MKV – then you can simply copy both audio and video streams:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv</span><br></pre></td></tr></table></figure>
+
+<h2 id="Replacing-audio-stream"><a href="#Replacing-audio-stream" class="headerlink" title="Replacing audio stream"></a>Replacing audio stream</h2><p>If your input video already contains audio, and you want to replace it, you need to tell ffmpeg which audio stream to take:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>The <a href="https://trac.ffmpeg.org/wiki/Map"><code>-map</code> option</a> makes ffmpeg only use the first video stream from the first input and the first audio stream from the second input for the output file.</p>
+<h2 id="Mix-video-and-audio-from-another-video"><a href="#Mix-video-and-audio-from-another-video" class="headerlink" title="Mix video and audio (from another video)"></a>Mix video and audio (from another video)</h2><h3 id="Overview-of-inputs"><a href="#Overview-of-inputs" class="headerlink" title="Overview of inputs"></a>Overview of inputs</h3><p><code>input_0.mp4</code> has the desired video stream and <code>input_1.mp4</code> has the desired audio stream:</p>
+<p><img src="/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/mapping_diagram.png" alt="mapping diagram"></p>
+<p>In <code>ffmpeg</code> the streams look like this:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4</span><br><span class="line"></span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_0.mp4&#x27;:</span><br><span class="line">  Duration: 00:01:48.50, start: 0.000000, bitrate: 4144 kb/s</span><br><span class="line">    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720, 4014 kb/s, SAR 115:87 DAR 1840:783, 23.98 fps, 23.98 tbr, 16k tbn, 47.95 tbc (default)</span><br><span class="line">    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 124 kb/s (default)</span><br><span class="line"></span><br><span class="line">Input #1, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_1.mp4&#x27;:</span><br><span class="line">  Duration: 00:00:30.05, start: 0.000000, bitrate: 1754 kb/s</span><br><span class="line">    Stream #1:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 720x480 [SAR 8:9 DAR 4:3], 1687 kb/s, 59.94 fps, 59.94 tbr, 60k tbn, 119.88 tbc (default)</span><br><span class="line">    Stream #1:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 55 kb/s (default)</span><br></pre></td></tr></table></figure>
+
+<h3 id="ID-numbers"><a href="#ID-numbers" class="headerlink" title="ID numbers"></a>ID numbers</h3><p><code>ffmpeg</code> refers to input files and streams with index numbers. The format is <code>input_file_id:input_stream_id</code>. Since <code>ffmpeg</code> starts counting from 0, stream <code>1:1</code> refers to the audio from <code>input_1.mp4</code>.</p>
+<h3 id="Stream-specifiers"><a href="#Stream-specifiers" class="headerlink" title="Stream specifiers"></a>Stream specifiers</h3><p>This can be enhanced with <a href="http://ffmpeg.org/ffmpeg.html#Stream-specifiers-1">stream specifiers</a>. For example, you can tell <code>ffmpeg</code> that you want the first video stream from the first input (<code>0:v:0</code>), and the first audio stream from the second input (<code>1:a:0</code>). I prefer this method because it’s more efficient. Also, it is less prone to accidental mapping because <code>1:1</code> can refer to any type of stream, while <code>2:v:3</code> only refers to the fourth video stream of the third input file.</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>The <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option</a> instructs <code>ffmpeg</code> what streams you want. To copy the video from <code>input_0.mp4</code> and audio from <code>input_1.mp4</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:0 -map 1:1 -shortest out.mp4</span><br></pre></td></tr></table></figure>
+
+<p>This next example will do the same thing:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:v:0 -map 1:a:0 -shortest out.mp4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-map 0:v:0</code> can be translated as: from the first input (<code>0</code>), select video stream type (<code>v</code>), first video stream (<code>0</code>)</li>
+<li><code>-map 1:a:0</code> can be translated as: from the second input (<code>1</code>), select audio stream type (<code>a</code>), first audio stream (<code>0</code>)</li>
+</ul>
+<h3 id="Additional-Notes"><a href="#Additional-Notes" class="headerlink" title="Additional Notes"></a>Additional Notes</h3><ul>
+<li>With <code>-c copy</code> the streams will be <a href="http://ffmpeg.org/ffmpeg.html#Stream-copy">stream copied</a>, not re-encoded, so there will be no quality loss. If you want to re-encode, see <a href="https://trac.ffmpeg.org/wiki/Encode/H.264">FFmpeg Wiki: H.264 Encoding Guide</a>.</li>
+<li>The <code>-shortest</code> option will cause the output duration to match the duration of the shortest input stream.</li>
+<li>See the <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option documentation</a> for more info.</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>如何完全隐藏C对象的私有数据</title>
@@ -1106,6 +1106,23 @@
 ]]></content>
   </entry>
   <entry>
+    <title>让 wsl 支持 cmake</title>
+    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
+    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
+<span id="more"></span>
+
+<ol>
+<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Reboot wsl:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>记一次由于头文件版本映射引入的死机问题</title>
     <url>/2021/08/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%94%B1%E4%BA%8E%E5%A4%B4%E6%96%87%E4%BB%B6%E7%89%88%E6%9C%AC%E6%98%A0%E5%B0%84%E5%BC%95%E5%85%A5%E7%9A%84%E6%AD%BB%E6%9C%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>蜂鸟平台基线项目中出现了极其偶发性的死机问题，本文章回溯了整个问题的排查过程。</p>
@@ -1163,23 +1180,6 @@
 <li>问题分析导向为栈溢出</li>
 <li>所集成的库是多个，通过映射方式指向同一份头文件，有存在版本不一致的可能</li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>让 wsl 支持 cmake</title>
-    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
-    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
-<span id="more"></span>
-
-<ol>
-<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Reboot wsl:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>

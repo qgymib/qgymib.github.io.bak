@@ -23,6 +23,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Eclipse Portable</title>
+    <url>/2021/02/11/eclipse-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 Eclipse 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="EclipsePortable-ini"><a href="#EclipsePortable-ini" class="headerlink" title="EclipsePortable.ini"></a>EclipsePortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=eclipse\eclipse.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=-data %PAL:DataDir%\workspace -configuration %PAL:DataDir%\settings\configuration -vmargs -Duser.home=%PAL:DataDir%\settings\home -Djava.io.tmpdir=%PAL:DataDir%\.tmp</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">JAVA_HOME</span>=%PAL:AppDir%\openjdk</span><br><span class="line"><span class="attr">PATH</span>=%JAVA_HOME%\bin<span class="comment">;%PATH%</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%\settings\home</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite2]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite3]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite4]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
+
+<h2 id="DefaultData"><a href="#DefaultData" class="headerlink" title="DefaultData"></a>DefaultData</h2><p>需要创建.tmp空目录，否则eclipse启动失败。</p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Compare of Tinyml compilers</title>
     <url>/2024/01/27/compare-of-tinyml-compilers/</url>
     <content><![CDATA[<table>
@@ -89,20 +103,6 @@
 <p>ℹ️ <a href="https://github.com/tensorflow/tflite-micro.git">TensorFlow Lite for Microcontrollers</a> 以及 <a href="https://github.com/pytorch/executorch.git">PyTorch Edge</a> 的 MCU 支持均要求编译器支持编译选项 <code>-fno-rtti</code> 和 <code>-fno-exceptions</code>，这要求 Keil 使用 <code>armclang version 6</code>。而此版本不是keil的默认编译器版本，且厂商提供的 SDK 也往往使用 <code>armclang version 5</code>。</p>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Eclipse Portable</title>
-    <url>/2021/02/11/eclipse-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 Eclipse 封装配置。</p>
-<span id="more"></span>
-
-<h2 id="EclipsePortable-ini"><a href="#EclipsePortable-ini" class="headerlink" title="EclipsePortable.ini"></a>EclipsePortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=eclipse\eclipse.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=-data %PAL:DataDir%\workspace -configuration %PAL:DataDir%\settings\configuration -vmargs -Duser.home=%PAL:DataDir%\settings\home -Djava.io.tmpdir=%PAL:DataDir%\.tmp</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">JAVA_HOME</span>=%PAL:AppDir%\openjdk</span><br><span class="line"><span class="attr">PATH</span>=%JAVA_HOME%\bin<span class="comment">;%PATH%</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%\settings\home</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite2]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite3]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite4]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
-
-<h2 id="DefaultData"><a href="#DefaultData" class="headerlink" title="DefaultData"></a>DefaultData</h2><p>需要创建.tmp空目录，否则eclipse启动失败。</p>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
   </entry>
   <entry>
     <title>Excel 筛选求和</title>
@@ -246,6 +246,21 @@
       </categories>
   </entry>
   <entry>
+    <title>Procedure Call Standard</title>
+    <url>/2021/08/02/procedure-call-standard/</url>
+    <content><![CDATA[<ul>
+<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
+</li>
+<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
+</li>
+<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
+</li>
+<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Neovim Portable</title>
     <url>/2021/08/09/neovim-portable/</url>
     <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 NeoVim 封装配置。</p>
@@ -292,18 +307,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Procedure Call Standard</title>
-    <url>/2021/08/02/procedure-call-standard/</url>
-    <content><![CDATA[<ul>
-<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
-</li>
-<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
-</li>
-<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
-</li>
-<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
-</li>
-</ul>
+    <title>Unraid 支持 Intel GPU 硬解</title>
+    <url>/2021/02/10/unraid-%E6%94%AF%E6%8C%81-intel-gpu-%E7%A1%AC%E8%A7%A3/</url>
+    <content><![CDATA[<p>编辑go文件，添加 modprobe i915，使其内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Intel GPU</span></span><br><span class="line">modprobe i915</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the Management Utility</span></span><br><span class="line">/usr/local/sbin/emhttp &amp;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -437,13 +444,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">host LuckyLuke &#123;</span><br><span class="line">    hardware ethernet 00:0c:29:23:b6:12;</span><br><span class="line">    fixed-address 192.168.156.77;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><code>LuckyLuke</code> 可以是任意名字，只要保证文件内唯一即可。<code>hardware ethernet</code> 为客户机 MAC 地址，<code>fixed-address</code> 为分配的静态 IP 地址。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Unraid 支持 Intel GPU 硬解</title>
-    <url>/2021/02/10/unraid-%E6%94%AF%E6%8C%81-intel-gpu-%E7%A1%AC%E8%A7%A3/</url>
-    <content><![CDATA[<p>编辑go文件，添加 modprobe i915，使其内容如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Intel GPU</span></span><br><span class="line">modprobe i915</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the Management Utility</span></span><br><span class="line">/usr/local/sbin/emhttp &amp;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -706,25 +706,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Valgrind Gdbserver 使用方法</title>
-    <url>/2021/07/27/valgrind-gdbserver-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>Valgrind 支持 gdbserver (AKA. <code>vgdb</code>)，这使得在运行valgrind时，能够同时挂上gdb来进行调试。</p>
-<span id="more"></span>
-
-<p>Valgrind启动参数如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">valgrind -v --vgdb=full --vgdb-error=0 --leak-check=full --track-fds=<span class="built_in">yes</span> --show-reachable=<span class="built_in">yes</span> --trace-children=<span class="built_in">yes</span> --tool=memcheck --num-callers=64 --log-file=valgrind.log --track-origins=<span class="built_in">yes</span> path/to/bin</span><br></pre></td></tr></table></figure>
-
-<p>使用如上指令启动Valgrind之后，程序不会立即运行，这是因为valgrind在等待gdb的连接。</p>
-<p>gdb启动参数：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb path/to/bin</span><br></pre></td></tr></table></figure>
-
-<p>随后在gdb中输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">target remote | vgdb</span><br></pre></td></tr></table></figure>
-
-<p>这样gdb就连接上了valgrind。在gdb中输入 <code>c</code> 并回车，valgrind即开始运行。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>pcre2 jit 导致 Invalid read of size 16</title>
     <url>/2022/11/19/pcre2-jit-%E5%AF%BC%E8%87%B4-invalid-read-of-size-16/</url>
     <content><![CDATA[<p>在使用 <a href="https://www.pcre.org/current/doc/html/pcre2jit.html">pcre2jit</a> 后，使用 valgrind 运行程序可能出现如下错误：</p>
@@ -741,6 +722,25 @@
 <p>绝大部分架构使用 4k 内存页（少部分使用 1k），而内存页的地址是对齐的 （比如 4k 内存页的首地址和尾地址均能够被 4096 整除），这使得对于任意有效地址 <code>p</code>，访问地址 <code>(p &amp; ~(16 - 1))</code> 也总是有效的。</p>
 <p>之所以 PCRE2JIT 要这么做的原因，在于 SIMD 擅长于处理大量数据，所以 PCRE2JIT 也许会将所需匹配的地址前后数据都读入，以便 SIMD 发挥最大能力。</p>
 </blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Valgrind Gdbserver 使用方法</title>
+    <url>/2021/07/27/valgrind-gdbserver-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>Valgrind 支持 gdbserver (AKA. <code>vgdb</code>)，这使得在运行valgrind时，能够同时挂上gdb来进行调试。</p>
+<span id="more"></span>
+
+<p>Valgrind启动参数如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">valgrind -v --vgdb=full --vgdb-error=0 --leak-check=full --track-fds=<span class="built_in">yes</span> --show-reachable=<span class="built_in">yes</span> --trace-children=<span class="built_in">yes</span> --tool=memcheck --num-callers=64 --log-file=valgrind.log --track-origins=<span class="built_in">yes</span> path/to/bin</span><br></pre></td></tr></table></figure>
+
+<p>使用如上指令启动Valgrind之后，程序不会立即运行，这是因为valgrind在等待gdb的连接。</p>
+<p>gdb启动参数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb path/to/bin</span><br></pre></td></tr></table></figure>
+
+<p>随后在gdb中输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">target remote | vgdb</span><br></pre></td></tr></table></figure>
+
+<p>这样gdb就连接上了valgrind。在gdb中输入 <code>c</code> 并回车，valgrind即开始运行。</p>
 ]]></content>
   </entry>
   <entry>
@@ -781,6 +781,16 @@
 ]]></content>
   </entry>
   <entry>
+    <title>会议纪要要点</title>
+    <url>/2021/07/29/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81%E8%A6%81%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><ul>
+<li>内容</li>
+<li>结论</li>
+<li>下一步动作</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>使用 flatpak 分发的 vscode</title>
     <url>/2023/06/26/%E4%BD%BF%E7%94%A8-flatpak-%E5%88%86%E5%8F%91%E7%9A%84-vscode/</url>
     <content><![CDATA[<p><a href="https://flatpak.org/">flatpak</a> 的虚拟化机制使得 vscode 无法直接使用宿主机中所安装的工具链。</p>
@@ -795,16 +805,6 @@
 <li>安装 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> 扩展</li>
 <li>在 <code>Remote - SSH</code> 中连接到 <code>localhost:22</code></li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>会议纪要要点</title>
-    <url>/2021/07/29/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81%E8%A6%81%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><ul>
-<li>内容</li>
-<li>结论</li>
-<li>下一步动作</li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -1071,41 +1071,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>给张越的一封信</title>
-    <url>/2021/09/08/%E7%BB%99%E5%BC%A0%E8%B6%8A%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</url>
-    <content><![CDATA[<p>Dear 张越，以及其他看这篇文章的小伙伴们大家好，</p>
-<p>感谢你能够加入蜂鸟大家庭。</p>
-<p>如果你在阅读这篇文章，那么可能表示你对前进的方向有一点迷茫。很抱歉让你失望了，因为阅读本篇文章并不能解决你的迷茫，我所能够做的仅仅是尝试帮助你度过这一阶段。</p>
-<span id="more"></span>
-
-<h2 id="迷茫的来源"><a href="#迷茫的来源" class="headerlink" title="迷茫的来源"></a>迷茫的来源</h2><p>迷茫主要来源于两个方面。</p>
-<p>其一是对行业或专业本身的迷茫。这常常出现于所从事的工作与所学专业不同时。我们会在此期间对自身产生质疑，怀疑当前所从事的工作是否符合自己的规划，是否能够真正对自己产生帮助，万一选错了方向，是否会一步错步步错。</p>
-<p>其二是海量信息带来的迷茫。这常常出现于更换到了一个新的环境中，接触到了全新的领域知识，却对对应领域没有理论基础，导致无法从海量信息中抓取重点，这里想学一点，那里想学一点，最终疲于奔命，对自身产生怀疑。</p>
-<p>所有上述的情况都可能在任何一个正常人上发生，没有必要对此过分焦虑，因为都有相应的应对方法。</p>
-<h2 id="应对迷茫"><a href="#应对迷茫" class="headerlink" title="应对迷茫"></a>应对迷茫</h2><h3 id="行业认知"><a href="#行业认知" class="headerlink" title="行业认知"></a>行业认知</h3><p>我们首先解决对行业本身的怀疑。</p>
-<p>首要一点：请相信自己的判断。如果在经过充分调查之后，你认为这个行业不对胃口，或无法对自己提供帮助，请务必下定决心，早做取舍。这是因为但凡做出了判断，没有充分的信心，没有明确的目标，那么前进动力就不足，进步速度就不够快，那对谁都不好。</p>
-<p>如果受限于视野、信息、经验等因素，并不知道现在所处行业的前景，那么可以给自己划定一个期限，比如说一年。在这一年中踏踏实实做事，记录这一年的收获，并在一年之后回顾，依据这一年所积累的经验来判断这个行业到底是否合适自己。</p>
-<h3 id="信息认知"><a href="#信息认知" class="headerlink" title="信息认知"></a>信息认知</h3><p>信息认知障碍是一项说大不大说小不小的障碍。说它不大是因为只要在这个行业里面有一定的基础，就应能够明确知道自己未来想发展的方向；说其不小是因为在刚进入行业时，分不清知识的主次，导致迷失在知识的海洋。</p>
-<p>为了解决这个问题，首先我们要明确自己的岗位职责：我到底是来干嘛的。现在是要维护一个模块，还是需要开发一个业务？是单点攻克，还是全局总揽？是开发，管理，还是测试？</p>
-<p>明确了自己的目标之后，所有的行动应该有目的的朝着这个方向前进。以开发为例，如果我需要维护一个模块，而我没有任何基础怎么办？</p>
-<ol>
-<li>学习语言基础，会看、会抄即可。现在你不需要知道任何操作系统知识。</li>
-<li>学会使用这个模块，能够基于这个模块进行二次开发。你不需要知道为什么这么写会崩溃、会运行不起来、会功能异常，你只需要知道只有怎么写才能正常使用。</li>
-<li>学会定位这个模块的问题。你不需要知道gdb等等繁琐的方法，只需要能够加打印即可，90%以上的问题可以通过加打印定位到。相信我，资深老员工绝大部分也是通过打印定位问题的。</li>
-<li>学会修复这个模块的问题。这里你需要知道一些和模块相关的基础组件的知识，但是同样的，不需要了解操作系统。</li>
-</ol>
-<p>如上是做好一个模块维护者所需要具备的最基本能力，做到这一步已经基本胜任岗位。接下来的进阶事情就是了解更多的知识点，并且集点成面了。</p>
-<p>我们所从事的领域的知识面是错综复杂的，而平时工作生活中获取的是一个个知识点，我们需要去发现知识点之间是如何互相联系起来的。了解了足够多的知识点，那么你可以成为一个出色的软件开发者；而将这些知识点串联起来，那么你就成为一个出色的领域专家。</p>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>公司提供的是一个平台。平台有好有坏，有合适的也有不合适的，这些都需要自身体会取舍，毕竟每个人的发展诉求不同。</p>
-<p>然而一样的是，在平台之上需要学会自己主动寻找机遇。在任何一个平台，总会有大大小小尚未解决的问题，这些问题有的隐藏较深，有的则因为太过麻烦或者收益不大而没人解决，但是这些问题就是机遇。</p>
-<blockquote>
-<p>比如，在进行模块维护的时候，总会遇到一些难以解决的问题。那么就可以通过对模块增加调试工具、对模块进行重构、添加定制化接口来增加模块的可维护性。<br>又比如我们在进行专利挖掘，那么完全可以基于已有的专利进行组合或者拆解，提出自己新的观点，书写新的专利交底书。被打回了又如何，熟悉了专利流程，知道了这些方法的限制，了解了后续的用力方向，这些都是自己的收获。</p>
-</blockquote>
-<p>发现这些问题，解决这些问题，积累自己的经验，提高自己的价值。</p>
-<p>Thanks very much<br>Gaoyuan</p>
-]]></content>
-  </entry>
-  <entry>
     <title>让 wsl 支持 cmake</title>
     <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
     <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
@@ -1180,6 +1145,41 @@
 <li>问题分析导向为栈溢出</li>
 <li>所集成的库是多个，通过映射方式指向同一份头文件，有存在版本不一致的可能</li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>给张越的一封信</title>
+    <url>/2021/09/08/%E7%BB%99%E5%BC%A0%E8%B6%8A%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</url>
+    <content><![CDATA[<p>Dear 张越，以及其他看这篇文章的小伙伴们大家好，</p>
+<p>感谢你能够加入蜂鸟大家庭。</p>
+<p>如果你在阅读这篇文章，那么可能表示你对前进的方向有一点迷茫。很抱歉让你失望了，因为阅读本篇文章并不能解决你的迷茫，我所能够做的仅仅是尝试帮助你度过这一阶段。</p>
+<span id="more"></span>
+
+<h2 id="迷茫的来源"><a href="#迷茫的来源" class="headerlink" title="迷茫的来源"></a>迷茫的来源</h2><p>迷茫主要来源于两个方面。</p>
+<p>其一是对行业或专业本身的迷茫。这常常出现于所从事的工作与所学专业不同时。我们会在此期间对自身产生质疑，怀疑当前所从事的工作是否符合自己的规划，是否能够真正对自己产生帮助，万一选错了方向，是否会一步错步步错。</p>
+<p>其二是海量信息带来的迷茫。这常常出现于更换到了一个新的环境中，接触到了全新的领域知识，却对对应领域没有理论基础，导致无法从海量信息中抓取重点，这里想学一点，那里想学一点，最终疲于奔命，对自身产生怀疑。</p>
+<p>所有上述的情况都可能在任何一个正常人上发生，没有必要对此过分焦虑，因为都有相应的应对方法。</p>
+<h2 id="应对迷茫"><a href="#应对迷茫" class="headerlink" title="应对迷茫"></a>应对迷茫</h2><h3 id="行业认知"><a href="#行业认知" class="headerlink" title="行业认知"></a>行业认知</h3><p>我们首先解决对行业本身的怀疑。</p>
+<p>首要一点：请相信自己的判断。如果在经过充分调查之后，你认为这个行业不对胃口，或无法对自己提供帮助，请务必下定决心，早做取舍。这是因为但凡做出了判断，没有充分的信心，没有明确的目标，那么前进动力就不足，进步速度就不够快，那对谁都不好。</p>
+<p>如果受限于视野、信息、经验等因素，并不知道现在所处行业的前景，那么可以给自己划定一个期限，比如说一年。在这一年中踏踏实实做事，记录这一年的收获，并在一年之后回顾，依据这一年所积累的经验来判断这个行业到底是否合适自己。</p>
+<h3 id="信息认知"><a href="#信息认知" class="headerlink" title="信息认知"></a>信息认知</h3><p>信息认知障碍是一项说大不大说小不小的障碍。说它不大是因为只要在这个行业里面有一定的基础，就应能够明确知道自己未来想发展的方向；说其不小是因为在刚进入行业时，分不清知识的主次，导致迷失在知识的海洋。</p>
+<p>为了解决这个问题，首先我们要明确自己的岗位职责：我到底是来干嘛的。现在是要维护一个模块，还是需要开发一个业务？是单点攻克，还是全局总揽？是开发，管理，还是测试？</p>
+<p>明确了自己的目标之后，所有的行动应该有目的的朝着这个方向前进。以开发为例，如果我需要维护一个模块，而我没有任何基础怎么办？</p>
+<ol>
+<li>学习语言基础，会看、会抄即可。现在你不需要知道任何操作系统知识。</li>
+<li>学会使用这个模块，能够基于这个模块进行二次开发。你不需要知道为什么这么写会崩溃、会运行不起来、会功能异常，你只需要知道只有怎么写才能正常使用。</li>
+<li>学会定位这个模块的问题。你不需要知道gdb等等繁琐的方法，只需要能够加打印即可，90%以上的问题可以通过加打印定位到。相信我，资深老员工绝大部分也是通过打印定位问题的。</li>
+<li>学会修复这个模块的问题。这里你需要知道一些和模块相关的基础组件的知识，但是同样的，不需要了解操作系统。</li>
+</ol>
+<p>如上是做好一个模块维护者所需要具备的最基本能力，做到这一步已经基本胜任岗位。接下来的进阶事情就是了解更多的知识点，并且集点成面了。</p>
+<p>我们所从事的领域的知识面是错综复杂的，而平时工作生活中获取的是一个个知识点，我们需要去发现知识点之间是如何互相联系起来的。了解了足够多的知识点，那么你可以成为一个出色的软件开发者；而将这些知识点串联起来，那么你就成为一个出色的领域专家。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>公司提供的是一个平台。平台有好有坏，有合适的也有不合适的，这些都需要自身体会取舍，毕竟每个人的发展诉求不同。</p>
+<p>然而一样的是，在平台之上需要学会自己主动寻找机遇。在任何一个平台，总会有大大小小尚未解决的问题，这些问题有的隐藏较深，有的则因为太过麻烦或者收益不大而没人解决，但是这些问题就是机遇。</p>
+<blockquote>
+<p>比如，在进行模块维护的时候，总会遇到一些难以解决的问题。那么就可以通过对模块增加调试工具、对模块进行重构、添加定制化接口来增加模块的可维护性。<br>又比如我们在进行专利挖掘，那么完全可以基于已有的专利进行组合或者拆解，提出自己新的观点，书写新的专利交底书。被打回了又如何，熟悉了专利流程，知道了这些方法的限制，了解了后续的用力方向，这些都是自己的收获。</p>
+</blockquote>
+<p>发现这些问题，解决这些问题，积累自己的经验，提高自己的价值。</p>
+<p>Thanks very much<br>Gaoyuan</p>
 ]]></content>
   </entry>
   <entry>

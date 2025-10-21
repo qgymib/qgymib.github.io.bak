@@ -154,6 +154,51 @@
       </categories>
   </entry>
   <entry>
+    <title>Neovim Portable</title>
+    <url>/2021/08/09/neovim-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 NeoVim 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="NeovimPortable-ini"><a href="#NeovimPortable-ini" class="headerlink" title="NeovimPortable.ini"></a>NeovimPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=Neovim\bin\nvim-qt.exe</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">XDG_CONFIG_HOME</span>=%PAL:DataDir%</span><br><span class="line"><span class="attr">XDG_DATA_HOME</span>=%PAL:DataDir%</span><br><span class="line"><span class="attr">NEOVIM_HOME</span>=%PAL:AppDir%\Neovim</span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"><span class="attr">PATH</span>=%NEOVIM_HOME%\bin<span class="comment">;%PATH%</span></span><br><span class="line"><span class="comment">; for spacevim</span></span><br><span class="line"><span class="attr">PYTHON3_HOST_PROG</span>=%PYTHON3_HOME%\python.exe</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">nvim-qt</span>=HKCU\Software\nvim-qt</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\nvim-data\rplugin.vim</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive:ForwardSlash%%PAL:LastPackagePartialDir:ForwardSlash%</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive:ForwardSlash%%PAL:PackagePartialDir:ForwardSlash%</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加-Python3-支持"><a href="#添加-Python3-支持" class="headerlink" title="添加 Python3 支持"></a>添加 Python3 支持</h2><ol>
+<li>下载embed版本的python3（<a href="https://www.python.org/ftp/python/3.9.6/python-3.9.6-embed-amd64.zip">我使用的版本</a>），解压至 <code>/App/Tools/python-3.9.6</code> 目录</li>
+<li><code>NeovimPortable.ini</code> 中添加环境变量 <code>PYTHON3_HOME=%PAL:AppDir%\Tools\python-3.9.6</code></li>
+<li><code>NeovimPortable.ini</code> 中追加 <code>PATH</code>: <code>%PYTHON3_HOME%;%PYTHON3_HOME%\Scripts</code></li>
+<li>编辑文件 <code>python39._pth</code>，添加一行 <code>Lib</code>，并去除 <code>#import site</code> 前的注释，使其内容类似如下：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python39.zip</span><br><span class="line">Lib</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line"># Uncomment to run site.main() automatically</span><br><span class="line">import site</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>下载 <a href="https://pip.pypa.io/en/stable/installation/">get-pip.py</a> 放入 <code>%PYTHON3_HOME%</code>，并在此目录下执行 <code>.\python .\get-pip.py</code></li>
+<li>打开 NeovimPortable，在终端中执行 <code>pip install pynvim</code></li>
+</ol>
+<h2 id="添加-nodejs-支持"><a href="#添加-nodejs-支持" class="headerlink" title="添加 nodejs 支持"></a>添加 nodejs 支持</h2><ol>
+<li>下载 <code>zip</code> 格式的nodejs并放入 <code>App/Tools</code> 目录</li>
+<li>编辑 <code>NeovimPortable.ini</code> 并添加环境变量 <code>%PAL:AppDir%/Tools/node</code></li>
+<li>在 NeovimPortable 终端中执行 <code>npm install -g neovim</code></li>
+<li>在 NeovimPortable 终端中执行 <code>npm install -g yarn</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Procedure Call Standard</title>
+    <url>/2021/08/02/procedure-call-standard/</url>
+    <content><![CDATA[<ul>
+<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
+</li>
+<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
+</li>
+<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
+</li>
+<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Learning TensorFlow Lite for Microcontrollers</title>
     <url>/2024/01/25/learning-tensorflow-lite-for-microcontrollers/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow Lite for Microcontrollers</a> 是 <a href="https://www.tensorflow.org/">TensorFlow</a> 为微控制器实现的 <a href="https://www.tinyml.org/">TinyML</a> 解决方案。其基本架构为 <a href="https://github.com/tensorflow/tflite-micro.git">tflite-micro</a> + <code>tflite</code>：</p>
@@ -243,51 +288,6 @@
 
 </details></li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Neovim Portable</title>
-    <url>/2021/08/09/neovim-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 NeoVim 封装配置。</p>
-<span id="more"></span>
-
-<h2 id="NeovimPortable-ini"><a href="#NeovimPortable-ini" class="headerlink" title="NeovimPortable.ini"></a>NeovimPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=Neovim\bin\nvim-qt.exe</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">XDG_CONFIG_HOME</span>=%PAL:DataDir%</span><br><span class="line"><span class="attr">XDG_DATA_HOME</span>=%PAL:DataDir%</span><br><span class="line"><span class="attr">NEOVIM_HOME</span>=%PAL:AppDir%\Neovim</span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"><span class="attr">PATH</span>=%NEOVIM_HOME%\bin<span class="comment">;%PATH%</span></span><br><span class="line"><span class="comment">; for spacevim</span></span><br><span class="line"><span class="attr">PYTHON3_HOST_PROG</span>=%PYTHON3_HOME%\python.exe</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">nvim-qt</span>=HKCU\Software\nvim-qt</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\nvim-data\rplugin.vim</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive:ForwardSlash%%PAL:LastPackagePartialDir:ForwardSlash%</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive:ForwardSlash%%PAL:PackagePartialDir:ForwardSlash%</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加-Python3-支持"><a href="#添加-Python3-支持" class="headerlink" title="添加 Python3 支持"></a>添加 Python3 支持</h2><ol>
-<li>下载embed版本的python3（<a href="https://www.python.org/ftp/python/3.9.6/python-3.9.6-embed-amd64.zip">我使用的版本</a>），解压至 <code>/App/Tools/python-3.9.6</code> 目录</li>
-<li><code>NeovimPortable.ini</code> 中添加环境变量 <code>PYTHON3_HOME=%PAL:AppDir%\Tools\python-3.9.6</code></li>
-<li><code>NeovimPortable.ini</code> 中追加 <code>PATH</code>: <code>%PYTHON3_HOME%;%PYTHON3_HOME%\Scripts</code></li>
-<li>编辑文件 <code>python39._pth</code>，添加一行 <code>Lib</code>，并去除 <code>#import site</code> 前的注释，使其内容类似如下：</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python39.zip</span><br><span class="line">Lib</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line"># Uncomment to run site.main() automatically</span><br><span class="line">import site</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>下载 <a href="https://pip.pypa.io/en/stable/installation/">get-pip.py</a> 放入 <code>%PYTHON3_HOME%</code>，并在此目录下执行 <code>.\python .\get-pip.py</code></li>
-<li>打开 NeovimPortable，在终端中执行 <code>pip install pynvim</code></li>
-</ol>
-<h2 id="添加-nodejs-支持"><a href="#添加-nodejs-支持" class="headerlink" title="添加 nodejs 支持"></a>添加 nodejs 支持</h2><ol>
-<li>下载 <code>zip</code> 格式的nodejs并放入 <code>App/Tools</code> 目录</li>
-<li>编辑 <code>NeovimPortable.ini</code> 并添加环境变量 <code>%PAL:AppDir%/Tools/node</code></li>
-<li>在 NeovimPortable 终端中执行 <code>npm install -g neovim</code></li>
-<li>在 NeovimPortable 终端中执行 <code>npm install -g yarn</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Procedure Call Standard</title>
-    <url>/2021/08/02/procedure-call-standard/</url>
-    <content><![CDATA[<ul>
-<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
-</li>
-<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
-</li>
-<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
-</li>
-<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
-</li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -608,13 +608,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>lede 开启 hello world</title>
-    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
-    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>cutest 技术分析</title>
     <url>/2023/01/06/cutest-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又花了一些时间将 C 语言单元测试框架 <a href="https://github.com/qgymib/cutest">cutest</a> 完善了一下，已经基本可以覆盖绝大部分 <a href="https://github.com/google/googletest">googletest</a> 的常用功能。</p>
@@ -662,6 +655,13 @@
 <p>在 Linux 中，为了输出彩色颜色，我们需要添加一些控制字符，例如 <code>\033[0;33m</code> 等，这些特殊字符是无法通过文本编辑器正常显示的，正是它们造成了乱码。</p>
 <p>而 <a href="https://github.com/qgymib/cutest">cutest</a> 通过 <code>isatty()</code> 接口对输出设备进行了判断（代码来源于 <a href="https://github.com/google/googletest">googletest</a>），仅当输出设备为 <code>tty</code> 时，才输出颜色，否则仅输出文本。</p>
 <!-- links -->
+]]></content>
+  </entry>
+  <entry>
+    <title>lede 开启 hello world</title>
+    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
+    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -759,16 +759,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>会议纪要要点</title>
-    <url>/2021/07/29/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81%E8%A6%81%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><ul>
-<li>内容</li>
-<li>结论</li>
-<li>下一步动作</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Xshell 登陆时自动同步 PC 时间</title>
     <url>/2021/07/27/xshell-%E7%99%BB%E9%99%86%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-pc-%E6%97%B6%E9%97%B4/</url>
     <content><![CDATA[<p>对于部分没有 RTC 芯片的设备，重启会导致时间重置。如下 VBS 脚本可在xshell登陆时自动同步PC时间：</p>
@@ -787,6 +777,16 @@
 <li>共同的工作方法与团队秩序</li>
 <li>互补的技能有效分工合作</li>
 <li>共享领导相互承担责任</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>会议纪要要点</title>
+    <url>/2021/07/29/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81%E8%A6%81%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><ul>
+<li>内容</li>
+<li>结论</li>
+<li>下一步动作</li>
 </ul>
 ]]></content>
   </entry>
@@ -849,6 +849,15 @@
 <li>See the <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option documentation</a> for more info.</li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>在 Visual Studio 中调试 CMake 项目</title>
+    <url>/2021/12/02/%E5%9C%A8-visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95-cmake-%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p><a href="https://docs.microsoft.com/en-us/cpp/build/configure-cmake-debugging-sessions?view=msvc-170">Configure CMake debugging sessions</a></p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
   </entry>
   <entry>
     <title>在 Linux 客户机中启用 HGFS</title>
@@ -927,15 +936,6 @@
 
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @file: foo.c</span></span><br><span class="line"><span class="comment"> * 内部实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;foo.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">foo_impl</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">foo_t</span>   handle;     <span class="comment">// 对外接口</span></span><br><span class="line">    <span class="type">void</span>*   priv;       <span class="comment">// 私有属性</span></span><br><span class="line">&#125;<span class="type">foo_impl_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> _bar(<span class="keyword">struct</span> foo* thiz)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 获取原始地址 */</span></span><br><span class="line">    <span class="type">foo_impl_t</span>* impl = container_of(thiz, <span class="type">foo_impl_t</span>, handle);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* do something */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">foo_t</span>* <span class="title function_">create_foo</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">foo_impl_t</span>* impl = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">foo_impl_t</span>));</span><br><span class="line">    impl-&gt;priv = some_data; <span class="comment">// 私有属性</span></span><br><span class="line">    impl-&gt;handle.bar = _bar;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 返回的是 foo_impl_t::handle 的地址 */</span></span><br><span class="line">    <span class="keyword">return</span> &amp;impl-&gt;handle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>在 Visual Studio 中调试 CMake 项目</title>
-    <url>/2021/12/02/%E5%9C%A8-visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95-cmake-%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<p><a href="https://docs.microsoft.com/en-us/cpp/build/configure-cmake-debugging-sessions?view=msvc-170">Configure CMake debugging sessions</a></p>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
   </entry>
   <entry>
     <title>如何把握工作中的机会</title>
@@ -1071,23 +1071,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>让 wsl 支持 cmake</title>
-    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
-    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
-<span id="more"></span>
-
-<ol>
-<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Reboot wsl:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>给张越的一封信</title>
     <url>/2021/09/08/%E7%BB%99%E5%BC%A0%E8%B6%8A%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</url>
     <content><![CDATA[<p>Dear 张越，以及其他看这篇文章的小伙伴们大家好，</p>
@@ -1120,6 +1103,23 @@
 </blockquote>
 <p>发现这些问题，解决这些问题，积累自己的经验，提高自己的价值。</p>
 <p>Thanks very much<br>Gaoyuan</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>让 wsl 支持 cmake</title>
+    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
+    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
+<span id="more"></span>
+
+<ol>
+<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Reboot wsl:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>

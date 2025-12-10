@@ -140,6 +140,20 @@
 ]]></content>
   </entry>
   <entry>
+    <title>MyLifeOrganized Portable</title>
+    <url>/2021/02/21/mylifeorganized-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Learning TensorFlow Lite for Microcontrollers</title>
     <url>/2024/01/25/learning-tensorflow-lite-for-microcontrollers/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow Lite for Microcontrollers</a> 是 <a href="https://www.tensorflow.org/">TensorFlow</a> 为微控制器实现的 <a href="https://www.tinyml.org/">TinyML</a> 解决方案。其基本架构为 <a href="https://github.com/tensorflow/tflite-micro.git">tflite-micro</a> + <code>tflite</code>：</p>
@@ -232,18 +246,35 @@
 ]]></content>
   </entry>
   <entry>
-    <title>MyLifeOrganized Portable</title>
-    <url>/2021/02/21/mylifeorganized-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
+    <title>Procedure Call Standard</title>
+    <url>/2021/08/02/procedure-call-standard/</url>
+    <content><![CDATA[<ul>
+<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
+</li>
+<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
+</li>
+<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
+</li>
+<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Scoop 重建开始菜单项</title>
+    <url>/2023/02/07/scoop-%E9%87%8D%E5%BB%BA%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E9%A1%B9/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ scoop reset *</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
-<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
+<p>在升级 <code>Windows 11, version 22H2</code> 后，<a href="https://scoop.sh/">Scoop</a> 的开始菜单项丢失。 执行如上命令可找回开始菜单项。</p>
+<blockquote>
+<p>来源：<a href="https://github.com/ScoopInstaller/Scoop/issues/2233">Windows 10 April 2018 Update Removes Scoop Shortcuts from Start Menu</a></p>
+</blockquote>
 ]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
+      <tags>
+        <tag>scoop</tag>
+      </tags>
   </entry>
   <entry>
     <title>Neovim Portable</title>
@@ -274,37 +305,6 @@
       <categories>
         <category>PortableApps</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Procedure Call Standard</title>
-    <url>/2021/08/02/procedure-call-standard/</url>
-    <content><![CDATA[<ul>
-<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
-</li>
-<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
-</li>
-<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
-</li>
-<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Scoop 重建开始菜单项</title>
-    <url>/2023/02/07/scoop-%E9%87%8D%E5%BB%BA%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E9%A1%B9/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ scoop reset *</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<p>在升级 <code>Windows 11, version 22H2</code> 后，<a href="https://scoop.sh/">Scoop</a> 的开始菜单项丢失。 执行如上命令可找回开始菜单项。</p>
-<blockquote>
-<p>来源：<a href="https://github.com/ScoopInstaller/Scoop/issues/2233">Windows 10 April 2018 Update Removes Scoop Shortcuts from Start Menu</a></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>scoop</tag>
-      </tags>
   </entry>
   <entry>
     <title>SecureCRT + SecureFX 绿色单文件打包方法</title>
@@ -608,6 +608,13 @@
 ]]></content>
   </entry>
   <entry>
+    <title>lede 开启 hello world</title>
+    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
+    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>cutest 技术分析</title>
     <url>/2023/01/06/cutest-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又花了一些时间将 C 语言单元测试框架 <a href="https://github.com/qgymib/cutest">cutest</a> 完善了一下，已经基本可以覆盖绝大部分 <a href="https://github.com/google/googletest">googletest</a> 的常用功能。</p>
@@ -655,13 +662,6 @@
 <p>在 Linux 中，为了输出彩色颜色，我们需要添加一些控制字符，例如 <code>\033[0;33m</code> 等，这些特殊字符是无法通过文本编辑器正常显示的，正是它们造成了乱码。</p>
 <p>而 <a href="https://github.com/qgymib/cutest">cutest</a> 通过 <code>isatty()</code> 接口对输出设备进行了判断（代码来源于 <a href="https://github.com/google/googletest">googletest</a>），仅当输出设备为 <code>tty</code> 时，才输出颜色，否则仅输出文本。</p>
 <!-- links -->
-]]></content>
-  </entry>
-  <entry>
-    <title>lede 开启 hello world</title>
-    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
-    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -725,6 +725,25 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Valgrind Gdbserver 使用方法</title>
+    <url>/2021/07/27/valgrind-gdbserver-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>Valgrind 支持 gdbserver (AKA. <code>vgdb</code>)，这使得在运行valgrind时，能够同时挂上gdb来进行调试。</p>
+<span id="more"></span>
+
+<p>Valgrind启动参数如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">valgrind -v --vgdb=full --vgdb-error=0 --leak-check=full --track-fds=<span class="built_in">yes</span> --show-reachable=<span class="built_in">yes</span> --trace-children=<span class="built_in">yes</span> --tool=memcheck --num-callers=64 --log-file=valgrind.log --track-origins=<span class="built_in">yes</span> path/to/bin</span><br></pre></td></tr></table></figure>
+
+<p>使用如上指令启动Valgrind之后，程序不会立即运行，这是因为valgrind在等待gdb的连接。</p>
+<p>gdb启动参数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb path/to/bin</span><br></pre></td></tr></table></figure>
+
+<p>随后在gdb中输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">target remote | vgdb</span><br></pre></td></tr></table></figure>
+
+<p>这样gdb就连接上了valgrind。在gdb中输入 <code>c</code> 并回车，valgrind即开始运行。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>x86_64 下使用 opcode 进行大于 4GB 地址的远距离跳转</title>
     <url>/2021/11/04/x86-64-%E4%B8%8B%E4%BD%BF%E7%94%A8-opcode-%E8%BF%9B%E8%A1%8C%E5%A4%A7%E4%BA%8E-4gb-%E5%9C%B0%E5%9D%80%E7%9A%84%E8%BF%9C%E8%B7%9D%E7%A6%BB%E8%B7%B3%E8%BD%AC/</url>
     <content><![CDATA[<p>解决方案来源：<a href="https://stackoverflow.com/a/53876008">JMP instruction - Hex code</a></p>
@@ -749,25 +768,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Valgrind Gdbserver 使用方法</title>
-    <url>/2021/07/27/valgrind-gdbserver-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>Valgrind 支持 gdbserver (AKA. <code>vgdb</code>)，这使得在运行valgrind时，能够同时挂上gdb来进行调试。</p>
-<span id="more"></span>
-
-<p>Valgrind启动参数如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">valgrind -v --vgdb=full --vgdb-error=0 --leak-check=full --track-fds=<span class="built_in">yes</span> --show-reachable=<span class="built_in">yes</span> --trace-children=<span class="built_in">yes</span> --tool=memcheck --num-callers=64 --log-file=valgrind.log --track-origins=<span class="built_in">yes</span> path/to/bin</span><br></pre></td></tr></table></figure>
-
-<p>使用如上指令启动Valgrind之后，程序不会立即运行，这是因为valgrind在等待gdb的连接。</p>
-<p>gdb启动参数：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gdb path/to/bin</span><br></pre></td></tr></table></figure>
-
-<p>随后在gdb中输入：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">target remote | vgdb</span><br></pre></td></tr></table></figure>
-
-<p>这样gdb就连接上了valgrind。在gdb中输入 <code>c</code> 并回车，valgrind即开始运行。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>什么是高绩效团队</title>
     <url>/2022/06/28/%E4%BB%80%E4%B9%88%E6%98%AF%E9%AB%98%E7%BB%A9%E6%95%88%E5%9B%A2%E9%98%9F/</url>
     <content><![CDATA[<h2 id="绩效考核的目的"><a href="#绩效考核的目的" class="headerlink" title="绩效考核的目的"></a>绩效考核的目的</h2><p>不是为了让最后 10% 走，而是让最前 10% 留下。</p>
@@ -777,6 +777,16 @@
 <li>共同的工作方法与团队秩序</li>
 <li>互补的技能有效分工合作</li>
 <li>共享领导相互承担责任</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>会议纪要要点</title>
+    <url>/2021/07/29/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81%E8%A6%81%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><ul>
+<li>内容</li>
+<li>结论</li>
+<li>下一步动作</li>
 </ul>
 ]]></content>
   </entry>
@@ -795,16 +805,6 @@
 <li>安装 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> 扩展</li>
 <li>在 <code>Remote - SSH</code> 中连接到 <code>localhost:22</code></li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>会议纪要要点</title>
-    <url>/2021/07/29/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81%E8%A6%81%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><ul>
-<li>内容</li>
-<li>结论</li>
-<li>下一步动作</li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -849,15 +849,6 @@
 <li>See the <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option documentation</a> for more info.</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>在 Visual Studio 中调试 CMake 项目</title>
-    <url>/2021/12/02/%E5%9C%A8-visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95-cmake-%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<p><a href="https://docs.microsoft.com/en-us/cpp/build/configure-cmake-debugging-sessions?view=msvc-170">Configure CMake debugging sessions</a></p>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
   </entry>
   <entry>
     <title>在 Linux 客户机中启用 HGFS</title>
@@ -909,6 +900,15 @@
 </ol>
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vmhgfs-fuse   /mnt/hgfs    fuse    defaults,allow_other    0    0</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>在 Visual Studio 中调试 CMake 项目</title>
+    <url>/2021/12/02/%E5%9C%A8-visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95-cmake-%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p><a href="https://docs.microsoft.com/en-us/cpp/build/configure-cmake-debugging-sessions?view=msvc-170">Configure CMake debugging sessions</a></p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
   </entry>
   <entry>
     <title>如何完全隐藏C对象的私有数据</title>

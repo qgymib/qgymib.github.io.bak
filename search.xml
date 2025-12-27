@@ -23,6 +23,15 @@
       </tags>
   </entry>
   <entry>
+    <title>Excel 筛选求和</title>
+    <url>/2021/08/24/excel-%E7%AD%9B%E9%80%89%E6%B1%82%E5%92%8C/</url>
+    <content><![CDATA[<p>使用筛选求和公式 <code>SUBTOTAL</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=SUBTOTAL(109,C2:C8)</span><br></pre></td></tr></table></figure>
+
+<p>109表示函数做求和计算，并忽略隐藏掉的值；C2:C8表示计算求和的区域。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Compare of Tinyml compilers</title>
     <url>/2024/01/27/compare-of-tinyml-compilers/</url>
     <content><![CDATA[<table>
@@ -103,15 +112,6 @@
       <categories>
         <category>PortableApps</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Excel 筛选求和</title>
-    <url>/2021/08/24/excel-%E7%AD%9B%E9%80%89%E6%B1%82%E5%92%8C/</url>
-    <content><![CDATA[<p>使用筛选求和公式 <code>SUBTOTAL</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=SUBTOTAL(109,C2:C8)</span><br></pre></td></tr></table></figure>
-
-<p>109表示函数做求和计算，并忽略隐藏掉的值；C2:C8表示计算求和的区域。</p>
-]]></content>
   </entry>
   <entry>
     <title>Implicit Fallthrough</title>
@@ -276,21 +276,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Procedure Call Standard</title>
-    <url>/2021/08/02/procedure-call-standard/</url>
-    <content><![CDATA[<ul>
-<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
-</li>
-<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
-</li>
-<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
-</li>
-<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Scoop 重建开始菜单项</title>
     <url>/2023/02/07/scoop-%E9%87%8D%E5%BB%BA%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E9%A1%B9/</url>
     <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ scoop reset *</span><br></pre></td></tr></table></figure>
@@ -305,6 +290,21 @@
       <tags>
         <tag>scoop</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Procedure Call Standard</title>
+    <url>/2021/08/02/procedure-call-standard/</url>
+    <content><![CDATA[<ul>
+<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
+</li>
+<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
+</li>
+<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
+</li>
+<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
+</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>SecureCRT + SecureFX 绿色单文件打包方法</title>
@@ -791,23 +791,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>使用 flatpak 分发的 vscode</title>
-    <url>/2023/06/26/%E4%BD%BF%E7%94%A8-flatpak-%E5%88%86%E5%8F%91%E7%9A%84-vscode/</url>
-    <content><![CDATA[<p><a href="https://flatpak.org/">flatpak</a> 的虚拟化机制使得 vscode 无法直接使用宿主机中所安装的工具链。</p>
-<p>一般情况下，为了使用指定的工具链，有如下几种方法：</p>
-<ol>
-<li>安装 <code>org.freedesktop.Sdk.Extension.*</code> 系列 SDK 扩展：<a href="https://github.com/flathub/com.visualstudio.code">URL</a>。</li>
-<li>使用 toolbox 在宿主机创建隔离环境，并连接 vscode：<a href="https://raduzaharia.medium.com/using-the-vscode-flatpak-distribution-a275d59ff1c7">URL</a></li>
-</ol>
-<p>现在介绍一种更简单的方法：</p>
-<ol>
-<li>确保宿主机 <a href="https://wiki.archlinux.org/title/OpenSSH#Server_usage">开启 SSH 服务</a></li>
-<li>安装 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> 扩展</li>
-<li>在 <code>Remote - SSH</code> 中连接到 <code>localhost:22</code></li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>使用 ffmpge 合并音视频</title>
     <url>/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/</url>
     <content><![CDATA[<p><a href="https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg">https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg</a><br><a href="https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue">https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue</a></p>
@@ -899,6 +882,23 @@
 <li>在 <code>/etc/fstab</code> 中添加永久映射：</li>
 </ol>
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vmhgfs-fuse   /mnt/hgfs    fuse    defaults,allow_other    0    0</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用 flatpak 分发的 vscode</title>
+    <url>/2023/06/26/%E4%BD%BF%E7%94%A8-flatpak-%E5%88%86%E5%8F%91%E7%9A%84-vscode/</url>
+    <content><![CDATA[<p><a href="https://flatpak.org/">flatpak</a> 的虚拟化机制使得 vscode 无法直接使用宿主机中所安装的工具链。</p>
+<p>一般情况下，为了使用指定的工具链，有如下几种方法：</p>
+<ol>
+<li>安装 <code>org.freedesktop.Sdk.Extension.*</code> 系列 SDK 扩展：<a href="https://github.com/flathub/com.visualstudio.code">URL</a>。</li>
+<li>使用 toolbox 在宿主机创建隔离环境，并连接 vscode：<a href="https://raduzaharia.medium.com/using-the-vscode-flatpak-distribution-a275d59ff1c7">URL</a></li>
+</ol>
+<p>现在介绍一种更简单的方法：</p>
+<ol>
+<li>确保宿主机 <a href="https://wiki.archlinux.org/title/OpenSSH#Server_usage">开启 SSH 服务</a></li>
+<li>安装 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> 扩展</li>
+<li>在 <code>Remote - SSH</code> 中连接到 <code>localhost:22</code></li>
+</ol>
 ]]></content>
   </entry>
   <entry>
@@ -1106,6 +1106,23 @@
 ]]></content>
   </entry>
   <entry>
+    <title>让 wsl 支持 cmake</title>
+    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
+    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
+<span id="more"></span>
+
+<ol>
+<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Reboot wsl:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>记一次由于头文件版本映射引入的死机问题</title>
     <url>/2021/08/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%94%B1%E4%BA%8E%E5%A4%B4%E6%96%87%E4%BB%B6%E7%89%88%E6%9C%AC%E6%98%A0%E5%B0%84%E5%BC%95%E5%85%A5%E7%9A%84%E6%AD%BB%E6%9C%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>蜂鸟平台基线项目中出现了极其偶发性的死机问题，本文章回溯了整个问题的排查过程。</p>
@@ -1163,23 +1180,6 @@
 <li>问题分析导向为栈溢出</li>
 <li>所集成的库是多个，通过映射方式指向同一份头文件，有存在版本不一致的可能</li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>让 wsl 支持 cmake</title>
-    <url>/2021/11/03/%E8%AE%A9-wsl-%E6%94%AF%E6%8C%81-cmake/</url>
-    <content><![CDATA[<p>来源：<a href="https://stackoverflow.com/questions/62879479/every-call-to-configure-file-fails-on-wsl-configure-file-problem-configuring-fi">Every call to configure_file fails on WSL: configure_file Problem configuring file</a></p>
-<span id="more"></span>
-
-<ol>
-<li>Create a file named wsl.conf in &#x2F;etc&#x2F; with the following text:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/wsl.conf</span><br><span class="line">[automount]</span><br><span class="line">options = &quot;metadata&quot;</span><br><span class="line">enabled = true</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Reboot wsl:</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>

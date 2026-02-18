@@ -105,21 +105,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Implicit Fallthrough</title>
-    <url>/2021/07/28/implicit-fallthrough/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>GCC7 以上加入了对于 <code>switch ... case</code> 语句中 <code>fall through</code> 的检测。此检测项在开启 <code>-Wextra</code> 编译选项时会产生告警：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">error: this statement may fall through [-Werror=implicit-fallthrough=]</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="添加注释"><a href="#添加注释" class="headerlink" title="添加注释"></a>添加注释</h3><p>在 <code>case</code> 语句的末尾添加注释 <code>//-fallthrough</code> 。此注释能够同时消除 <code>lint</code> 的告警。<br>示例如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span>(a)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">        b = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//-fallthrough</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        c = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//-fallthrough</span></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        d = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改编译选项"><a href="#修改编译选项" class="headerlink" title="修改编译选项"></a>修改编译选项</h3><p>编译选项增加 <code>-Wimplicit-fallthrough</code> 或 <code>-Wno-implicit-fallthrough</code> 。</p>
-<h2 id="GCC手册"><a href="#GCC手册" class="headerlink" title="GCC手册"></a>GCC手册</h2><p><a href="https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html">GCC Online Doc</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Excel 筛选求和</title>
     <url>/2021/08/24/excel-%E7%AD%9B%E9%80%89%E6%B1%82%E5%92%8C/</url>
     <content><![CDATA[<p>使用筛选求和公式 <code>SUBTOTAL</code></p>
@@ -229,6 +214,21 @@
 
 </details></li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Implicit Fallthrough</title>
+    <url>/2021/07/28/implicit-fallthrough/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>GCC7 以上加入了对于 <code>switch ... case</code> 语句中 <code>fall through</code> 的检测。此检测项在开启 <code>-Wextra</code> 编译选项时会产生告警：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">error: this statement may fall through [-Werror=implicit-fallthrough=]</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="添加注释"><a href="#添加注释" class="headerlink" title="添加注释"></a>添加注释</h3><p>在 <code>case</code> 语句的末尾添加注释 <code>//-fallthrough</code> 。此注释能够同时消除 <code>lint</code> 的告警。<br>示例如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span>(a)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">        b = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//-fallthrough</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        c = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//-fallthrough</span></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        d = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改编译选项"><a href="#修改编译选项" class="headerlink" title="修改编译选项"></a>修改编译选项</h3><p>编译选项增加 <code>-Wimplicit-fallthrough</code> 或 <code>-Wno-implicit-fallthrough</code> 。</p>
+<h2 id="GCC手册"><a href="#GCC手册" class="headerlink" title="GCC手册"></a>GCC手册</h2><p><a href="https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html">GCC Online Doc</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -531,14 +531,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Windows 下删除 samba 挂载点</title>
-    <url>/2021/02/11/windows-%E4%B8%8B%E5%88%A0%E9%99%A4-samba-%E6%8C%82%E8%BD%BD%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="查看当前网络连接"><a href="#查看当前网络连接" class="headerlink" title="查看当前网络连接"></a>查看当前网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use</span><br><span class="line">会记录新的网络连接。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">状态       本地        远程                      网络</span><br><span class="line"></span><br><span class="line"><span class="literal">-------------------------------------------------------------------------------</span></span><br><span class="line">OK           X:        \\<span class="number">192.168</span>.<span class="number">1.221</span>\I<span class="literal">-Userfiles</span>\XDRHW</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">OK           Y:        \\<span class="number">192.168</span>.<span class="number">1.18</span>\<span class="number">592</span>        Microsoft Windows Network</span><br><span class="line">OK           Z:        \\<span class="number">192.168</span>.<span class="number">1.66</span>\<span class="number">6001413</span>        Microsoft Windows Network</span><br><span class="line">OK                     \\<span class="number">192.168</span>.<span class="number">2.209</span>\UserDesktop</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">已断开                 \\<span class="number">192.168</span>.<span class="number">1.100</span>\share       Microsoft Windows Network</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除指定网络连接"><a href="#删除指定网络连接" class="headerlink" title="删除指定网络连接"></a>删除指定网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use \\<span class="number">192.168</span>.<span class="number">1.100</span>\share /delete</span><br><span class="line">\\<span class="number">192.168</span>.<span class="number">1.100</span>\share 已经删除。</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Windows 下安装 Qt6</title>
     <url>/2024/03/02/windows-%E4%B8%8B%E5%AE%89%E8%A3%85-qt6/</url>
     <content><![CDATA[<p>Windows 下建议使用 <a href="https://www.msys2.org/">MSYS2</a> 来安装 Qt6。官方安装包总有各种各样的问题。</p>
@@ -549,6 +541,14 @@
 
 <h2 id="配置-VScode"><a href="#配置-VScode" class="headerlink" title="配置 VScode"></a>配置 VScode</h2><p>如果已经安装了 VSCode 且安装了 CMake 插件，则在 <code>settings.json</code> 中添加如下项目：</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;cmake.additionalCompilerSearchDirs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;C:/msys64/mingw32/bin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;C:/msys64/mingw64/bin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;C:/msys64/clang32/bin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;C:/msys64/clang64/bin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;C:/msys64/clangarm64/bin&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;C:/msys64/ucrt64/bin&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Windows 下删除 samba 挂载点</title>
+    <url>/2021/02/11/windows-%E4%B8%8B%E5%88%A0%E9%99%A4-samba-%E6%8C%82%E8%BD%BD%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="查看当前网络连接"><a href="#查看当前网络连接" class="headerlink" title="查看当前网络连接"></a>查看当前网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use</span><br><span class="line">会记录新的网络连接。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">状态       本地        远程                      网络</span><br><span class="line"></span><br><span class="line"><span class="literal">-------------------------------------------------------------------------------</span></span><br><span class="line">OK           X:        \\<span class="number">192.168</span>.<span class="number">1.221</span>\I<span class="literal">-Userfiles</span>\XDRHW</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">OK           Y:        \\<span class="number">192.168</span>.<span class="number">1.18</span>\<span class="number">592</span>        Microsoft Windows Network</span><br><span class="line">OK           Z:        \\<span class="number">192.168</span>.<span class="number">1.66</span>\<span class="number">6001413</span>        Microsoft Windows Network</span><br><span class="line">OK                     \\<span class="number">192.168</span>.<span class="number">2.209</span>\UserDesktop</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">已断开                 \\<span class="number">192.168</span>.<span class="number">1.100</span>\share       Microsoft Windows Network</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除指定网络连接"><a href="#删除指定网络连接" class="headerlink" title="删除指定网络连接"></a>删除指定网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use \\<span class="number">192.168</span>.<span class="number">1.100</span>\share /delete</span><br><span class="line">\\<span class="number">192.168</span>.<span class="number">1.100</span>\share 已经删除。</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -695,6 +695,17 @@
 ]]></content>
   </entry>
   <entry>
+    <title>openSUSE 在终端中支持 OneClickInstall</title>
+    <url>/2021/09/29/opensuse-%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E6%94%AF%E6%8C%81-oneclickinstall/</url>
+    <content><![CDATA[<p>openSUSE 中关于 OneClickInstall 的 <a href="https://en.opensuse.org/openSUSE:One_Click_Install_UserFAQ">FAQ</a> 目前是过期的，<code>/sbin/OCICLI</code> 已经不再提供。</p>
+<span id="more"></span>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo zypper install yast2-metapackage-handler</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OneClickInstallCLI &lt;YMP URL&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>pcre2 jit 导致 Invalid read of size 16</title>
     <url>/2022/11/19/pcre2-jit-%E5%AF%BC%E8%87%B4-invalid-read-of-size-16/</url>
     <content><![CDATA[<p>在使用 <a href="https://www.pcre.org/current/doc/html/pcre2jit.html">pcre2jit</a> 后，使用 valgrind 运行程序可能出现如下错误：</p>
@@ -733,26 +744,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>openSUSE 在终端中支持 OneClickInstall</title>
-    <url>/2021/09/29/opensuse-%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E6%94%AF%E6%8C%81-oneclickinstall/</url>
-    <content><![CDATA[<p>openSUSE 中关于 OneClickInstall 的 <a href="https://en.opensuse.org/openSUSE:One_Click_Install_UserFAQ">FAQ</a> 目前是过期的，<code>/sbin/OCICLI</code> 已经不再提供。</p>
-<span id="more"></span>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo zypper install yast2-metapackage-handler</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OneClickInstallCLI &lt;YMP URL&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Xshell 登陆时自动同步 PC 时间</title>
-    <url>/2021/07/27/xshell-%E7%99%BB%E9%99%86%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-pc-%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<p>对于部分没有 RTC 芯片的设备，重启会导致时间重置。如下 VBS 脚本可在xshell登陆时自动同步PC时间：</p>
-<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Sub</span> Main</span><br><span class="line">    xsh.Screen.Synchronous = <span class="literal">True</span></span><br><span class="line">	xsh.Screen.Send <span class="string">&quot;sudo TZ=&#x27;Asia/Shanghai&#x27; date -s &quot;&quot;&quot;</span> &amp; <span class="built_in">FormatDateTime</span>(<span class="built_in">Now</span>(), vbGeneralDate) &amp; <span class="string">&quot;&quot;&quot;&quot;</span> &amp; VbCr</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
-
-<p>在Xshell的会话属性中，选择“连接-&gt;登陆脚本-&gt;连接会话时运行脚本”，选择上述脚本即可。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>x86_64 下使用 opcode 进行大于 4GB 地址的远距离跳转</title>
     <url>/2021/11/04/x86-64-%E4%B8%8B%E4%BD%BF%E7%94%A8-opcode-%E8%BF%9B%E8%A1%8C%E5%A4%A7%E4%BA%8E-4gb-%E5%9C%B0%E5%9D%80%E7%9A%84%E8%BF%9C%E8%B7%9D%E7%A6%BB%E8%B7%B3%E8%BD%AC/</url>
     <content><![CDATA[<p>解决方案来源：<a href="https://stackoverflow.com/a/53876008">JMP instruction - Hex code</a></p>
@@ -765,6 +756,15 @@
 
 <p>解决方案：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ff 25 00 00 00 00           jmp qword ptr [rip]      jmp *(%rip)</span><br><span class="line">yo ur ad dr re ss he re     some random assembly</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Xshell 登陆时自动同步 PC 时间</title>
+    <url>/2021/07/27/xshell-%E7%99%BB%E9%99%86%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-pc-%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<p>对于部分没有 RTC 芯片的设备，重启会导致时间重置。如下 VBS 脚本可在xshell登陆时自动同步PC时间：</p>
+<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Sub</span> Main</span><br><span class="line">    xsh.Screen.Synchronous = <span class="literal">True</span></span><br><span class="line">	xsh.Screen.Send <span class="string">&quot;sudo TZ=&#x27;Asia/Shanghai&#x27; date -s &quot;&quot;&quot;</span> &amp; <span class="built_in">FormatDateTime</span>(<span class="built_in">Now</span>(), vbGeneralDate) &amp; <span class="string">&quot;&quot;&quot;&quot;</span> &amp; VbCr</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
+
+<p>在Xshell的会话属性中，选择“连接-&gt;登陆脚本-&gt;连接会话时运行脚本”，选择上述脚本即可。</p>
 ]]></content>
   </entry>
   <entry>
@@ -851,6 +851,15 @@
 ]]></content>
   </entry>
   <entry>
+    <title>在 Visual Studio 中调试 CMake 项目</title>
+    <url>/2021/12/02/%E5%9C%A8-visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95-cmake-%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p><a href="https://docs.microsoft.com/en-us/cpp/build/configure-cmake-debugging-sessions?view=msvc-170">Configure CMake debugging sessions</a></p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
     <title>在 Linux 客户机中启用 HGFS</title>
     <url>/2023/01/31/%E5%9C%A8-linux-%E5%AE%A2%E6%88%B7%E6%9C%BA%E4%B8%AD%E5%90%AF%E7%94%A8-hgfs/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>VMware Workstation 中启用共享文件夹之后，<code>/mnt/hgfs</code>仅会出现一次，重启即消失，需要手动挂载。</p>
@@ -902,15 +911,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>在 Visual Studio 中调试 CMake 项目</title>
-    <url>/2021/12/02/%E5%9C%A8-visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95-cmake-%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<p><a href="https://docs.microsoft.com/en-us/cpp/build/configure-cmake-debugging-sessions?view=msvc-170">Configure CMake debugging sessions</a></p>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
-  </entry>
-  <entry>
     <title>如何完全隐藏C对象的私有数据</title>
     <url>/2021/08/10/%E5%A6%82%E4%BD%95%E5%AE%8C%E5%85%A8%E9%9A%90%E8%97%8Fc%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%A7%81%E6%9C%89%E6%95%B0%E6%8D%AE/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在C中对象的抽象常常使用struct中嵌套若干个函数指针的方式进行:</p>
@@ -935,6 +935,24 @@
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @file: foo.h</span></span><br><span class="line"><span class="comment"> * 对外头文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">foo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">void</span>    (*bar)(<span class="keyword">struct</span> foo* thiz);</span><br><span class="line">&#125; <span class="type">foo_t</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @file: foo.c</span></span><br><span class="line"><span class="comment"> * 内部实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;foo.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">foo_impl</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">foo_t</span>   handle;     <span class="comment">// 对外接口</span></span><br><span class="line">    <span class="type">void</span>*   priv;       <span class="comment">// 私有属性</span></span><br><span class="line">&#125;<span class="type">foo_impl_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> _bar(<span class="keyword">struct</span> foo* thiz)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 获取原始地址 */</span></span><br><span class="line">    <span class="type">foo_impl_t</span>* impl = container_of(thiz, <span class="type">foo_impl_t</span>, handle);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* do something */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">foo_t</span>* <span class="title function_">create_foo</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">foo_impl_t</span>* impl = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">foo_impl_t</span>));</span><br><span class="line">    impl-&gt;priv = some_data; <span class="comment">// 私有属性</span></span><br><span class="line">    impl-&gt;handle.bar = _bar;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 返回的是 foo_impl_t::handle 的地址 */</span></span><br><span class="line">    <span class="keyword">return</span> &amp;impl-&gt;handle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>查看 SSD 写入量</title>
+    <url>/2021/07/27/%E6%9F%A5%E7%9C%8B-ssd-%E5%86%99%E5%85%A5%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在Linux下查看SSD写入量并没有十分好用的工具，因此这里列出如何通过SMART信息计算SSD写入量。</p>
+<span id="more"></span>
+
+<h2 id="查看SMART信息"><a href="#查看SMART信息" class="headerlink" title="查看SMART信息"></a>查看SMART信息</h2><p>使用smartctl查看SMART信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[qgymib@archlive ~]$ sudo smartctl -A /dev/sdc</span><br><span class="line">[sudo] password <span class="keyword">for</span> qgymib:</span><br><span class="line">smartctl 7.2 2020-12-30 r5155 [x86_64-linux-5.11.16-arch1-1] (<span class="built_in">local</span> build)</span><br><span class="line">Copyright (C) 2002-20, Bruce Allen, Christian Franke, www.smartmontools.org</span><br><span class="line"></span><br><span class="line">=== START OF READ SMART DATA SECTION ===</span><br><span class="line">SMART Attributes Data Structure revision number: 1</span><br><span class="line">Vendor Specific SMART Attributes with Thresholds:</span><br><span class="line">ID<span class="comment"># ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE</span></span><br><span class="line">  1 Raw_Read_Error_Rate     0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  5 Reallocated_Sector_Ct   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  9 Power_On_Hours          0x0000   100   100   000    Old_age   Offline      -       4</span><br><span class="line"> 12 Power_Cycle_Count       0x0000   100   100   000    Old_age   Offline      -       58</span><br><span class="line">160 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">161 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       69</span><br><span class="line">163 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       25</span><br><span class="line">164 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       716</span><br><span class="line">165 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       2</span><br><span class="line">166 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">167 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">168 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       3000</span><br><span class="line">169 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">175 Program_Fail_Count_Chip 0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">176 Erase_Fail_Count_Chip   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">177 Wear_Leveling_Count     0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">178 Used_Rsvd_Blk_Cnt_Chip  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">181 Program_Fail_Cnt_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">182 Erase_Fail_Count_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">192 Power-Off_Retract_Count 0x0000   100   100   000    Old_age   Offline      -       30</span><br><span class="line">195 Hardware_ECC_Recovered  0x0000   100   100   000    Old_age   Offline      -       988</span><br><span class="line">196 Reallocated_Event_Count 0x0000   100   100   016    Old_age   Offline      -       0</span><br><span class="line">197 Current_Pending_Sector  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">198 Offline_Uncorrectable   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">199 UDMA_CRC_Error_Count    0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">232 Available_Reservd_Space 0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">241 Total_LBAs_Written      0x0000   100   100   000    Old_age   Offline      -       6913</span><br><span class="line">242 Total_LBAs_Read         0x0000   100   100   000    Old_age   Offline      -       4380</span><br><span class="line">245 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       11456</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="计算写入量"><a href="#计算写入量" class="headerlink" title="计算写入量"></a>计算写入量</h2><p>其中 <code>Total_LBAs_Written</code> 即为写入的 <code>LBA</code> 数量。<code>LBA</code> 大小与芯片型号有关，一般来讲，<code>1LBA</code> 可能等于如下几种值：<code>512B</code> &#x2F; <code>32MB</code> &#x2F; <code>1GB</code> 。为了确定 <code>1LBA</code> 的具体大小，可以通过写入特定大小的文件，并观察 <code>Total_LBAs_Written</code> 的变化来确定：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=1G.file bs=1G count=1</span><br></pre></td></tr></table></figure>
+
+<p>此处我的SSD中<code>Total_LBAs_Written</code> 从 <code>6860</code> 增加至 <code>6892</code> ，从而计算可知 <code>1LBA</code> 大小为：</p>
+<p>$$<br>\frac{1024MB}{6892-6860} &#x3D; 32MB<br>$$</p>
 ]]></content>
   </entry>
   <entry>
@@ -1050,24 +1068,6 @@
 <li><p>学习速度与基础积累之间的关系</p>
 </li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>查看 SSD 写入量</title>
-    <url>/2021/07/27/%E6%9F%A5%E7%9C%8B-ssd-%E5%86%99%E5%85%A5%E9%87%8F/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在Linux下查看SSD写入量并没有十分好用的工具，因此这里列出如何通过SMART信息计算SSD写入量。</p>
-<span id="more"></span>
-
-<h2 id="查看SMART信息"><a href="#查看SMART信息" class="headerlink" title="查看SMART信息"></a>查看SMART信息</h2><p>使用smartctl查看SMART信息：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[qgymib@archlive ~]$ sudo smartctl -A /dev/sdc</span><br><span class="line">[sudo] password <span class="keyword">for</span> qgymib:</span><br><span class="line">smartctl 7.2 2020-12-30 r5155 [x86_64-linux-5.11.16-arch1-1] (<span class="built_in">local</span> build)</span><br><span class="line">Copyright (C) 2002-20, Bruce Allen, Christian Franke, www.smartmontools.org</span><br><span class="line"></span><br><span class="line">=== START OF READ SMART DATA SECTION ===</span><br><span class="line">SMART Attributes Data Structure revision number: 1</span><br><span class="line">Vendor Specific SMART Attributes with Thresholds:</span><br><span class="line">ID<span class="comment"># ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE</span></span><br><span class="line">  1 Raw_Read_Error_Rate     0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  5 Reallocated_Sector_Ct   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  9 Power_On_Hours          0x0000   100   100   000    Old_age   Offline      -       4</span><br><span class="line"> 12 Power_Cycle_Count       0x0000   100   100   000    Old_age   Offline      -       58</span><br><span class="line">160 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">161 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       69</span><br><span class="line">163 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       25</span><br><span class="line">164 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       716</span><br><span class="line">165 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       2</span><br><span class="line">166 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">167 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">168 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       3000</span><br><span class="line">169 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">175 Program_Fail_Count_Chip 0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">176 Erase_Fail_Count_Chip   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">177 Wear_Leveling_Count     0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">178 Used_Rsvd_Blk_Cnt_Chip  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">181 Program_Fail_Cnt_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">182 Erase_Fail_Count_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">192 Power-Off_Retract_Count 0x0000   100   100   000    Old_age   Offline      -       30</span><br><span class="line">195 Hardware_ECC_Recovered  0x0000   100   100   000    Old_age   Offline      -       988</span><br><span class="line">196 Reallocated_Event_Count 0x0000   100   100   016    Old_age   Offline      -       0</span><br><span class="line">197 Current_Pending_Sector  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">198 Offline_Uncorrectable   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">199 UDMA_CRC_Error_Count    0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">232 Available_Reservd_Space 0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">241 Total_LBAs_Written      0x0000   100   100   000    Old_age   Offline      -       6913</span><br><span class="line">242 Total_LBAs_Read         0x0000   100   100   000    Old_age   Offline      -       4380</span><br><span class="line">245 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       11456</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="计算写入量"><a href="#计算写入量" class="headerlink" title="计算写入量"></a>计算写入量</h2><p>其中 <code>Total_LBAs_Written</code> 即为写入的 <code>LBA</code> 数量。<code>LBA</code> 大小与芯片型号有关，一般来讲，<code>1LBA</code> 可能等于如下几种值：<code>512B</code> &#x2F; <code>32MB</code> &#x2F; <code>1GB</code> 。为了确定 <code>1LBA</code> 的具体大小，可以通过写入特定大小的文件，并观察 <code>Total_LBAs_Written</code> 的变化来确定：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=1G.file bs=1G count=1</span><br></pre></td></tr></table></figure>
-
-<p>此处我的SSD中<code>Total_LBAs_Written</code> 从 <code>6860</code> 增加至 <code>6892</code> ，从而计算可知 <code>1LBA</code> 大小为：</p>
-<p>$$<br>\frac{1024MB}{6892-6860} &#x3D; 32MB<br>$$</p>
 ]]></content>
   </entry>
   <entry>

@@ -276,6 +276,21 @@
       </categories>
   </entry>
   <entry>
+    <title>Procedure Call Standard</title>
+    <url>/2021/08/02/procedure-call-standard/</url>
+    <content><![CDATA[<ul>
+<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
+</li>
+<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
+</li>
+<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
+</li>
+<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Scoop 重建开始菜单项</title>
     <url>/2023/02/07/scoop-%E9%87%8D%E5%BB%BA%E5%BC%80%E5%A7%8B%E8%8F%9C%E5%8D%95%E9%A1%B9/</url>
     <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ scoop reset *</span><br></pre></td></tr></table></figure>
@@ -290,21 +305,6 @@
       <tags>
         <tag>scoop</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Procedure Call Standard</title>
-    <url>/2021/08/02/procedure-call-standard/</url>
-    <content><![CDATA[<ul>
-<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
-</li>
-<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
-</li>
-<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
-</li>
-<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
-</li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>SecureCRT + SecureFX 绿色单文件打包方法</title>
@@ -665,36 +665,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>longjmp的行为</title>
-    <url>/2021/08/02/longjmp%E7%9A%84%E8%A1%8C%E4%B8%BA/</url>
-    <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>在造轮子 <a href="https://github.com/qgymib/call_on_stack">call_on_stack</a> 时，发现 <code>longjmp()</code> 函数所作的工作不像表面这么简单。</p>
-<span id="more"></span>
-
-<p><a href="https://github.com/qgymib/call_on_stack">call_on_stack</a> 支持在用户态随意进行堆栈切换，由于涉及到栈操作，因此测试涉及栈操作的posix函数兼容性是必要的。其中一个使用 <code>longjmp()</code> 的用例如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;setjmp.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">jmp_buf g_env;</span><br><span class="line"><span class="type">char</span> buffer_1[<span class="number">10240</span>];</span><br><span class="line"><span class="type">char</span> buffer_2[<span class="number">10240</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> _func_2(<span class="type">void</span>* arg)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 跳转 */</span></span><br><span class="line">    longjmp(g_env, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> _func_1(<span class="type">void</span>* arg)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 在内存区块 #buffer_2 中调用函数 #_func_2() */</span></span><br><span class="line">    call_on_stack(buffer_2, <span class="keyword">sizeof</span>(buffer_2), _func_2, <span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 保存上下文 */</span></span><br><span class="line">    <span class="keyword">if</span> (setjmp(g_env) != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 在内存区块 #buffer_1 中调用函数 #_func_1() */</span></span><br><span class="line">    call_on_stack(buffer_1, <span class="keyword">sizeof</span>(buffer_1), _func_1, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>如上用例很简单，逻辑上讲如果 <code>call_on_stack</code> 函数实现没有问题，那么此用例应该能够通过才对。然而实际测试发现，此测试用例会导致core dump。</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>基本原理我已经在 <a href="https://github.com/qgymib/call_on_stack#limit">call_on_stack#limit</a> 中有过阐述，这里我们从源码层面分析下。</p>
-<h3 id="glibc行为分析"><a href="#glibc行为分析" class="headerlink" title="glibc行为分析"></a>glibc行为分析</h3><p>影响glibc行为的主要是 <a href="https://en.wikipedia.org/wiki/Shadow_stack">shadow stack</a> 机制。我们从glibc-2.32入手分析一下 <code>setjmp()</code> 与 <code>longjmp()</code> 的行为。</p>
-<h4 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h4><p>在 <code>x86-64</code> 平台下，我们可以看到 <code>setjmp()</code> 函数保存了当前线程的 <code>shadow Stack Pointer</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* setjmp for x86-64.</span><br><span class="line">   Copyright (C) 2001-2020 Free Software Foundation, Inc.</span><br><span class="line">   This file is part of the GNU C Library.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is free software; you can redistribute it and/or</span><br><span class="line">   modify it under the terms of the GNU Lesser General Public</span><br><span class="line">   License as published by the Free Software Foundation; either</span><br><span class="line">   version 2.1 of the License, or (at your option) any later version.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is distributed in the hope that it will be useful,</span><br><span class="line">   but WITHOUT ANY WARRANTY; without even the implied warranty of</span><br><span class="line">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span><br><span class="line">   Lesser General Public License for more details.</span><br><span class="line"></span><br><span class="line">   You should have received a copy of the GNU Lesser General Public</span><br><span class="line">   License along with the GNU C Library; if not, see</span><br><span class="line">   &lt;https://www.gnu.org/licenses/&gt;.  */</span><br><span class="line"></span><br><span class="line">#include &lt;sysdep.h&gt;</span><br><span class="line">#include &lt;jmpbuf-offsets.h&gt;</span><br><span class="line">#include &lt;jmp_buf-ssp.h&gt;</span><br><span class="line">#include &lt;asm-syntax.h&gt;</span><br><span class="line">#include &lt;stap-probe.h&gt;</span><br><span class="line"></span><br><span class="line">/* Don&#x27;t save shadow stack register if shadow stack isn&#x27;t enabled.  */</span><br><span class="line">#if !SHSTK_ENABLED</span><br><span class="line"># undef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">ENTRY (__sigsetjmp)</span><br><span class="line">	/* Save registers.  */</span><br><span class="line">	movq %rbx, (JB_RBX*8)(%rdi)</span><br><span class="line">#ifdef PTR_MANGLE</span><br><span class="line"># ifdef __ILP32__</span><br><span class="line">	/* Save the high bits of %rbp first, since PTR_MANGLE will</span><br><span class="line">	   only handle the low bits but we cannot presume %rbp is</span><br><span class="line">	   being used as a pointer and truncate it.  Here we write all</span><br><span class="line">	   of %rbp, but the low bits will be overwritten below.  */</span><br><span class="line">	movq %rbp, (JB_RBP*8)(%rdi)</span><br><span class="line"># endif</span><br><span class="line">	mov %RBP_LP, %RAX_LP</span><br><span class="line">	PTR_MANGLE (%RAX_LP)</span><br><span class="line">	mov %RAX_LP, (JB_RBP*8)(%rdi)</span><br><span class="line">#else</span><br><span class="line">	movq %rbp, (JB_RBP*8)(%rdi)</span><br><span class="line">#endif</span><br><span class="line">	movq %r12, (JB_R12*8)(%rdi)</span><br><span class="line">	movq %r13, (JB_R13*8)(%rdi)</span><br><span class="line">	movq %r14, (JB_R14*8)(%rdi)</span><br><span class="line">	movq %r15, (JB_R15*8)(%rdi)</span><br><span class="line">	lea 8(%rsp), %RDX_LP	/* Save SP as it will be after we return.  */</span><br><span class="line">#ifdef PTR_MANGLE</span><br><span class="line">	PTR_MANGLE (%RDX_LP)</span><br><span class="line">#endif</span><br><span class="line">	movq %rdx, (JB_RSP*8)(%rdi)</span><br><span class="line">	mov (%rsp), %RAX_LP	/* Save PC we are returning to now.  */</span><br><span class="line">	LIBC_PROBE (setjmp, 3, LP_SIZE@%RDI_LP, -4@%esi, LP_SIZE@%RAX_LP)</span><br><span class="line">#ifdef PTR_MANGLE</span><br><span class="line">	PTR_MANGLE (%RAX_LP)</span><br><span class="line">#endif</span><br><span class="line">	movq %rax, (JB_PC*8)(%rdi)</span><br><span class="line"></span><br><span class="line">#ifdef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line"># if IS_IN (libc) &amp;&amp; defined SHARED &amp;&amp; defined FEATURE_1_OFFSET</span><br><span class="line">	/* Check if Shadow Stack is enabled.  */</span><br><span class="line">	testl $X86_FEATURE_1_SHSTK, %fs:FEATURE_1_OFFSET</span><br><span class="line">	jz L(skip_ssp)</span><br><span class="line"># else</span><br><span class="line">	xorl %eax, %eax</span><br><span class="line"># endif</span><br><span class="line">	/* Get the current Shadow-Stack-Pointer and save it.  */</span><br><span class="line">	rdsspq %rax</span><br><span class="line">	movq %rax, SHADOW_STACK_POINTER_OFFSET(%rdi)</span><br><span class="line"># if IS_IN (libc) &amp;&amp; defined SHARED &amp;&amp; defined FEATURE_1_OFFSET</span><br><span class="line">L(skip_ssp):</span><br><span class="line"># endif</span><br><span class="line">#endif</span><br><span class="line">#if IS_IN (rtld)</span><br><span class="line">	/* In ld.so we never save the signal mask.  */</span><br><span class="line">	xorl %eax, %eax</span><br><span class="line">	retq</span><br><span class="line">#else</span><br><span class="line">	/* Make a tail call to __sigjmp_save; it takes the same args.  */</span><br><span class="line">	jmp __sigjmp_save</span><br><span class="line">#endif</span><br><span class="line">END (__sigsetjmp)</span><br><span class="line">hidden_def (__sigsetjmp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>而 <code>longjmp()</code> 读取了当前线程的 <code>Shadow Stack Pointer</code> 并进行校验：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* Copyright (C) 2001-2020 Free Software Foundation, Inc.</span><br><span class="line">   This file is part of the GNU C Library.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is free software; you can redistribute it and/or</span><br><span class="line">   modify it under the terms of the GNU Lesser General Public</span><br><span class="line">   License as published by the Free Software Foundation; either</span><br><span class="line">   version 2.1 of the License, or (at your option) any later version.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is distributed in the hope that it will be useful,</span><br><span class="line">   but WITHOUT ANY WARRANTY; without even the implied warranty of</span><br><span class="line">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span><br><span class="line">   Lesser General Public License for more details.</span><br><span class="line"></span><br><span class="line">   You should have received a copy of the GNU Lesser General Public</span><br><span class="line">   License along with the GNU C Library; if not, see</span><br><span class="line">   &lt;https://www.gnu.org/licenses/&gt;.  */</span><br><span class="line"></span><br><span class="line">#include &lt;sysdep.h&gt;</span><br><span class="line">#include &lt;jmpbuf-offsets.h&gt;</span><br><span class="line">#include &lt;jmp_buf-ssp.h&gt;</span><br><span class="line">#include &lt;asm-syntax.h&gt;</span><br><span class="line">#include &lt;stap-probe.h&gt;</span><br><span class="line"></span><br><span class="line">/* Don&#x27;t restore shadow stack register if</span><br><span class="line">   1. Shadow stack isn&#x27;t enabled.  Or</span><br><span class="line">   2. __longjmp is defined for __longjmp_cancel.</span><br><span class="line"> */</span><br><span class="line">#if !SHSTK_ENABLED || defined __longjmp</span><br><span class="line"># undef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">/* Jump to the position specified by ENV, causing the</span><br><span class="line">   setjmp call there to return VAL, or 1 if VAL is 0.</span><br><span class="line">   void __longjmp (__jmp_buf env, int val).  */</span><br><span class="line">	.text</span><br><span class="line">ENTRY(__longjmp)</span><br><span class="line">	/* Restore registers.  */</span><br><span class="line">	mov (JB_RSP*8)(%rdi),%R8_LP</span><br><span class="line">	mov (JB_RBP*8)(%rdi),%R9_LP</span><br><span class="line">	mov (JB_PC*8)(%rdi),%RDX_LP</span><br><span class="line">#ifdef PTR_DEMANGLE</span><br><span class="line">	PTR_DEMANGLE (%R8_LP)</span><br><span class="line">	PTR_DEMANGLE (%R9_LP)</span><br><span class="line">	PTR_DEMANGLE (%RDX_LP)</span><br><span class="line"># ifdef __ILP32__</span><br><span class="line">	/* We ignored the high bits of the %rbp value because only the low</span><br><span class="line">	   bits are mangled.  But we cannot presume that %rbp is being used</span><br><span class="line">	   as a pointer and truncate it, so recover the high bits.  */</span><br><span class="line">	movl (JB_RBP*8 + 4)(%rdi), %eax</span><br><span class="line">	shlq $32, %rax</span><br><span class="line">	orq %rax, %r9</span><br><span class="line"># endif</span><br><span class="line">#endif</span><br><span class="line">#ifdef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line"># if IS_IN (libc) &amp;&amp; defined SHARED &amp;&amp; defined FEATURE_1_OFFSET</span><br><span class="line">	/* Check if Shadow Stack is enabled.  */</span><br><span class="line">	testl $X86_FEATURE_1_SHSTK, %fs:FEATURE_1_OFFSET</span><br><span class="line">	jz L(skip_ssp)</span><br><span class="line"># else</span><br><span class="line">	xorl %eax, %eax</span><br><span class="line"># endif</span><br><span class="line">	/* Check and adjust the Shadow-Stack-Pointer.  */</span><br><span class="line">	/* Get the current ssp.  */</span><br><span class="line">	rdsspq %rax</span><br><span class="line">	/* And compare it with the saved ssp value.  */</span><br><span class="line">	subq SHADOW_STACK_POINTER_OFFSET(%rdi), %rax</span><br><span class="line">	je L(skip_ssp)</span><br><span class="line">	/* Count the number of frames to adjust and adjust it</span><br><span class="line">	   with incssp instruction.  The instruction can adjust</span><br><span class="line">	   the ssp by [0..255] value only thus use a loop if</span><br><span class="line">	   the number of frames is bigger than 255.  */</span><br><span class="line">	negq %rax</span><br><span class="line">	shrq $3, %rax</span><br><span class="line">	/* NB: We saved Shadow-Stack-Pointer of setjmp.  Since we are</span><br><span class="line">	       restoring Shadow-Stack-Pointer of setjmp&#x27;s caller, we</span><br><span class="line">	       need to unwind shadow stack by one more frame.  */</span><br><span class="line">	addq $1, %rax</span><br><span class="line"></span><br><span class="line">	movl $255, %ebx</span><br><span class="line">L(loop):</span><br><span class="line">	cmpq %rbx, %rax</span><br><span class="line">	cmovb %rax, %rbx</span><br><span class="line">	incsspq %rbx</span><br><span class="line">	subq %rbx, %rax</span><br><span class="line">	ja L(loop)</span><br><span class="line"></span><br><span class="line">L(skip_ssp):</span><br><span class="line">#endif</span><br><span class="line">	LIBC_PROBE (longjmp, 3, LP_SIZE@%RDI_LP, -4@%esi, LP_SIZE@%RDX_LP)</span><br><span class="line">	/* We add unwind information for the target here.  */</span><br><span class="line">	cfi_def_cfa(%rdi, 0)</span><br><span class="line">	cfi_register(%rsp,%r8)</span><br><span class="line">	cfi_register(%rbp,%r9)</span><br><span class="line">	cfi_register(%rip,%rdx)</span><br><span class="line">	cfi_offset(%rbx,JB_RBX*8)</span><br><span class="line">	cfi_offset(%r12,JB_R12*8)</span><br><span class="line">	cfi_offset(%r13,JB_R13*8)</span><br><span class="line">	cfi_offset(%r14,JB_R14*8)</span><br><span class="line">	cfi_offset(%r15,JB_R15*8)</span><br><span class="line">	movq (JB_RBX*8)(%rdi),%rbx</span><br><span class="line">	movq (JB_R12*8)(%rdi),%r12</span><br><span class="line">	movq (JB_R13*8)(%rdi),%r13</span><br><span class="line">	movq (JB_R14*8)(%rdi),%r14</span><br><span class="line">	movq (JB_R15*8)(%rdi),%r15</span><br><span class="line">	/* Set return value for setjmp.  */</span><br><span class="line">	mov %esi, %eax</span><br><span class="line">	mov %R8_LP,%RSP_LP</span><br><span class="line">	movq %r9,%rbp</span><br><span class="line">	LIBC_PROBE (longjmp_target, 3,</span><br><span class="line">		    LP_SIZE@%RDI_LP, -4@%eax, LP_SIZE@%RDX_LP)</span><br><span class="line">	jmpq *%rdx</span><br><span class="line">END (__longjmp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>如此，由于 <code>call_on_stack</code> 并未针对 <code>shadow stack</code> 进行适配，因此若 <code>setjmp()</code> &#x2F; <code>longjmp()</code> 开启了 <code>shadow stack</code> 功能，就会导致测试用例崩溃。</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>我们在 <code>glibc</code> 的 <code>makecontext()</code> 方法中能够找到应对方法。参考如下片段：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> SHSTK_ENABLED</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">pthread</span> *<span class="title">self</span> =</span> THREAD_SELF;</span><br><span class="line">  <span class="type">unsigned</span> <span class="type">int</span> feature_1 = THREAD_GETMEM (self, header.feature_1);</span><br><span class="line">  <span class="comment">/* NB: We must check feature_1 before accessing __ssp since caller</span></span><br><span class="line"><span class="comment">	 may be compiled against ucontext_t without __ssp.  */</span></span><br><span class="line">  <span class="keyword">if</span> ((feature_1 &amp; X86_FEATURE_1_SHSTK) != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">/* Shadow stack is enabled.  We need to allocate a new shadow</span></span><br><span class="line"><span class="comment">         stack.  */</span></span><br><span class="line">      <span class="type">unsigned</span> <span class="type">long</span> ssp_size = (((<span class="type">uintptr_t</span>) sp</span><br><span class="line">				 - (<span class="type">uintptr_t</span>) ucp-&gt;uc_stack.ss_sp)</span><br><span class="line">				&gt;&gt; STACK_SIZE_TO_SHADOW_STACK_SIZE_SHIFT);</span><br><span class="line">      <span class="comment">/* Align shadow stack to 8 bytes.  */</span></span><br><span class="line">      ssp_size = ALIGN_UP (ssp_size, <span class="number">8</span>);</span><br><span class="line"></span><br><span class="line">      ucp-&gt;__ssp[<span class="number">1</span>] = ssp_size;</span><br><span class="line">      ucp-&gt;__ssp[<span class="number">2</span>] = ssp_size;</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* Call __push___start_context to allocate a new shadow stack,</span></span><br><span class="line"><span class="comment">	 push __start_context onto the new stack as well as the new</span></span><br><span class="line"><span class="comment">	 shadow stack.  NB: After __push___start_context returns,</span></span><br><span class="line"><span class="comment">	   ucp-&gt;__ssp[0]: The new shadow stack pointer.</span></span><br><span class="line"><span class="comment">	   ucp-&gt;__ssp[1]: The base address of the new shadow stack.</span></span><br><span class="line"><span class="comment">	   ucp-&gt;__ssp[2]: The size of the new shadow stack.</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      __push___start_context (ucp);</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到，当开启 <code>shadow stack</code> 使能时，<code>makecontext()</code> 函数做了两件事情：</p>
-<ol>
-<li>检查线程本身是否开启了ssp功能；</li>
-<li>若线程开启了ssp功能，则构造一个新的 shadow stack。</li>
-</ol>
-<h3 id="msvc行为分析"><a href="#msvc行为分析" class="headerlink" title="msvc行为分析"></a>msvc行为分析</h3><p><a href="https://blog.lazym.io/2020/09/21/Unicorn-Devblog-setjmp-longjmp-on-Windows/">Unicorn Devblog: setjmp&#x2F;longjmp on Windows</a> 已经说的很清楚了，不再赘述。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>openSUSE 在终端中支持 OneClickInstall</title>
     <url>/2021/09/29/opensuse-%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E6%94%AF%E6%8C%81-oneclickinstall/</url>
     <content><![CDATA[<p>openSUSE 中关于 OneClickInstall 的 <a href="https://en.opensuse.org/openSUSE:One_Click_Install_UserFAQ">FAQ</a> 目前是过期的，<code>/sbin/OCICLI</code> 已经不再提供。</p>
@@ -725,6 +695,51 @@
 ]]></content>
   </entry>
   <entry>
+    <title>longjmp的行为</title>
+    <url>/2021/08/02/longjmp%E7%9A%84%E8%A1%8C%E4%B8%BA/</url>
+    <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>在造轮子 <a href="https://github.com/qgymib/call_on_stack">call_on_stack</a> 时，发现 <code>longjmp()</code> 函数所作的工作不像表面这么简单。</p>
+<span id="more"></span>
+
+<p><a href="https://github.com/qgymib/call_on_stack">call_on_stack</a> 支持在用户态随意进行堆栈切换，由于涉及到栈操作，因此测试涉及栈操作的posix函数兼容性是必要的。其中一个使用 <code>longjmp()</code> 的用例如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;setjmp.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">jmp_buf g_env;</span><br><span class="line"><span class="type">char</span> buffer_1[<span class="number">10240</span>];</span><br><span class="line"><span class="type">char</span> buffer_2[<span class="number">10240</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> _func_2(<span class="type">void</span>* arg)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 跳转 */</span></span><br><span class="line">    longjmp(g_env, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> _func_1(<span class="type">void</span>* arg)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 在内存区块 #buffer_2 中调用函数 #_func_2() */</span></span><br><span class="line">    call_on_stack(buffer_2, <span class="keyword">sizeof</span>(buffer_2), _func_2, <span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 保存上下文 */</span></span><br><span class="line">    <span class="keyword">if</span> (setjmp(g_env) != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 在内存区块 #buffer_1 中调用函数 #_func_1() */</span></span><br><span class="line">    call_on_stack(buffer_1, <span class="keyword">sizeof</span>(buffer_1), _func_1, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如上用例很简单，逻辑上讲如果 <code>call_on_stack</code> 函数实现没有问题，那么此用例应该能够通过才对。然而实际测试发现，此测试用例会导致core dump。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>基本原理我已经在 <a href="https://github.com/qgymib/call_on_stack#limit">call_on_stack#limit</a> 中有过阐述，这里我们从源码层面分析下。</p>
+<h3 id="glibc行为分析"><a href="#glibc行为分析" class="headerlink" title="glibc行为分析"></a>glibc行为分析</h3><p>影响glibc行为的主要是 <a href="https://en.wikipedia.org/wiki/Shadow_stack">shadow stack</a> 机制。我们从glibc-2.32入手分析一下 <code>setjmp()</code> 与 <code>longjmp()</code> 的行为。</p>
+<h4 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h4><p>在 <code>x86-64</code> 平台下，我们可以看到 <code>setjmp()</code> 函数保存了当前线程的 <code>shadow Stack Pointer</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* setjmp for x86-64.</span><br><span class="line">   Copyright (C) 2001-2020 Free Software Foundation, Inc.</span><br><span class="line">   This file is part of the GNU C Library.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is free software; you can redistribute it and/or</span><br><span class="line">   modify it under the terms of the GNU Lesser General Public</span><br><span class="line">   License as published by the Free Software Foundation; either</span><br><span class="line">   version 2.1 of the License, or (at your option) any later version.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is distributed in the hope that it will be useful,</span><br><span class="line">   but WITHOUT ANY WARRANTY; without even the implied warranty of</span><br><span class="line">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span><br><span class="line">   Lesser General Public License for more details.</span><br><span class="line"></span><br><span class="line">   You should have received a copy of the GNU Lesser General Public</span><br><span class="line">   License along with the GNU C Library; if not, see</span><br><span class="line">   &lt;https://www.gnu.org/licenses/&gt;.  */</span><br><span class="line"></span><br><span class="line">#include &lt;sysdep.h&gt;</span><br><span class="line">#include &lt;jmpbuf-offsets.h&gt;</span><br><span class="line">#include &lt;jmp_buf-ssp.h&gt;</span><br><span class="line">#include &lt;asm-syntax.h&gt;</span><br><span class="line">#include &lt;stap-probe.h&gt;</span><br><span class="line"></span><br><span class="line">/* Don&#x27;t save shadow stack register if shadow stack isn&#x27;t enabled.  */</span><br><span class="line">#if !SHSTK_ENABLED</span><br><span class="line"># undef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">ENTRY (__sigsetjmp)</span><br><span class="line">	/* Save registers.  */</span><br><span class="line">	movq %rbx, (JB_RBX*8)(%rdi)</span><br><span class="line">#ifdef PTR_MANGLE</span><br><span class="line"># ifdef __ILP32__</span><br><span class="line">	/* Save the high bits of %rbp first, since PTR_MANGLE will</span><br><span class="line">	   only handle the low bits but we cannot presume %rbp is</span><br><span class="line">	   being used as a pointer and truncate it.  Here we write all</span><br><span class="line">	   of %rbp, but the low bits will be overwritten below.  */</span><br><span class="line">	movq %rbp, (JB_RBP*8)(%rdi)</span><br><span class="line"># endif</span><br><span class="line">	mov %RBP_LP, %RAX_LP</span><br><span class="line">	PTR_MANGLE (%RAX_LP)</span><br><span class="line">	mov %RAX_LP, (JB_RBP*8)(%rdi)</span><br><span class="line">#else</span><br><span class="line">	movq %rbp, (JB_RBP*8)(%rdi)</span><br><span class="line">#endif</span><br><span class="line">	movq %r12, (JB_R12*8)(%rdi)</span><br><span class="line">	movq %r13, (JB_R13*8)(%rdi)</span><br><span class="line">	movq %r14, (JB_R14*8)(%rdi)</span><br><span class="line">	movq %r15, (JB_R15*8)(%rdi)</span><br><span class="line">	lea 8(%rsp), %RDX_LP	/* Save SP as it will be after we return.  */</span><br><span class="line">#ifdef PTR_MANGLE</span><br><span class="line">	PTR_MANGLE (%RDX_LP)</span><br><span class="line">#endif</span><br><span class="line">	movq %rdx, (JB_RSP*8)(%rdi)</span><br><span class="line">	mov (%rsp), %RAX_LP	/* Save PC we are returning to now.  */</span><br><span class="line">	LIBC_PROBE (setjmp, 3, LP_SIZE@%RDI_LP, -4@%esi, LP_SIZE@%RAX_LP)</span><br><span class="line">#ifdef PTR_MANGLE</span><br><span class="line">	PTR_MANGLE (%RAX_LP)</span><br><span class="line">#endif</span><br><span class="line">	movq %rax, (JB_PC*8)(%rdi)</span><br><span class="line"></span><br><span class="line">#ifdef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line"># if IS_IN (libc) &amp;&amp; defined SHARED &amp;&amp; defined FEATURE_1_OFFSET</span><br><span class="line">	/* Check if Shadow Stack is enabled.  */</span><br><span class="line">	testl $X86_FEATURE_1_SHSTK, %fs:FEATURE_1_OFFSET</span><br><span class="line">	jz L(skip_ssp)</span><br><span class="line"># else</span><br><span class="line">	xorl %eax, %eax</span><br><span class="line"># endif</span><br><span class="line">	/* Get the current Shadow-Stack-Pointer and save it.  */</span><br><span class="line">	rdsspq %rax</span><br><span class="line">	movq %rax, SHADOW_STACK_POINTER_OFFSET(%rdi)</span><br><span class="line"># if IS_IN (libc) &amp;&amp; defined SHARED &amp;&amp; defined FEATURE_1_OFFSET</span><br><span class="line">L(skip_ssp):</span><br><span class="line"># endif</span><br><span class="line">#endif</span><br><span class="line">#if IS_IN (rtld)</span><br><span class="line">	/* In ld.so we never save the signal mask.  */</span><br><span class="line">	xorl %eax, %eax</span><br><span class="line">	retq</span><br><span class="line">#else</span><br><span class="line">	/* Make a tail call to __sigjmp_save; it takes the same args.  */</span><br><span class="line">	jmp __sigjmp_save</span><br><span class="line">#endif</span><br><span class="line">END (__sigsetjmp)</span><br><span class="line">hidden_def (__sigsetjmp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>而 <code>longjmp()</code> 读取了当前线程的 <code>Shadow Stack Pointer</code> 并进行校验：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* Copyright (C) 2001-2020 Free Software Foundation, Inc.</span><br><span class="line">   This file is part of the GNU C Library.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is free software; you can redistribute it and/or</span><br><span class="line">   modify it under the terms of the GNU Lesser General Public</span><br><span class="line">   License as published by the Free Software Foundation; either</span><br><span class="line">   version 2.1 of the License, or (at your option) any later version.</span><br><span class="line"></span><br><span class="line">   The GNU C Library is distributed in the hope that it will be useful,</span><br><span class="line">   but WITHOUT ANY WARRANTY; without even the implied warranty of</span><br><span class="line">   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span><br><span class="line">   Lesser General Public License for more details.</span><br><span class="line"></span><br><span class="line">   You should have received a copy of the GNU Lesser General Public</span><br><span class="line">   License along with the GNU C Library; if not, see</span><br><span class="line">   &lt;https://www.gnu.org/licenses/&gt;.  */</span><br><span class="line"></span><br><span class="line">#include &lt;sysdep.h&gt;</span><br><span class="line">#include &lt;jmpbuf-offsets.h&gt;</span><br><span class="line">#include &lt;jmp_buf-ssp.h&gt;</span><br><span class="line">#include &lt;asm-syntax.h&gt;</span><br><span class="line">#include &lt;stap-probe.h&gt;</span><br><span class="line"></span><br><span class="line">/* Don&#x27;t restore shadow stack register if</span><br><span class="line">   1. Shadow stack isn&#x27;t enabled.  Or</span><br><span class="line">   2. __longjmp is defined for __longjmp_cancel.</span><br><span class="line"> */</span><br><span class="line">#if !SHSTK_ENABLED || defined __longjmp</span><br><span class="line"># undef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">/* Jump to the position specified by ENV, causing the</span><br><span class="line">   setjmp call there to return VAL, or 1 if VAL is 0.</span><br><span class="line">   void __longjmp (__jmp_buf env, int val).  */</span><br><span class="line">	.text</span><br><span class="line">ENTRY(__longjmp)</span><br><span class="line">	/* Restore registers.  */</span><br><span class="line">	mov (JB_RSP*8)(%rdi),%R8_LP</span><br><span class="line">	mov (JB_RBP*8)(%rdi),%R9_LP</span><br><span class="line">	mov (JB_PC*8)(%rdi),%RDX_LP</span><br><span class="line">#ifdef PTR_DEMANGLE</span><br><span class="line">	PTR_DEMANGLE (%R8_LP)</span><br><span class="line">	PTR_DEMANGLE (%R9_LP)</span><br><span class="line">	PTR_DEMANGLE (%RDX_LP)</span><br><span class="line"># ifdef __ILP32__</span><br><span class="line">	/* We ignored the high bits of the %rbp value because only the low</span><br><span class="line">	   bits are mangled.  But we cannot presume that %rbp is being used</span><br><span class="line">	   as a pointer and truncate it, so recover the high bits.  */</span><br><span class="line">	movl (JB_RBP*8 + 4)(%rdi), %eax</span><br><span class="line">	shlq $32, %rax</span><br><span class="line">	orq %rax, %r9</span><br><span class="line"># endif</span><br><span class="line">#endif</span><br><span class="line">#ifdef SHADOW_STACK_POINTER_OFFSET</span><br><span class="line"># if IS_IN (libc) &amp;&amp; defined SHARED &amp;&amp; defined FEATURE_1_OFFSET</span><br><span class="line">	/* Check if Shadow Stack is enabled.  */</span><br><span class="line">	testl $X86_FEATURE_1_SHSTK, %fs:FEATURE_1_OFFSET</span><br><span class="line">	jz L(skip_ssp)</span><br><span class="line"># else</span><br><span class="line">	xorl %eax, %eax</span><br><span class="line"># endif</span><br><span class="line">	/* Check and adjust the Shadow-Stack-Pointer.  */</span><br><span class="line">	/* Get the current ssp.  */</span><br><span class="line">	rdsspq %rax</span><br><span class="line">	/* And compare it with the saved ssp value.  */</span><br><span class="line">	subq SHADOW_STACK_POINTER_OFFSET(%rdi), %rax</span><br><span class="line">	je L(skip_ssp)</span><br><span class="line">	/* Count the number of frames to adjust and adjust it</span><br><span class="line">	   with incssp instruction.  The instruction can adjust</span><br><span class="line">	   the ssp by [0..255] value only thus use a loop if</span><br><span class="line">	   the number of frames is bigger than 255.  */</span><br><span class="line">	negq %rax</span><br><span class="line">	shrq $3, %rax</span><br><span class="line">	/* NB: We saved Shadow-Stack-Pointer of setjmp.  Since we are</span><br><span class="line">	       restoring Shadow-Stack-Pointer of setjmp&#x27;s caller, we</span><br><span class="line">	       need to unwind shadow stack by one more frame.  */</span><br><span class="line">	addq $1, %rax</span><br><span class="line"></span><br><span class="line">	movl $255, %ebx</span><br><span class="line">L(loop):</span><br><span class="line">	cmpq %rbx, %rax</span><br><span class="line">	cmovb %rax, %rbx</span><br><span class="line">	incsspq %rbx</span><br><span class="line">	subq %rbx, %rax</span><br><span class="line">	ja L(loop)</span><br><span class="line"></span><br><span class="line">L(skip_ssp):</span><br><span class="line">#endif</span><br><span class="line">	LIBC_PROBE (longjmp, 3, LP_SIZE@%RDI_LP, -4@%esi, LP_SIZE@%RDX_LP)</span><br><span class="line">	/* We add unwind information for the target here.  */</span><br><span class="line">	cfi_def_cfa(%rdi, 0)</span><br><span class="line">	cfi_register(%rsp,%r8)</span><br><span class="line">	cfi_register(%rbp,%r9)</span><br><span class="line">	cfi_register(%rip,%rdx)</span><br><span class="line">	cfi_offset(%rbx,JB_RBX*8)</span><br><span class="line">	cfi_offset(%r12,JB_R12*8)</span><br><span class="line">	cfi_offset(%r13,JB_R13*8)</span><br><span class="line">	cfi_offset(%r14,JB_R14*8)</span><br><span class="line">	cfi_offset(%r15,JB_R15*8)</span><br><span class="line">	movq (JB_RBX*8)(%rdi),%rbx</span><br><span class="line">	movq (JB_R12*8)(%rdi),%r12</span><br><span class="line">	movq (JB_R13*8)(%rdi),%r13</span><br><span class="line">	movq (JB_R14*8)(%rdi),%r14</span><br><span class="line">	movq (JB_R15*8)(%rdi),%r15</span><br><span class="line">	/* Set return value for setjmp.  */</span><br><span class="line">	mov %esi, %eax</span><br><span class="line">	mov %R8_LP,%RSP_LP</span><br><span class="line">	movq %r9,%rbp</span><br><span class="line">	LIBC_PROBE (longjmp_target, 3,</span><br><span class="line">		    LP_SIZE@%RDI_LP, -4@%eax, LP_SIZE@%RDX_LP)</span><br><span class="line">	jmpq *%rdx</span><br><span class="line">END (__longjmp)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如此，由于 <code>call_on_stack</code> 并未针对 <code>shadow stack</code> 进行适配，因此若 <code>setjmp()</code> &#x2F; <code>longjmp()</code> 开启了 <code>shadow stack</code> 功能，就会导致测试用例崩溃。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>我们在 <code>glibc</code> 的 <code>makecontext()</code> 方法中能够找到应对方法。参考如下片段：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> SHSTK_ENABLED</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">pthread</span> *<span class="title">self</span> =</span> THREAD_SELF;</span><br><span class="line">  <span class="type">unsigned</span> <span class="type">int</span> feature_1 = THREAD_GETMEM (self, header.feature_1);</span><br><span class="line">  <span class="comment">/* NB: We must check feature_1 before accessing __ssp since caller</span></span><br><span class="line"><span class="comment">	 may be compiled against ucontext_t without __ssp.  */</span></span><br><span class="line">  <span class="keyword">if</span> ((feature_1 &amp; X86_FEATURE_1_SHSTK) != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">/* Shadow stack is enabled.  We need to allocate a new shadow</span></span><br><span class="line"><span class="comment">         stack.  */</span></span><br><span class="line">      <span class="type">unsigned</span> <span class="type">long</span> ssp_size = (((<span class="type">uintptr_t</span>) sp</span><br><span class="line">				 - (<span class="type">uintptr_t</span>) ucp-&gt;uc_stack.ss_sp)</span><br><span class="line">				&gt;&gt; STACK_SIZE_TO_SHADOW_STACK_SIZE_SHIFT);</span><br><span class="line">      <span class="comment">/* Align shadow stack to 8 bytes.  */</span></span><br><span class="line">      ssp_size = ALIGN_UP (ssp_size, <span class="number">8</span>);</span><br><span class="line"></span><br><span class="line">      ucp-&gt;__ssp[<span class="number">1</span>] = ssp_size;</span><br><span class="line">      ucp-&gt;__ssp[<span class="number">2</span>] = ssp_size;</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* Call __push___start_context to allocate a new shadow stack,</span></span><br><span class="line"><span class="comment">	 push __start_context onto the new stack as well as the new</span></span><br><span class="line"><span class="comment">	 shadow stack.  NB: After __push___start_context returns,</span></span><br><span class="line"><span class="comment">	   ucp-&gt;__ssp[0]: The new shadow stack pointer.</span></span><br><span class="line"><span class="comment">	   ucp-&gt;__ssp[1]: The base address of the new shadow stack.</span></span><br><span class="line"><span class="comment">	   ucp-&gt;__ssp[2]: The size of the new shadow stack.</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      __push___start_context (ucp);</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，当开启 <code>shadow stack</code> 使能时，<code>makecontext()</code> 函数做了两件事情：</p>
+<ol>
+<li>检查线程本身是否开启了ssp功能；</li>
+<li>若线程开启了ssp功能，则构造一个新的 shadow stack。</li>
+</ol>
+<h3 id="msvc行为分析"><a href="#msvc行为分析" class="headerlink" title="msvc行为分析"></a>msvc行为分析</h3><p><a href="https://blog.lazym.io/2020/09/21/Unicorn-Devblog-setjmp-longjmp-on-Windows/">Unicorn Devblog: setjmp&#x2F;longjmp on Windows</a> 已经说的很清楚了，不再赘述。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>x86_64 下使用 opcode 进行大于 4GB 地址的远距离跳转</title>
+    <url>/2021/11/04/x86-64-%E4%B8%8B%E4%BD%BF%E7%94%A8-opcode-%E8%BF%9B%E8%A1%8C%E5%A4%A7%E4%BA%8E-4gb-%E5%9C%B0%E5%9D%80%E7%9A%84%E8%BF%9C%E8%B7%9D%E7%A6%BB%E8%B7%B3%E8%BD%AC/</url>
+    <content><![CDATA[<p>解决方案来源：<a href="https://stackoverflow.com/a/53876008">JMP instruction - Hex code</a></p>
+<p>在实现 <a href="https://github.com/qgymib/inline_hook">inline_hook</a> 方案时，在 x86_64 平台下需要支持大于 4GB 地址范围的远距离跳转，然而常用跳转指令存在几个限制：</p>
+<ol>
+<li>依赖寄存器或内存</li>
+<li>不依赖寄存器或内存的则跳转距离过短</li>
+</ol>
+<span id="more"></span>
+
+<p>解决方案：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ff 25 00 00 00 00           jmp qword ptr [rip]      jmp *(%rip)</span><br><span class="line">yo ur ad dr re ss he re     some random assembly</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>Valgrind Gdbserver 使用方法</title>
     <url>/2021/07/27/valgrind-gdbserver-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>Valgrind 支持 gdbserver (AKA. <code>vgdb</code>)，这使得在运行valgrind时，能够同时挂上gdb来进行调试。</p>
@@ -741,21 +756,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">target remote | vgdb</span><br></pre></td></tr></table></figure>
 
 <p>这样gdb就连接上了valgrind。在gdb中输入 <code>c</code> 并回车，valgrind即开始运行。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>x86_64 下使用 opcode 进行大于 4GB 地址的远距离跳转</title>
-    <url>/2021/11/04/x86-64-%E4%B8%8B%E4%BD%BF%E7%94%A8-opcode-%E8%BF%9B%E8%A1%8C%E5%A4%A7%E4%BA%8E-4gb-%E5%9C%B0%E5%9D%80%E7%9A%84%E8%BF%9C%E8%B7%9D%E7%A6%BB%E8%B7%B3%E8%BD%AC/</url>
-    <content><![CDATA[<p>解决方案来源：<a href="https://stackoverflow.com/a/53876008">JMP instruction - Hex code</a></p>
-<p>在实现 <a href="https://github.com/qgymib/inline_hook">inline_hook</a> 方案时，在 x86_64 平台下需要支持大于 4GB 地址范围的远距离跳转，然而常用跳转指令存在几个限制：</p>
-<ol>
-<li>依赖寄存器或内存</li>
-<li>不依赖寄存器或内存的则跳转距离过短</li>
-</ol>
-<span id="more"></span>
-
-<p>解决方案：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ff 25 00 00 00 00           jmp qword ptr [rip]      jmp *(%rip)</span><br><span class="line">yo ur ad dr re ss he re     some random assembly</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -1183,6 +1183,68 @@
 ]]></content>
   </entry>
   <entry>
+    <title>需求分析在项目流程中的作用</title>
+    <url>/2021/08/30/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+    <content><![CDATA[<p>都知道需求分析重要，但是为什么重要，以及项目中各个角色如何将需求分析做好却并不一定人人都清楚。</p>
+<span id="more"></span>
+
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><p><code>需求分析</code>，指的是在外部已知需求导入后，开发人员实际开发之前，对需求进行澄清的过程，其作业人员是实际开发者，其目的是为了帮助开发者与测试人员对需求表现的形态达成一致。</p>
+<p>需求分析至少包含如下几个过程：</p>
+<ol>
+<li><p>需求澄清（梳理衍生需求、明确周边配套、定义开发验收标准）</p>
+<blockquote>
+<p>确定开发工作量；明确需求风险；推动周边团队作业；影响项目最终交付功能</p>
+</blockquote>
+</li>
+<li><p>需求串讲（由开发向测试描述具体交付的功能）与反串讲（由测试向开发描述具体测试方法）</p>
+<blockquote>
+<p>确保开发与测试所理解的需求是一致的</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="项目过程"><a href="#项目过程" class="headerlink" title="项目过程"></a>项目过程</h3><p>软件开发过程对应到 <a href="https://simple-pdh.com/principles-of-integrated-product-development/">IPD</a> 流程可分为TR1、TR2、TR3、TR4B、TR4、TR5、TR6：</p>
+<ul>
+<li><strong>TR1</strong>: 确定产品需求</li>
+<li><strong>TR2</strong>: 确定需求分析与验收方案</li>
+<li><strong>TR3</strong>: 确定软件设计方案</li>
+<li><strong>TR4B</strong>: 软件验收</li>
+<li><strong>TR4</strong>: 项目发布</li>
+</ul>
+<h2 id="从失败案例中出发"><a href="#从失败案例中出发" class="headerlink" title="从失败案例中出发"></a>从失败案例中出发</h2><h3 id="失败案例1"><a href="#失败案例1" class="headerlink" title="失败案例1"></a>失败案例1</h3><p>一个典型的例子是今年（2021）上半年蜂鸟基线做的 <code>4G解决方案</code>。</p>
+<p><code>4G解决方案</code> 是针对各个产品线推出的针对低功耗4G领域的一套解决方案（最终目标）。</p>
+<p>在基线项目中落地时，为了确保功能可验收，我们采取了在其他产品线中成型使用的验收方案，包括web界面、交互协议等。在需求澄清阶段我们基于如下原因跳过了需求串讲和反串讲流程：</p>
+<ol>
+<li>项目时间紧急。由于上半年定制化项目较多，基线人力严重不足，为了赶上项目进度，去除了部分流程</li>
+<li>验收方案是现成的。由于直接套用了已有的验收方案，因此没有经过仔细研读，认为依照此标准执行即可。</li>
+</ol>
+<p>这一行为导致了一系列的开发问题：</p>
+<ol>
+<li>对最终交付测试的产物不了解。我们的开发始终站在自己的角色中，对于非自己的功能模块不了解，使得对于需求没有一个全局的把握，使得对于需要交付给测试的产物仅有摸棱两可的印象。直到快要验收了，才发现有一些功能没有开发。</li>
+<li>配套问题未提前识别。由于未经过反串讲，本轮迭代对于此需求的验收方式没有进行讨论，使得项目后期需要进行集成时，发现没有现成板子可以使用（4G模组需要特殊的板子）。后经过多次的重画板、找配套板子也没有解决这个问题。</li>
+</ol>
+<p>一行为导致的直接后果是：</p>
+<ol>
+<li>需求比计划至少延期2周；</li>
+<li>由于配套原因，整一个需求被裁剪，对应人力投入无任何可见产出。</li>
+</ol>
+<h3 id="失败案例2"><a href="#失败案例2" class="headerlink" title="失败案例2"></a>失败案例2</h3><p>另一个例子是最近发生的。下半年迭代二吸取上半年的教训，统一组织了需求串讲和反串讲。在会议前接入组由于交付件明确且工期排满，未参加周三的需求串讲反串讲会议。然而在次日，测试发现需求列表中有一条项目存在疑问，发邮件提问。由于邮件沟通效率较低，蜂鸟基线在周五拉通了开发、测试、项目经理进行串讲，发现需求描述有问题，需要进行整改澄清。</p>
+<h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p>在上述流程中，有一个关键节点没有落实到位，导致了后续一系列的问题：需求串讲和反串讲。<strong>需求串讲与反穿串讲是项目过程中唯一可以低成本纠正需求理解错误的节点</strong>。</p>
+<p>由于没有执行需求串讲与反串讲，导致开发人员对整体需求没有概念，最终交付内容没有与测试统一，甚至开发人员理解的需求也是可能有问题的。而这种错误随着项目的进行，其纠正成本会越来越大。在需求分析阶段纠正也许就花一天；开发阶段纠正也许需要花两周；测试阶段要去纠正需要整个代码推导重来；若是在产品出货阶段纠正，不被处罚就是万幸。</p>
+<h2 id="如何做好需求分析"><a href="#如何做好需求分析" class="headerlink" title="如何做好需求分析"></a>如何做好需求分析</h2><p><img src="/2021/08/30/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8/IPC%E4%BA%A7%E5%93%81%E7%BA%BF%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B.png" alt="IPC产品线需求管理流程"></p>
+<h3 id="开发人员的职责"><a href="#开发人员的职责" class="headerlink" title="开发人员的职责"></a>开发人员的职责</h3><p>如下节点必须在需求澄清阶段明确：</p>
+<ul>
+<li>上游交付形态。包括：可见界面（比如web）、接入协议（比如RPC）、公开接口。</li>
+<li>下游衍生需求。包括：依赖模块负责人、功能划分界面。</li>
+</ul>
+<h3 id="管理人员的职责"><a href="#管理人员的职责" class="headerlink" title="管理人员的职责"></a>管理人员的职责</h3><p>简单的认为开发人员自己就能做好需求分析是不切实际的，或者不客气的说就是痴心妄想。</p>
+<p>注意这里的“好”不是把需求分析做完，而是将需求分析梳理清楚，挖掘各项衍生需求，明确周边资源。</p>
+<h4 id="需求澄清中可能遇到的问题"><a href="#需求澄清中可能遇到的问题" class="headerlink" title="需求澄清中可能遇到的问题"></a>需求澄清中可能遇到的问题</h4><p>开发人员无法做好需求分析主要是由于两方面的因素引起的。</p>
+<p>第一，来源于人类的傲慢。通俗的说，就是很容易出现“自己以为懂了，其实没有懂”的情况。在看到需求描述的那一刻，往往会对需求有一个<strong>先入为主</strong>的想法，认为这个需求是这样这样的，从而使得需求澄清不充分、周边配套不明确（包括软件与硬件）。这个问题不仅仅存在于新员工，资深开发者也一样存在。幸运的是，这种错误往往能在需求串讲和反串讲阶段被发现；不幸的是，需求纠正之后还需要额外花费时间再来一轮需求串讲反串讲，耗费额外的时间。在项目周期宽松的情况下可以接受，但是在项目周期紧张的时候来这么一下还真有可能受不了。</p>
+<p>第二，来源于和 <code>SE</code> (Senior Engineer) 的对接。在正常的 IPD 流程中，SE 需要参与 TR3 的决策，即参与软件概要设计和详细设计的书写及评审。如果开发人员本身的需求澄清没有做好，则可能会对 SE 造成误导（出现方向性错误或范围性错误），导致 TR3 阶段出现偏差。而这一点出现问题的概率极大，而且很有可能察觉不出来（比如 SE 阅读了需求规格书之后，开发人员对需求规格书又进行了修改，而如第一点所述，SE “以为”自己了解了需求），这就导致 TR4B 阶段的编码过程与 TR3 脱节，导致人力浪费以及可能的返工。</p>
+<h4 id="如何确保需求分析到位"><a href="#如何确保需求分析到位" class="headerlink" title="如何确保需求分析到位"></a>如何确保需求分析到位</h4><p><code>TODO</code></p>
+]]></content>
+  </entry>
+  <entry>
     <title>超发的货币为什么只有很少进入工资呢</title>
     <url>/2023/04/06/%E8%B6%85%E5%8F%91%E7%9A%84%E8%B4%A7%E5%B8%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AA%E6%9C%89%E5%BE%88%E5%B0%91%E8%BF%9B%E5%85%A5%E5%B7%A5%E8%B5%84%E5%91%A2/</url>
     <content><![CDATA[<p>来源：<br><a href="https://www.zhihu.com/question/300943612/answer/2621193671">超发的货币为什么只有很少进入工资呢？ - 叶泊枫 的回答 - 知乎</a></p>
@@ -1392,68 +1454,6 @@
 <p>5） 当流动性危机出现时，曾经的货币红利，变成了如今的债务陷阱；</p>
 <p>6） 「功能货币」的出现是大势所趋，但过程管理和资产验收，是关键。</p>
 <p>备案号:YXA1BOAgz9NFrEXGjptD</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>需求分析在项目流程中的作用</title>
-    <url>/2021/08/30/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
-    <content><![CDATA[<p>都知道需求分析重要，但是为什么重要，以及项目中各个角色如何将需求分析做好却并不一定人人都清楚。</p>
-<span id="more"></span>
-
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><p><code>需求分析</code>，指的是在外部已知需求导入后，开发人员实际开发之前，对需求进行澄清的过程，其作业人员是实际开发者，其目的是为了帮助开发者与测试人员对需求表现的形态达成一致。</p>
-<p>需求分析至少包含如下几个过程：</p>
-<ol>
-<li><p>需求澄清（梳理衍生需求、明确周边配套、定义开发验收标准）</p>
-<blockquote>
-<p>确定开发工作量；明确需求风险；推动周边团队作业；影响项目最终交付功能</p>
-</blockquote>
-</li>
-<li><p>需求串讲（由开发向测试描述具体交付的功能）与反串讲（由测试向开发描述具体测试方法）</p>
-<blockquote>
-<p>确保开发与测试所理解的需求是一致的</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="项目过程"><a href="#项目过程" class="headerlink" title="项目过程"></a>项目过程</h3><p>软件开发过程对应到 <a href="https://simple-pdh.com/principles-of-integrated-product-development/">IPD</a> 流程可分为TR1、TR2、TR3、TR4B、TR4、TR5、TR6：</p>
-<ul>
-<li><strong>TR1</strong>: 确定产品需求</li>
-<li><strong>TR2</strong>: 确定需求分析与验收方案</li>
-<li><strong>TR3</strong>: 确定软件设计方案</li>
-<li><strong>TR4B</strong>: 软件验收</li>
-<li><strong>TR4</strong>: 项目发布</li>
-</ul>
-<h2 id="从失败案例中出发"><a href="#从失败案例中出发" class="headerlink" title="从失败案例中出发"></a>从失败案例中出发</h2><h3 id="失败案例1"><a href="#失败案例1" class="headerlink" title="失败案例1"></a>失败案例1</h3><p>一个典型的例子是今年（2021）上半年蜂鸟基线做的 <code>4G解决方案</code>。</p>
-<p><code>4G解决方案</code> 是针对各个产品线推出的针对低功耗4G领域的一套解决方案（最终目标）。</p>
-<p>在基线项目中落地时，为了确保功能可验收，我们采取了在其他产品线中成型使用的验收方案，包括web界面、交互协议等。在需求澄清阶段我们基于如下原因跳过了需求串讲和反串讲流程：</p>
-<ol>
-<li>项目时间紧急。由于上半年定制化项目较多，基线人力严重不足，为了赶上项目进度，去除了部分流程</li>
-<li>验收方案是现成的。由于直接套用了已有的验收方案，因此没有经过仔细研读，认为依照此标准执行即可。</li>
-</ol>
-<p>这一行为导致了一系列的开发问题：</p>
-<ol>
-<li>对最终交付测试的产物不了解。我们的开发始终站在自己的角色中，对于非自己的功能模块不了解，使得对于需求没有一个全局的把握，使得对于需要交付给测试的产物仅有摸棱两可的印象。直到快要验收了，才发现有一些功能没有开发。</li>
-<li>配套问题未提前识别。由于未经过反串讲，本轮迭代对于此需求的验收方式没有进行讨论，使得项目后期需要进行集成时，发现没有现成板子可以使用（4G模组需要特殊的板子）。后经过多次的重画板、找配套板子也没有解决这个问题。</li>
-</ol>
-<p>一行为导致的直接后果是：</p>
-<ol>
-<li>需求比计划至少延期2周；</li>
-<li>由于配套原因，整一个需求被裁剪，对应人力投入无任何可见产出。</li>
-</ol>
-<h3 id="失败案例2"><a href="#失败案例2" class="headerlink" title="失败案例2"></a>失败案例2</h3><p>另一个例子是最近发生的。下半年迭代二吸取上半年的教训，统一组织了需求串讲和反串讲。在会议前接入组由于交付件明确且工期排满，未参加周三的需求串讲反串讲会议。然而在次日，测试发现需求列表中有一条项目存在疑问，发邮件提问。由于邮件沟通效率较低，蜂鸟基线在周五拉通了开发、测试、项目经理进行串讲，发现需求描述有问题，需要进行整改澄清。</p>
-<h3 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h3><p>在上述流程中，有一个关键节点没有落实到位，导致了后续一系列的问题：需求串讲和反串讲。<strong>需求串讲与反穿串讲是项目过程中唯一可以低成本纠正需求理解错误的节点</strong>。</p>
-<p>由于没有执行需求串讲与反串讲，导致开发人员对整体需求没有概念，最终交付内容没有与测试统一，甚至开发人员理解的需求也是可能有问题的。而这种错误随着项目的进行，其纠正成本会越来越大。在需求分析阶段纠正也许就花一天；开发阶段纠正也许需要花两周；测试阶段要去纠正需要整个代码推导重来；若是在产品出货阶段纠正，不被处罚就是万幸。</p>
-<h2 id="如何做好需求分析"><a href="#如何做好需求分析" class="headerlink" title="如何做好需求分析"></a>如何做好需求分析</h2><p><img src="/2021/08/30/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8/IPC%E4%BA%A7%E5%93%81%E7%BA%BF%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86%E6%B5%81%E7%A8%8B.png" alt="IPC产品线需求管理流程"></p>
-<h3 id="开发人员的职责"><a href="#开发人员的职责" class="headerlink" title="开发人员的职责"></a>开发人员的职责</h3><p>如下节点必须在需求澄清阶段明确：</p>
-<ul>
-<li>上游交付形态。包括：可见界面（比如web）、接入协议（比如RPC）、公开接口。</li>
-<li>下游衍生需求。包括：依赖模块负责人、功能划分界面。</li>
-</ul>
-<h3 id="管理人员的职责"><a href="#管理人员的职责" class="headerlink" title="管理人员的职责"></a>管理人员的职责</h3><p>简单的认为开发人员自己就能做好需求分析是不切实际的，或者不客气的说就是痴心妄想。</p>
-<p>注意这里的“好”不是把需求分析做完，而是将需求分析梳理清楚，挖掘各项衍生需求，明确周边资源。</p>
-<h4 id="需求澄清中可能遇到的问题"><a href="#需求澄清中可能遇到的问题" class="headerlink" title="需求澄清中可能遇到的问题"></a>需求澄清中可能遇到的问题</h4><p>开发人员无法做好需求分析主要是由于两方面的因素引起的。</p>
-<p>第一，来源于人类的傲慢。通俗的说，就是很容易出现“自己以为懂了，其实没有懂”的情况。在看到需求描述的那一刻，往往会对需求有一个<strong>先入为主</strong>的想法，认为这个需求是这样这样的，从而使得需求澄清不充分、周边配套不明确（包括软件与硬件）。这个问题不仅仅存在于新员工，资深开发者也一样存在。幸运的是，这种错误往往能在需求串讲和反串讲阶段被发现；不幸的是，需求纠正之后还需要额外花费时间再来一轮需求串讲反串讲，耗费额外的时间。在项目周期宽松的情况下可以接受，但是在项目周期紧张的时候来这么一下还真有可能受不了。</p>
-<p>第二，来源于和 <code>SE</code> (Senior Engineer) 的对接。在正常的 IPD 流程中，SE 需要参与 TR3 的决策，即参与软件概要设计和详细设计的书写及评审。如果开发人员本身的需求澄清没有做好，则可能会对 SE 造成误导（出现方向性错误或范围性错误），导致 TR3 阶段出现偏差。而这一点出现问题的概率极大，而且很有可能察觉不出来（比如 SE 阅读了需求规格书之后，开发人员对需求规格书又进行了修改，而如第一点所述，SE “以为”自己了解了需求），这就导致 TR4B 阶段的编码过程与 TR3 脱节，导致人力浪费以及可能的返工。</p>
-<h4 id="如何确保需求分析到位"><a href="#如何确保需求分析到位" class="headerlink" title="如何确保需求分析到位"></a>如何确保需求分析到位</h4><p><code>TODO</code></p>
 ]]></content>
   </entry>
 </search>

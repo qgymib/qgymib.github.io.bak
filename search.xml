@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CMake 中将 list 作为参数传递给外部命令</title>
+    <url>/2023/02/04/cmake-%E4%B8%AD%E5%B0%86-list-%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%BB%99%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<blockquote>
+<p>来源：<a href="https://stackoverflow.com/questions/52206191/how-to-pass-list-variable-in-cmakes-execute-process">How to pass list variable in CMake’s execute_process?</a></p>
+</blockquote>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span>(REPLACE <span class="string">&quot;;&quot;</span> <span class="string">&quot;,&quot;</span> escaped_list <span class="string">&quot;$&#123;source_list&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>CMake 中的 list 本质上是使用 <code>;</code> 分割的字符串，<code>;</code> 在 CMake 中有特殊意义。因此如果想要将 list 传递给外部程序，需要将其中的 <code>;</code> 转义。</p>
+<h2 id="转义序列选择"><a href="#转义序列选择" class="headerlink" title="转义序列选择"></a>转义序列选择</h2><p>转义序列应该依据使用场景来进行选择。由于 <code>;</code> 的特殊性，如果将 <code>;</code> 转义为 <code>\\;</code>，则其特性表现在不同平台上可能不一样：</p>
+<ul>
+<li>在 Linux&#x2F;Unix 平台，转义表现正常</li>
+<li>在 Windows 平台，转义表现为多了两个 <code>\\</code> 字符</li>
+</ul>
+<p>因此，除非你的 <code>CMakeLists.txt</code> 不涉及跨平台，否则不应将其转义为 <code>\\;</code>。</p>
+]]></content>
+      <tags>
+        <tag>CMake</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Compare of Tinyml compilers</title>
     <url>/2024/01/27/compare-of-tinyml-compilers/</url>
     <content><![CDATA[<table>
@@ -83,28 +105,6 @@
       </categories>
   </entry>
   <entry>
-    <title>CMake 中将 list 作为参数传递给外部命令</title>
-    <url>/2023/02/04/cmake-%E4%B8%AD%E5%B0%86-list-%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%BB%99%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<blockquote>
-<p>来源：<a href="https://stackoverflow.com/questions/52206191/how-to-pass-list-variable-in-cmakes-execute-process">How to pass list variable in CMake’s execute_process?</a></p>
-</blockquote>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">string</span>(REPLACE <span class="string">&quot;;&quot;</span> <span class="string">&quot;,&quot;</span> escaped_list <span class="string">&quot;$&#123;source_list&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>CMake 中的 list 本质上是使用 <code>;</code> 分割的字符串，<code>;</code> 在 CMake 中有特殊意义。因此如果想要将 list 传递给外部程序，需要将其中的 <code>;</code> 转义。</p>
-<h2 id="转义序列选择"><a href="#转义序列选择" class="headerlink" title="转义序列选择"></a>转义序列选择</h2><p>转义序列应该依据使用场景来进行选择。由于 <code>;</code> 的特殊性，如果将 <code>;</code> 转义为 <code>\\;</code>，则其特性表现在不同平台上可能不一样：</p>
-<ul>
-<li>在 Linux&#x2F;Unix 平台，转义表现正常</li>
-<li>在 Windows 平台，转义表现为多了两个 <code>\\</code> 字符</li>
-</ul>
-<p>因此，除非你的 <code>CMakeLists.txt</code> 不涉及跨平台，否则不应将其转义为 <code>\\;</code>。</p>
-]]></content>
-      <tags>
-        <tag>CMake</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Excel 筛选求和</title>
     <url>/2021/08/24/excel-%E7%AD%9B%E9%80%89%E6%B1%82%E5%92%8C/</url>
     <content><![CDATA[<p>使用筛选求和公式 <code>SUBTOTAL</code></p>
@@ -138,20 +138,6 @@
 <h2 id="Disable-hibernation"><a href="#Disable-hibernation" class="headerlink" title="Disable hibernation"></a>Disable hibernation</h2><p>To disable hibernation, use following command:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl mask suspend.target hibernate.target sleep.target</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>MyLifeOrganized Portable</title>
-    <url>/2021/02/21/mylifeorganized-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
-<span id="more"></span>
-
-<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
   </entry>
   <entry>
     <title>Learning TensorFlow Lite for Microcontrollers</title>
@@ -246,6 +232,20 @@
 ]]></content>
   </entry>
   <entry>
+    <title>MyLifeOrganized Portable</title>
+    <url>/2021/02/21/mylifeorganized-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Neovim Portable</title>
     <url>/2021/08/09/neovim-portable/</url>
     <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 NeoVim 封装配置。</p>
@@ -307,31 +307,10 @@
       </tags>
   </entry>
   <entry>
-    <title>SecureCRT + SecureFX 绿色单文件打包方法</title>
-    <url>/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>我们使用 <a href="https://enigmaprotector.com/en/aboutvb.html">Enigma Virtual Box</a> 对 <a href="https://www.vandyke.com/cgi-bin/releases.php?product=securecrt"> SecureCRT + SecureFX</a> 进行打包。</p>
-<span id="more"></span>
-
-<h2 id="Files-配置"><a href="#Files-配置" class="headerlink" title="Files 配置"></a>Files 配置</h2><p>假设 SecureCRT 安装在 <code>C:\Program Files\VanDyke Software\Clients</code> 目录中，则：</p>
-<ol>
-<li>添加 <code>C:\Program Files\VanDyke Software\Clients</code> 为 <code>%DEFAULT FOLDER%</code>。</li>
-</ol>
-<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_default_folder.png"></p>
-<ol start="2">
-<li>添加 <code>C:\Users\WDAGUtilityAccount\AppData\Roaming\VanDyke</code> 为 <code>%ApplicationData FOLDER%\VanDyke</code>。</li>
-</ol>
-<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_applicationdata.png"></p>
-<p>注意保留 <code>Config\Commands</code> 和 <code>Config\Sessions</code> 下的所有内容。其他内容可以删除。</p>
-<h2 id="Registry-配置"><a href="#Registry-配置" class="headerlink" title="Registry 配置"></a>Registry 配置</h2><ol>
-<li>注册表导入 <code>%HKEY_CURRENT_USER%\Software\VanDyke</code> 下所有内容。注意去除 <code>Config Path</code> 项目。</li>
-</ol>
-<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/regedit_hkcu.png"></p>
-<ol start="2">
-<li>注册表导入 <code>%HKEY_LOCAL_MACHINE%\Software\VanDyke</code> 下所有内容。注意去除 <code>Main Directory</code> 项目。</li>
-</ol>
-<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/regedit_hklm.png"></p>
-<h2 id="Storage-配置"><a href="#Storage-配置" class="headerlink" title="Storage 配置"></a>Storage 配置</h2><p>勾选 <code>Save changes of virtual files to</code> 复选框，并设置文件保存路径为 <code>%ApplicationData FOLDER%\enigmavb\sandbox\sfx-x64-bsafe.9.6.2.3540</code></p>
-<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_storage.png"></p>
+    <title>Unraid 支持 Intel GPU 硬解</title>
+    <url>/2021/02/10/unraid-%E6%94%AF%E6%8C%81-intel-gpu-%E7%A1%AC%E8%A7%A3/</url>
+    <content><![CDATA[<p>编辑go文件，添加 modprobe i915，使其内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Intel GPU</span></span><br><span class="line">modprobe i915</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the Management Utility</span></span><br><span class="line">/usr/local/sbin/emhttp &amp;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -440,13 +419,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Unraid 支持 Intel GPU 硬解</title>
-    <url>/2021/02/10/unraid-%E6%94%AF%E6%8C%81-intel-gpu-%E7%A1%AC%E8%A7%A3/</url>
-    <content><![CDATA[<p>编辑go文件，添加 modprobe i915，使其内容如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Intel GPU</span></span><br><span class="line">modprobe i915</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the Management Utility</span></span><br><span class="line">/usr/local/sbin/emhttp &amp;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Visual Studio 中调试动态数组</title>
     <url>/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<p>来源：<a href="https://learn.microsoft.com/zh-cn/troubleshoot/developer/visualstudio/cpp/debuggers/expand-pointer-debugger-watch-window">在 Visual C++ 调试器监视窗口中展开数组指针</a></p>
@@ -485,6 +457,34 @@
 <li>Step 4. 执行覆盖率测试</li>
 </ul>
 <p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/perform_code_coverage.png" alt="执行覆盖率测试"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>SecureCRT + SecureFX 绿色单文件打包方法</title>
+    <url>/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>我们使用 <a href="https://enigmaprotector.com/en/aboutvb.html">Enigma Virtual Box</a> 对 <a href="https://www.vandyke.com/cgi-bin/releases.php?product=securecrt"> SecureCRT + SecureFX</a> 进行打包。</p>
+<span id="more"></span>
+
+<h2 id="Files-配置"><a href="#Files-配置" class="headerlink" title="Files 配置"></a>Files 配置</h2><p>假设 SecureCRT 安装在 <code>C:\Program Files\VanDyke Software\Clients</code> 目录中，则：</p>
+<ol>
+<li>添加 <code>C:\Program Files\VanDyke Software\Clients</code> 为 <code>%DEFAULT FOLDER%</code>。</li>
+</ol>
+<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_default_folder.png"></p>
+<ol start="2">
+<li>添加 <code>C:\Users\WDAGUtilityAccount\AppData\Roaming\VanDyke</code> 为 <code>%ApplicationData FOLDER%\VanDyke</code>。</li>
+</ol>
+<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_applicationdata.png"></p>
+<p>注意保留 <code>Config\Commands</code> 和 <code>Config\Sessions</code> 下的所有内容。其他内容可以删除。</p>
+<h2 id="Registry-配置"><a href="#Registry-配置" class="headerlink" title="Registry 配置"></a>Registry 配置</h2><ol>
+<li>注册表导入 <code>%HKEY_CURRENT_USER%\Software\VanDyke</code> 下所有内容。注意去除 <code>Config Path</code> 项目。</li>
+</ol>
+<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/regedit_hkcu.png"></p>
+<ol start="2">
+<li>注册表导入 <code>%HKEY_LOCAL_MACHINE%\Software\VanDyke</code> 下所有内容。注意去除 <code>Main Directory</code> 项目。</li>
+</ol>
+<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/regedit_hklm.png"></p>
+<h2 id="Storage-配置"><a href="#Storage-配置" class="headerlink" title="Storage 配置"></a>Storage 配置</h2><p>勾选 <code>Save changes of virtual files to</code> 复选框，并设置文件保存路径为 <code>%ApplicationData FOLDER%\enigmavb\sandbox\sfx-x64-bsafe.9.6.2.3540</code></p>
+<p><img src="/2025/05/07/securecrt-securefx-%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%93%E5%8C%85%E6%96%B9%E6%B3%95/example_storage.png"></p>
 ]]></content>
   </entry>
   <entry>
@@ -531,14 +531,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Windows 下删除 samba 挂载点</title>
-    <url>/2021/02/11/windows-%E4%B8%8B%E5%88%A0%E9%99%A4-samba-%E6%8C%82%E8%BD%BD%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="查看当前网络连接"><a href="#查看当前网络连接" class="headerlink" title="查看当前网络连接"></a>查看当前网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use</span><br><span class="line">会记录新的网络连接。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">状态       本地        远程                      网络</span><br><span class="line"></span><br><span class="line"><span class="literal">-------------------------------------------------------------------------------</span></span><br><span class="line">OK           X:        \\<span class="number">192.168</span>.<span class="number">1.221</span>\I<span class="literal">-Userfiles</span>\XDRHW</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">OK           Y:        \\<span class="number">192.168</span>.<span class="number">1.18</span>\<span class="number">592</span>        Microsoft Windows Network</span><br><span class="line">OK           Z:        \\<span class="number">192.168</span>.<span class="number">1.66</span>\<span class="number">6001413</span>        Microsoft Windows Network</span><br><span class="line">OK                     \\<span class="number">192.168</span>.<span class="number">2.209</span>\UserDesktop</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">已断开                 \\<span class="number">192.168</span>.<span class="number">1.100</span>\share       Microsoft Windows Network</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除指定网络连接"><a href="#删除指定网络连接" class="headerlink" title="删除指定网络连接"></a>删除指定网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use \\<span class="number">192.168</span>.<span class="number">1.100</span>\share /delete</span><br><span class="line">\\<span class="number">192.168</span>.<span class="number">1.100</span>\share 已经删除。</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
     <title>Windows 下安装 Qt6</title>
     <url>/2024/03/02/windows-%E4%B8%8B%E5%AE%89%E8%A3%85-qt6/</url>
     <content><![CDATA[<p>Windows 下建议使用 <a href="https://www.msys2.org/">MSYS2</a> 来安装 Qt6。官方安装包总有各种各样的问题。</p>
@@ -552,53 +544,11 @@
 ]]></content>
   </entry>
   <entry>
-    <title>cutest 技术分析</title>
-    <url>/2023/01/06/cutest-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又花了一些时间将 C 语言单元测试框架 <a href="https://github.com/qgymib/cutest">cutest</a> 完善了一下，已经基本可以覆盖绝大部分 <a href="https://github.com/google/googletest">googletest</a> 的常用功能。</p>
-<p>由于 <a href="https://github.com/qgymib/cutest">cutest</a> 主要用于 C 语言，为了达到类似 <a href="https://github.com/google/googletest">googletest</a> 的能力，用了不少技术手段。现在来分析一下。</p>
-<h2 id="测试用例自动注册"><a href="#测试用例自动注册" class="headerlink" title="测试用例自动注册"></a>测试用例自动注册</h2><p><a href="https://github.com/qgymib/cutest">cutest</a> 的一大功能是测试用例自动注册，即如下测试代码能够自动注册运行：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">TEST(foo, bar)</span><br><span class="line">&#123;</span><br><span class="line">    ASSERT_NE_STR(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Windows 下删除 samba 挂载点</title>
+    <url>/2021/02/11/windows-%E4%B8%8B%E5%88%A0%E9%99%A4-samba-%E6%8C%82%E8%BD%BD%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="查看当前网络连接"><a href="#查看当前网络连接" class="headerlink" title="查看当前网络连接"></a>查看当前网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use</span><br><span class="line">会记录新的网络连接。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">状态       本地        远程                      网络</span><br><span class="line"></span><br><span class="line"><span class="literal">-------------------------------------------------------------------------------</span></span><br><span class="line">OK           X:        \\<span class="number">192.168</span>.<span class="number">1.221</span>\I<span class="literal">-Userfiles</span>\XDRHW</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">OK           Y:        \\<span class="number">192.168</span>.<span class="number">1.18</span>\<span class="number">592</span>        Microsoft Windows Network</span><br><span class="line">OK           Z:        \\<span class="number">192.168</span>.<span class="number">1.66</span>\<span class="number">6001413</span>        Microsoft Windows Network</span><br><span class="line">OK                     \\<span class="number">192.168</span>.<span class="number">2.209</span>\UserDesktop</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">已断开                 \\<span class="number">192.168</span>.<span class="number">1.100</span>\share       Microsoft Windows Network</span><br></pre></td></tr></table></figure>
 
-<p>上述功能的核心技术是使一段代码在 <code>main()</code> 函数执行之前执行，以便自动注册测试代码。</p>
-<p><a href="https://github.com/qgymib/cutest">cutest</a> 使用了三项技术，通过 <code>TEST_INITIALIZER</code> 宏判断运行环境并选择对应技术。</p>
-<h3 id="C-全局变量初始化"><a href="#C-全局变量初始化" class="headerlink" title="C++全局变量初始化"></a>C++全局变量初始化</h3><p>当处于C++环境中时，<a href="https://github.com/qgymib/cutest">cutest</a> 采用类似 <a href="https://github.com/google/googletest">googletest</a> 中全局类的初始化方法执行，即：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    struct f##_t_ &#123; f##_t_(void) &#123; f(); &#125; &#125;; f##_t_ f##_; \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
-
-<p>如上的代码中定义了一个全局变量结构 <code>s_##fixture##_##name</code>，并在结构初始化函数中调用用户定义函数 <code>f_##fixture##_##name</code>。虽然C++手册中没有明确定义，但是大部分编译器初始化全局变量的时间点在 <code>main()</code> 函数执行之前，这就保证了所有的测试用例在 <code>main()</code> 函数执行之前就已经自动注册。</p>
-<h3 id="GCC-Clang-的构造属性"><a href="#GCC-Clang-的构造属性" class="headerlink" title="GCC&#x2F;Clang 的构造属性"></a>GCC&#x2F;Clang 的构造属性</h3><p>当使用 gcc&#x2F;clang 时，这两种编译器支持 <code>__attribute__((constructor))</code> 属性。使用这个属性修饰的函数会在 <code>main()</code> 函数执行之前执行：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void) __attribute__((constructor)); \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="MSVC-的特殊-section"><a href="#MSVC-的特殊-section" class="headerlink" title="MSVC 的特殊 section"></a>MSVC 的特殊 section</h3><p>Windows平台的可执行文件有一个特殊 secion <code>.CRT$XCU</code>，存放在此 section 中的函数会在 <code>main()</code> 函数启动之前运行：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> section(<span class="string">&quot;.CRT$XCU&quot;</span>,read)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER2_(f,p) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    __declspec(allocate(<span class="string">&quot;.CRT$XCU&quot;</span>)) void (*f##_)(void) = f; \</span></span><br><span class="line"><span class="meta">    __pragma(comment(linker,<span class="string">&quot;/include:&quot;</span> p #f <span class="string">&quot;_&quot;</span>)) \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> _WIN64</span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;_&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<p>注意这里还需要区分是否是64位运行环境，这是由于不同环境在编译时生成的符号表不同：32位环境生成的符号会自动添加一个下划线。</p>
-<h2 id="参数化测试用例解析"><a href="#参数化测试用例解析" class="headerlink" title="参数化测试用例解析"></a>参数化测试用例解析</h2><p>当定义了参数化用例时，<code>--test_list_tests</code> 命令行选项会输出对用的参数：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">test_p_2_data</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">&#125; <span class="type">test_p_2_data_t</span>;</span><br><span class="line"></span><br><span class="line">TEST_PARAMETERIZED_DEFINE(example, test_p_structure, <span class="type">test_p_2_data_t</span>, &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;);</span><br><span class="line"></span><br><span class="line">TEST_P(example, test_p_structure)</span><br><span class="line">&#123;</span><br><span class="line">    TEST_PARAMETERIZED_SUPPRESS_UNUSED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./example --test_list_tests</span><br><span class="line">example.</span><br><span class="line">  test_p_structure/0  # &lt;test_p_2_data_t&gt; &#123; 1, 2, 3 &#125;</span><br><span class="line">  test_p_structure/1  # &lt;test_p_2_data_t&gt; &#123; 2, 3, 5 &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里存在两个技术难点：</p>
-<ol>
-<li>如何知道这里存在2个用例？</li>
-<li>如何准确输出2个用例的参数内容？</li>
-</ol>
-<h3 id="用例数量统计"><a href="#用例数量统计" class="headerlink" title="用例数量统计"></a>用例数量统计</h3><p>为了准确知道参数化测试的用例数量，我们需要用到可变数组的初始化方法：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> TYPE s_parameterized_userdata[] = &#123; __VA_ARGS__ &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>如上代码将用户参数静态初始化为一个数组，则数组元素数量就是用例数量。上述代码展开后就变成：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">test_p_2_data_t</span> s_parameterized_userdata[] = &#123;</span><br><span class="line">    &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>此时 <code>sizeof(s_parameterized_userdata)/sizeof(s_parameterized_userdata[0])</code> 即为用例数量。</p>
-<h3 id="用例参数解析"><a href="#用例参数解析" class="headerlink" title="用例参数解析"></a>用例参数解析</h3><p>用例参数的内容是无法在编译期直接获知的。为了能够输出各个用例的内容，我们需要在运行期解析：</p>
-<ol>
-<li>首先我们通过字符串记录用户参数的完整内容：<code>&quot;&#123; 1, 2, 3 &#125;, &#123; 2, 3, 5 &#125;&quot;</code>。</li>
-<li>随后我们需要在运行期对于这个字符串进行词法分析。这里不用担心分析一场，因为既然能够通过编译，一定说明词法是正确的。词法分析的内容依照优先级分为三类：字符串、结构体、其他。</li>
-<li>依照词法分析结果，选择对用的用户字符串输出。</li>
-</ol>
-<h2 id="终端颜色按场景渲染"><a href="#终端颜色按场景渲染" class="headerlink" title="终端颜色按场景渲染"></a>终端颜色按场景渲染</h2><p>在普通的支持彩色输出的程序中，如果我们将其重定向至文件，可以看到文件中有类似乱码的存在；而类似的问题在 <a href="https://github.com/qgymib/cutest">cutest</a> 中不存在，这是为什么？</p>
-<p>在 Linux 中，为了输出彩色颜色，我们需要添加一些控制字符，例如 <code>\033[0;33m</code> 等，这些特殊字符是无法通过文本编辑器正常显示的，正是它们造成了乱码。</p>
-<p>而 <a href="https://github.com/qgymib/cutest">cutest</a> 通过 <code>isatty()</code> 接口对输出设备进行了判断（代码来源于 <a href="https://github.com/google/googletest">googletest</a>），仅当输出设备为 <code>tty</code> 时，才输出颜色，否则仅输出文本。</p>
-<!-- links -->
+<h2 id="删除指定网络连接"><a href="#删除指定网络连接" class="headerlink" title="删除指定网络连接"></a>删除指定网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use \\<span class="number">192.168</span>.<span class="number">1.100</span>\share /delete</span><br><span class="line">\\<span class="number">192.168</span>.<span class="number">1.100</span>\share 已经删除。</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -658,6 +608,63 @@
 ]]></content>
   </entry>
   <entry>
+    <title>cutest 技术分析</title>
+    <url>/2023/01/06/cutest-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又花了一些时间将 C 语言单元测试框架 <a href="https://github.com/qgymib/cutest">cutest</a> 完善了一下，已经基本可以覆盖绝大部分 <a href="https://github.com/google/googletest">googletest</a> 的常用功能。</p>
+<p>由于 <a href="https://github.com/qgymib/cutest">cutest</a> 主要用于 C 语言，为了达到类似 <a href="https://github.com/google/googletest">googletest</a> 的能力，用了不少技术手段。现在来分析一下。</p>
+<h2 id="测试用例自动注册"><a href="#测试用例自动注册" class="headerlink" title="测试用例自动注册"></a>测试用例自动注册</h2><p><a href="https://github.com/qgymib/cutest">cutest</a> 的一大功能是测试用例自动注册，即如下测试代码能够自动注册运行：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">TEST(foo, bar)</span><br><span class="line">&#123;</span><br><span class="line">    ASSERT_NE_STR(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述功能的核心技术是使一段代码在 <code>main()</code> 函数执行之前执行，以便自动注册测试代码。</p>
+<p><a href="https://github.com/qgymib/cutest">cutest</a> 使用了三项技术，通过 <code>TEST_INITIALIZER</code> 宏判断运行环境并选择对应技术。</p>
+<h3 id="C-全局变量初始化"><a href="#C-全局变量初始化" class="headerlink" title="C++全局变量初始化"></a>C++全局变量初始化</h3><p>当处于C++环境中时，<a href="https://github.com/qgymib/cutest">cutest</a> 采用类似 <a href="https://github.com/google/googletest">googletest</a> 中全局类的初始化方法执行，即：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    struct f##_t_ &#123; f##_t_(void) &#123; f(); &#125; &#125;; f##_t_ f##_; \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
+
+<p>如上的代码中定义了一个全局变量结构 <code>s_##fixture##_##name</code>，并在结构初始化函数中调用用户定义函数 <code>f_##fixture##_##name</code>。虽然C++手册中没有明确定义，但是大部分编译器初始化全局变量的时间点在 <code>main()</code> 函数执行之前，这就保证了所有的测试用例在 <code>main()</code> 函数执行之前就已经自动注册。</p>
+<h3 id="GCC-Clang-的构造属性"><a href="#GCC-Clang-的构造属性" class="headerlink" title="GCC&#x2F;Clang 的构造属性"></a>GCC&#x2F;Clang 的构造属性</h3><p>当使用 gcc&#x2F;clang 时，这两种编译器支持 <code>__attribute__((constructor))</code> 属性。使用这个属性修饰的函数会在 <code>main()</code> 函数执行之前执行：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void) __attribute__((constructor)); \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="MSVC-的特殊-section"><a href="#MSVC-的特殊-section" class="headerlink" title="MSVC 的特殊 section"></a>MSVC 的特殊 section</h3><p>Windows平台的可执行文件有一个特殊 secion <code>.CRT$XCU</code>，存放在此 section 中的函数会在 <code>main()</code> 函数启动之前运行：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> section(<span class="string">&quot;.CRT$XCU&quot;</span>,read)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER2_(f,p) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    __declspec(allocate(<span class="string">&quot;.CRT$XCU&quot;</span>)) void (*f##_)(void) = f; \</span></span><br><span class="line"><span class="meta">    __pragma(comment(linker,<span class="string">&quot;/include:&quot;</span> p #f <span class="string">&quot;_&quot;</span>)) \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> _WIN64</span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;_&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>注意这里还需要区分是否是64位运行环境，这是由于不同环境在编译时生成的符号表不同：32位环境生成的符号会自动添加一个下划线。</p>
+<h2 id="参数化测试用例解析"><a href="#参数化测试用例解析" class="headerlink" title="参数化测试用例解析"></a>参数化测试用例解析</h2><p>当定义了参数化用例时，<code>--test_list_tests</code> 命令行选项会输出对用的参数：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">test_p_2_data</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">&#125; <span class="type">test_p_2_data_t</span>;</span><br><span class="line"></span><br><span class="line">TEST_PARAMETERIZED_DEFINE(example, test_p_structure, <span class="type">test_p_2_data_t</span>, &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;);</span><br><span class="line"></span><br><span class="line">TEST_P(example, test_p_structure)</span><br><span class="line">&#123;</span><br><span class="line">    TEST_PARAMETERIZED_SUPPRESS_UNUSED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./example --test_list_tests</span><br><span class="line">example.</span><br><span class="line">  test_p_structure/0  # &lt;test_p_2_data_t&gt; &#123; 1, 2, 3 &#125;</span><br><span class="line">  test_p_structure/1  # &lt;test_p_2_data_t&gt; &#123; 2, 3, 5 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里存在两个技术难点：</p>
+<ol>
+<li>如何知道这里存在2个用例？</li>
+<li>如何准确输出2个用例的参数内容？</li>
+</ol>
+<h3 id="用例数量统计"><a href="#用例数量统计" class="headerlink" title="用例数量统计"></a>用例数量统计</h3><p>为了准确知道参数化测试的用例数量，我们需要用到可变数组的初始化方法：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> TYPE s_parameterized_userdata[] = &#123; __VA_ARGS__ &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如上代码将用户参数静态初始化为一个数组，则数组元素数量就是用例数量。上述代码展开后就变成：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">test_p_2_data_t</span> s_parameterized_userdata[] = &#123;</span><br><span class="line">    &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>此时 <code>sizeof(s_parameterized_userdata)/sizeof(s_parameterized_userdata[0])</code> 即为用例数量。</p>
+<h3 id="用例参数解析"><a href="#用例参数解析" class="headerlink" title="用例参数解析"></a>用例参数解析</h3><p>用例参数的内容是无法在编译期直接获知的。为了能够输出各个用例的内容，我们需要在运行期解析：</p>
+<ol>
+<li>首先我们通过字符串记录用户参数的完整内容：<code>&quot;&#123; 1, 2, 3 &#125;, &#123; 2, 3, 5 &#125;&quot;</code>。</li>
+<li>随后我们需要在运行期对于这个字符串进行词法分析。这里不用担心分析一场，因为既然能够通过编译，一定说明词法是正确的。词法分析的内容依照优先级分为三类：字符串、结构体、其他。</li>
+<li>依照词法分析结果，选择对用的用户字符串输出。</li>
+</ol>
+<h2 id="终端颜色按场景渲染"><a href="#终端颜色按场景渲染" class="headerlink" title="终端颜色按场景渲染"></a>终端颜色按场景渲染</h2><p>在普通的支持彩色输出的程序中，如果我们将其重定向至文件，可以看到文件中有类似乱码的存在；而类似的问题在 <a href="https://github.com/qgymib/cutest">cutest</a> 中不存在，这是为什么？</p>
+<p>在 Linux 中，为了输出彩色颜色，我们需要添加一些控制字符，例如 <code>\033[0;33m</code> 等，这些特殊字符是无法通过文本编辑器正常显示的，正是它们造成了乱码。</p>
+<p>而 <a href="https://github.com/qgymib/cutest">cutest</a> 通过 <code>isatty()</code> 接口对输出设备进行了判断（代码来源于 <a href="https://github.com/google/googletest">googletest</a>），仅当输出设备为 <code>tty</code> 时，才输出颜色，否则仅输出文本。</p>
+<!-- links -->
+]]></content>
+  </entry>
+  <entry>
+    <title>lede 开启 hello world</title>
+    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
+    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>longjmp的行为</title>
     <url>/2021/08/02/longjmp%E7%9A%84%E8%A1%8C%E4%B8%BA/</url>
     <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>在造轮子 <a href="https://github.com/qgymib/call_on_stack">call_on_stack</a> 时，发现 <code>longjmp()</code> 函数所作的工作不像表面这么简单。</p>
@@ -685,32 +692,6 @@
 <li>若线程开启了ssp功能，则构造一个新的 shadow stack。</li>
 </ol>
 <h3 id="msvc行为分析"><a href="#msvc行为分析" class="headerlink" title="msvc行为分析"></a>msvc行为分析</h3><p><a href="https://blog.lazym.io/2020/09/21/Unicorn-Devblog-setjmp-longjmp-on-Windows/">Unicorn Devblog: setjmp&#x2F;longjmp on Windows</a> 已经说的很清楚了，不再赘述。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>lede 开启 hello world</title>
-    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
-    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>pcre2 jit 导致 Invalid read of size 16</title>
-    <url>/2022/11/19/pcre2-jit-%E5%AF%BC%E8%87%B4-invalid-read-of-size-16/</url>
-    <content><![CDATA[<p>在使用 <a href="https://www.pcre.org/current/doc/html/pcre2jit.html">pcre2jit</a> 后，使用 valgrind 运行程序可能出现如下错误：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">==331814== Invalid read of size 16</span><br><span class="line">==331814==    at 0x4863C84: ???</span><br><span class="line">==331814==    by 0x4B54DFB: ???</span><br></pre></td></tr></table></figure>
-
-<p>最开始以为是程序代码问题，经过搜索之后发现这是特意为之，不会造成任何问题（除了 valgrind 告警），细节见如下 Bug: <a href="https://www.mail-archive.com/pcre-dev@exim.org/msg06407.html">[pcre-dev] [Bug 2540] New: Valgrind errors in PCRE2 JIT code</a>。</p>
-<span id="more"></span>
-
-<p><a href="https://www.mail-archive.com/pcre-dev@exim.org/msg06413.html">关键信息</a>摘录如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--- Comment #5 from Zoltan Herczeg &lt;hzmes...@freemail.hu&gt; ---</span><br><span class="line">&gt; Do you mean that this kind of reads past the end of the buffer is expected</span><br><span class="line">&gt; from PCRE2+SIMD JIT ?</span><br><span class="line"></span><br><span class="line">Exactly. To understand it, you need to know about how virtual memory mapping is</span><br><span class="line">working. You can read about it here:</span><br><span class="line"></span><br><span class="line">https://en.wikipedia.org/wiki/Virtual_memory</span><br><span class="line"></span><br><span class="line">The CPU maps virtual addresses to physical addresses by replacing the upper</span><br><span class="line">bits of the address, but always keeps the lower n bits. Usually n is at least</span><br><span class="line">12 (that means 4K pages). As far as I remember some architectures support 1K</span><br><span class="line">pages (n = 10), but I am not 100% sure.</span><br><span class="line"></span><br><span class="line">The point is: if you have a p pointer, which points to a valid memory byte</span><br><span class="line">(available to the current process), reading 16 byte from (p &amp; ~(16 - 1)) is</span><br><span class="line">always valid. The (p &amp; ~(16 - 1)) is called aligned memory address which means</span><br><span class="line">the lower 4 bits of p is zeroed. Therefore we can safely read data before the</span><br><span class="line">start and after the end of any buffer as long as the pointer is aligned, and</span><br><span class="line">the covered memory area contains at least 1 byte of the buffer. This is not</span><br><span class="line">limited to 16 bytes: any n where n is power of 2, and lower or equal than 1024</span><br><span class="line">should work.</span><br><span class="line"></span><br><span class="line">SIMD works best with large amount of data, so JIT may read data before and</span><br><span class="line">after the subject buffer. However this should never cause any problem (except</span><br><span class="line">for valgrind).</span><br><span class="line"></span><br><span class="line">Let me know if you need more detailed explanation.</span><br></pre></td></tr></table></figure>
-
-<p>简单翻译一下：</p>
-<blockquote>
-<p>绝大部分架构使用 4k 内存页（少部分使用 1k），而内存页的地址是对齐的 （比如 4k 内存页的首地址和尾地址均能够被 4096 整除），这使得对于任意有效地址 <code>p</code>，访问地址 <code>(p &amp; ~(16 - 1))</code> 也总是有效的。</p>
-<p>之所以 PCRE2JIT 要这么做的原因，在于 SIMD 擅长于处理大量数据，所以 PCRE2JIT 也许会将所需匹配的地址前后数据都读入，以便 SIMD 发挥最大能力。</p>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -744,6 +725,34 @@
 ]]></content>
   </entry>
   <entry>
+    <title>pcre2 jit 导致 Invalid read of size 16</title>
+    <url>/2022/11/19/pcre2-jit-%E5%AF%BC%E8%87%B4-invalid-read-of-size-16/</url>
+    <content><![CDATA[<p>在使用 <a href="https://www.pcre.org/current/doc/html/pcre2jit.html">pcre2jit</a> 后，使用 valgrind 运行程序可能出现如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">==331814== Invalid read of size 16</span><br><span class="line">==331814==    at 0x4863C84: ???</span><br><span class="line">==331814==    by 0x4B54DFB: ???</span><br></pre></td></tr></table></figure>
+
+<p>最开始以为是程序代码问题，经过搜索之后发现这是特意为之，不会造成任何问题（除了 valgrind 告警），细节见如下 Bug: <a href="https://www.mail-archive.com/pcre-dev@exim.org/msg06407.html">[pcre-dev] [Bug 2540] New: Valgrind errors in PCRE2 JIT code</a>。</p>
+<span id="more"></span>
+
+<p><a href="https://www.mail-archive.com/pcre-dev@exim.org/msg06413.html">关键信息</a>摘录如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--- Comment #5 from Zoltan Herczeg &lt;hzmes...@freemail.hu&gt; ---</span><br><span class="line">&gt; Do you mean that this kind of reads past the end of the buffer is expected</span><br><span class="line">&gt; from PCRE2+SIMD JIT ?</span><br><span class="line"></span><br><span class="line">Exactly. To understand it, you need to know about how virtual memory mapping is</span><br><span class="line">working. You can read about it here:</span><br><span class="line"></span><br><span class="line">https://en.wikipedia.org/wiki/Virtual_memory</span><br><span class="line"></span><br><span class="line">The CPU maps virtual addresses to physical addresses by replacing the upper</span><br><span class="line">bits of the address, but always keeps the lower n bits. Usually n is at least</span><br><span class="line">12 (that means 4K pages). As far as I remember some architectures support 1K</span><br><span class="line">pages (n = 10), but I am not 100% sure.</span><br><span class="line"></span><br><span class="line">The point is: if you have a p pointer, which points to a valid memory byte</span><br><span class="line">(available to the current process), reading 16 byte from (p &amp; ~(16 - 1)) is</span><br><span class="line">always valid. The (p &amp; ~(16 - 1)) is called aligned memory address which means</span><br><span class="line">the lower 4 bits of p is zeroed. Therefore we can safely read data before the</span><br><span class="line">start and after the end of any buffer as long as the pointer is aligned, and</span><br><span class="line">the covered memory area contains at least 1 byte of the buffer. This is not</span><br><span class="line">limited to 16 bytes: any n where n is power of 2, and lower or equal than 1024</span><br><span class="line">should work.</span><br><span class="line"></span><br><span class="line">SIMD works best with large amount of data, so JIT may read data before and</span><br><span class="line">after the subject buffer. However this should never cause any problem (except</span><br><span class="line">for valgrind).</span><br><span class="line"></span><br><span class="line">Let me know if you need more detailed explanation.</span><br></pre></td></tr></table></figure>
+
+<p>简单翻译一下：</p>
+<blockquote>
+<p>绝大部分架构使用 4k 内存页（少部分使用 1k），而内存页的地址是对齐的 （比如 4k 内存页的首地址和尾地址均能够被 4096 整除），这使得对于任意有效地址 <code>p</code>，访问地址 <code>(p &amp; ~(16 - 1))</code> 也总是有效的。</p>
+<p>之所以 PCRE2JIT 要这么做的原因，在于 SIMD 擅长于处理大量数据，所以 PCRE2JIT 也许会将所需匹配的地址前后数据都读入，以便 SIMD 发挥最大能力。</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>Xshell 登陆时自动同步 PC 时间</title>
+    <url>/2021/07/27/xshell-%E7%99%BB%E9%99%86%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-pc-%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<p>对于部分没有 RTC 芯片的设备，重启会导致时间重置。如下 VBS 脚本可在xshell登陆时自动同步PC时间：</p>
+<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Sub</span> Main</span><br><span class="line">    xsh.Screen.Synchronous = <span class="literal">True</span></span><br><span class="line">	xsh.Screen.Send <span class="string">&quot;sudo TZ=&#x27;Asia/Shanghai&#x27; date -s &quot;&quot;&quot;</span> &amp; <span class="built_in">FormatDateTime</span>(<span class="built_in">Now</span>(), vbGeneralDate) &amp; <span class="string">&quot;&quot;&quot;&quot;</span> &amp; VbCr</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
+
+<p>在Xshell的会话属性中，选择“连接-&gt;登陆脚本-&gt;连接会话时运行脚本”，选择上述脚本即可。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>x86_64 下使用 opcode 进行大于 4GB 地址的远距离跳转</title>
     <url>/2021/11/04/x86-64-%E4%B8%8B%E4%BD%BF%E7%94%A8-opcode-%E8%BF%9B%E8%A1%8C%E5%A4%A7%E4%BA%8E-4gb-%E5%9C%B0%E5%9D%80%E7%9A%84%E8%BF%9C%E8%B7%9D%E7%A6%BB%E8%B7%B3%E8%BD%AC/</url>
     <content><![CDATA[<p>解决方案来源：<a href="https://stackoverflow.com/a/53876008">JMP instruction - Hex code</a></p>
@@ -756,15 +765,6 @@
 
 <p>解决方案：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ff 25 00 00 00 00           jmp qword ptr [rip]      jmp *(%rip)</span><br><span class="line">yo ur ad dr re ss he re     some random assembly</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Xshell 登陆时自动同步 PC 时间</title>
-    <url>/2021/07/27/xshell-%E7%99%BB%E9%99%86%E6%97%B6%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-pc-%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<p>对于部分没有 RTC 芯片的设备，重启会导致时间重置。如下 VBS 脚本可在xshell登陆时自动同步PC时间：</p>
-<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Sub</span> Main</span><br><span class="line">    xsh.Screen.Synchronous = <span class="literal">True</span></span><br><span class="line">	xsh.Screen.Send <span class="string">&quot;sudo TZ=&#x27;Asia/Shanghai&#x27; date -s &quot;&quot;&quot;</span> &amp; <span class="built_in">FormatDateTime</span>(<span class="built_in">Now</span>(), vbGeneralDate) &amp; <span class="string">&quot;&quot;&quot;&quot;</span> &amp; VbCr</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
-
-<p>在Xshell的会话属性中，选择“连接-&gt;登陆脚本-&gt;连接会话时运行脚本”，选择上述脚本即可。</p>
 ]]></content>
   </entry>
   <entry>
@@ -935,6 +935,121 @@
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @file: foo.h</span></span><br><span class="line"><span class="comment"> * 对外头文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">foo</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">void</span>    (*bar)(<span class="keyword">struct</span> foo* thiz);</span><br><span class="line">&#125; <span class="type">foo_t</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @file: foo.c</span></span><br><span class="line"><span class="comment"> * 内部实现</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;foo.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">foo_impl</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">foo_t</span>   handle;     <span class="comment">// 对外接口</span></span><br><span class="line">    <span class="type">void</span>*   priv;       <span class="comment">// 私有属性</span></span><br><span class="line">&#125;<span class="type">foo_impl_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> _bar(<span class="keyword">struct</span> foo* thiz)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 获取原始地址 */</span></span><br><span class="line">    <span class="type">foo_impl_t</span>* impl = container_of(thiz, <span class="type">foo_impl_t</span>, handle);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* do something */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">foo_t</span>* <span class="title function_">create_foo</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">foo_impl_t</span>* impl = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">foo_impl_t</span>));</span><br><span class="line">    impl-&gt;priv = some_data; <span class="comment">// 私有属性</span></span><br><span class="line">    impl-&gt;handle.bar = _bar;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 返回的是 foo_impl_t::handle 的地址 */</span></span><br><span class="line">    <span class="keyword">return</span> &amp;impl-&gt;handle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>如何把握工作中的机会</title>
+    <url>/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/</url>
+    <content><![CDATA[<h2 id="前景提要"><a href="#前景提要" class="headerlink" title="前景提要"></a>前景提要</h2><ol>
+<li>蜂鸟平台日益增长的覆盖范围与基线有限人力资源之间的冲突</li>
+<li>低质量需求堆叠与团队个人发展之间的冲突</li>
+<li>蜂鸟平台整体结构预计迎来变更</li>
+</ol>
+<p>此文章尝试部分解决个人发展诉求与工作任务冲突的问题。</p>
+<span id="more"></span>
+
+<h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><ul>
+<li>2014: 哈尔滨工业大学软件工程学院毕业</li>
+<li>2014&#x2F;09: HTC，参与高通、展讯等厂商的modem维护</li>
+<li>2015&#x2F;09: 浙江大华技术股份有限公司<ul>
+<li>2015: 负责sip协议栈维护工作，应届生标准进入。P1（10）</li>
+<li>2016: 流媒体集群新技术预研、大华物联网平台预研。P2B（12）</li>
+<li>2017: 成为蜂鸟平台创建人之一，主攻低成本摄像设备领域。P2B（13）</li>
+<li>2018: 成为架构师，评选技术专家，规划落实蜂鸟平台2.0。P3A（14）</li>
+<li>2019: 摸鱼中。P3B（15）</li>
+<li>2020: 成为小组管理者，兼任架构师。P4A（16）</li>
+<li>2021: 成为团队管理者，兼任架构师；组建专家小组，负责平台整体演进规划。P4A（16）</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/%E6%99%8B%E5%8D%87%E4%BF%A1%E6%81%AF.png" alt="晋升信息"></p>
+<h2 id="大事件"><a href="#大事件" class="headerlink" title="大事件"></a>大事件</h2><h3 id="2015-SipStack"><a href="#2015-SipStack" class="headerlink" title="2015 - SipStack"></a>2015 - SipStack</h3><blockquote>
+<p>背景：<br>libSipStack：大华使用开源osip库和exosip库封装而成的整合库，是一个总计数十万行代码的<strong>客户端</strong>接入库。</p>
+</blockquote>
+<p>【事件】</p>
+<p>2015年年底，移动和慧眼项目，公司将libsipstack作为服务端基础组件，导致每个服务器仅能支撑12台设备。</p>
+<p>【困境】</p>
+<ol>
+<li><code>libSipStack</code>服务人群变化，强行作为服务端</li>
+<li>代码量大，3个月基本没看懂代码</li>
+<li>熟悉<code>libSipStack</code>的人离职的离职，转岗的转岗。</li>
+</ol>
+<p>【动作】</p>
+<ol>
+<li><p>我的导师 <a href="li_wei7@dahuatech.com">李伟7</a> 联系了前负责人，要到了以前的不完全优化方案；指出优化需要基于数据指标而不是空想</p>
+</li>
+<li><p>引入GTest框架，建立基准性能数据</p>
+</li>
+<li><p>引入GPerf，建立调用数据图表，分析热点数据</p>
+<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/MeetingServer.png" alt="调用数据"></p>
+</li>
+<li><p>探究并图表化各种数据结构的原理、性能指标，建立使用场景模型。</p>
+<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%89%A9%E5%AE%B9%E6%95%B0%E6%8D%AE.png" alt="哈希表扩容数据"></p>
+</li>
+</ol>
+<p>【成果】</p>
+<ol>
+<li>性能优化500倍。12tps提升至5000tps。</li>
+<li>了解性能优化方法论。</li>
+</ol>
+<h3 id="2016-06-30-蜂鸟v1-0-（AKA-大华物联网平台）"><a href="#2016-06-30-蜂鸟v1-0-（AKA-大华物联网平台）" class="headerlink" title="2016&#x2F;06&#x2F;30 - 蜂鸟v1.0 （AKA. 大华物联网平台）"></a>2016&#x2F;06&#x2F;30 - 蜂鸟v1.0 （AKA. 大华物联网平台）</h3><blockquote>
+<p>自然语言测试框架（RobotTestFramework）：失败</p>
+<p>流媒体集群GO化：失败</p>
+<p>数据库存储集群：失败</p>
+</blockquote>
+<ol>
+<li>独立完成网络框架、文件、信号量、日志、红黑树、动态内存、内存追踪等模块，代码输出8K</li>
+<li>各模块单元测试行覆盖率为81%~86%</li>
+</ol>
+<p>【困境】</p>
+<p>无大型软件开发经验</p>
+<p>【动作】</p>
+<ol>
+<li>咨询资深网络工程师（NetFramework维护者）。</li>
+</ol>
+<p>【成果】</p>
+<ol>
+<li>积累网络编程经验。</li>
+<li>多线程+回调真tm难用。</li>
+</ol>
+<h3 id="2018-蜂鸟V2-0"><a href="#2018-蜂鸟V2-0" class="headerlink" title="2018 - 蜂鸟V2.0"></a>2018 - 蜂鸟V2.0</h3><ul>
+<li>NetMux</li>
+<li>RTSP</li>
+<li>RPCFramework</li>
+<li>Filestream</li>
+<li>日均代码量230行</li>
+</ul>
+<p>引入新技术并分析优劣：</p>
+<ul>
+<li>侵入式容器</li>
+<li>正则表达式</li>
+</ul>
+<h3 id="2019-蜂鸟V2-0"><a href="#2019-蜂鸟V2-0" class="headerlink" title="2019 - 蜂鸟V2.0"></a>2019 - 蜂鸟V2.0</h3><p>重构、重构、还是重构</p>
+<p>NetMux：2次大重构。</p>
+<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/NetMux%E7%BB%93%E6%9E%84.png" alt="NetMux结构"></p>
+<p>4次重构体现出了典型的软件变更过程：</p>
+<ol>
+<li>瞎JB写：代码满足要求就行；</li>
+<li>第一次重构：Bug太多，代码太乱，看不下去；</li>
+<li>第二次重构：逻辑杂糅导致的添加功能困难；</li>
+</ol>
+<p>恰好能运行 -&gt; 利于修复问题 -&gt; 利于添加需求。</p>
+<h2 id="技术专家的技能点"><a href="#技术专家的技能点" class="headerlink" title="技术专家的技能点"></a>技术专家的技能点</h2><ol>
+<li><p>基础知识。</p>
+<p>工作中多走一步：性能优化方法、网络知识、各种操作系统接口特性、各种算法特性。</p>
+</li>
+<li><p>设计原理。</p>
+<p>对于代码的苛求。</p>
+</li>
+</ol>
+<h2 id="成长速度的壁垒"><a href="#成长速度的壁垒" class="headerlink" title="成长速度的壁垒"></a>成长速度的壁垒</h2><p>为何同时期入职，每个人的成长速度都不一样？</p>
+<ol>
+<li><p>任务编排与个人能力之间的关系</p>
+<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/%E6%88%90%E9%95%BF%E9%80%9F%E5%BA%A6%E7%9A%84%E5%A3%81%E5%9E%92.png" alt="成长速度的壁垒"></p>
+</li>
+<li><p>学习速度与基础积累之间的关系</p>
+</li>
+</ol>
 ]]></content>
   </entry>
   <entry>
@@ -1277,121 +1392,6 @@
 <p>5） 当流动性危机出现时，曾经的货币红利，变成了如今的债务陷阱；</p>
 <p>6） 「功能货币」的出现是大势所趋，但过程管理和资产验收，是关键。</p>
 <p>备案号:YXA1BOAgz9NFrEXGjptD</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>如何把握工作中的机会</title>
-    <url>/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/</url>
-    <content><![CDATA[<h2 id="前景提要"><a href="#前景提要" class="headerlink" title="前景提要"></a>前景提要</h2><ol>
-<li>蜂鸟平台日益增长的覆盖范围与基线有限人力资源之间的冲突</li>
-<li>低质量需求堆叠与团队个人发展之间的冲突</li>
-<li>蜂鸟平台整体结构预计迎来变更</li>
-</ol>
-<p>此文章尝试部分解决个人发展诉求与工作任务冲突的问题。</p>
-<span id="more"></span>
-
-<h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><ul>
-<li>2014: 哈尔滨工业大学软件工程学院毕业</li>
-<li>2014&#x2F;09: HTC，参与高通、展讯等厂商的modem维护</li>
-<li>2015&#x2F;09: 浙江大华技术股份有限公司<ul>
-<li>2015: 负责sip协议栈维护工作，应届生标准进入。P1（10）</li>
-<li>2016: 流媒体集群新技术预研、大华物联网平台预研。P2B（12）</li>
-<li>2017: 成为蜂鸟平台创建人之一，主攻低成本摄像设备领域。P2B（13）</li>
-<li>2018: 成为架构师，评选技术专家，规划落实蜂鸟平台2.0。P3A（14）</li>
-<li>2019: 摸鱼中。P3B（15）</li>
-<li>2020: 成为小组管理者，兼任架构师。P4A（16）</li>
-<li>2021: 成为团队管理者，兼任架构师；组建专家小组，负责平台整体演进规划。P4A（16）</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/%E6%99%8B%E5%8D%87%E4%BF%A1%E6%81%AF.png" alt="晋升信息"></p>
-<h2 id="大事件"><a href="#大事件" class="headerlink" title="大事件"></a>大事件</h2><h3 id="2015-SipStack"><a href="#2015-SipStack" class="headerlink" title="2015 - SipStack"></a>2015 - SipStack</h3><blockquote>
-<p>背景：<br>libSipStack：大华使用开源osip库和exosip库封装而成的整合库，是一个总计数十万行代码的<strong>客户端</strong>接入库。</p>
-</blockquote>
-<p>【事件】</p>
-<p>2015年年底，移动和慧眼项目，公司将libsipstack作为服务端基础组件，导致每个服务器仅能支撑12台设备。</p>
-<p>【困境】</p>
-<ol>
-<li><code>libSipStack</code>服务人群变化，强行作为服务端</li>
-<li>代码量大，3个月基本没看懂代码</li>
-<li>熟悉<code>libSipStack</code>的人离职的离职，转岗的转岗。</li>
-</ol>
-<p>【动作】</p>
-<ol>
-<li><p>我的导师 <a href="li_wei7@dahuatech.com">李伟7</a> 联系了前负责人，要到了以前的不完全优化方案；指出优化需要基于数据指标而不是空想</p>
-</li>
-<li><p>引入GTest框架，建立基准性能数据</p>
-</li>
-<li><p>引入GPerf，建立调用数据图表，分析热点数据</p>
-<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/MeetingServer.png" alt="调用数据"></p>
-</li>
-<li><p>探究并图表化各种数据结构的原理、性能指标，建立使用场景模型。</p>
-<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%89%A9%E5%AE%B9%E6%95%B0%E6%8D%AE.png" alt="哈希表扩容数据"></p>
-</li>
-</ol>
-<p>【成果】</p>
-<ol>
-<li>性能优化500倍。12tps提升至5000tps。</li>
-<li>了解性能优化方法论。</li>
-</ol>
-<h3 id="2016-06-30-蜂鸟v1-0-（AKA-大华物联网平台）"><a href="#2016-06-30-蜂鸟v1-0-（AKA-大华物联网平台）" class="headerlink" title="2016&#x2F;06&#x2F;30 - 蜂鸟v1.0 （AKA. 大华物联网平台）"></a>2016&#x2F;06&#x2F;30 - 蜂鸟v1.0 （AKA. 大华物联网平台）</h3><blockquote>
-<p>自然语言测试框架（RobotTestFramework）：失败</p>
-<p>流媒体集群GO化：失败</p>
-<p>数据库存储集群：失败</p>
-</blockquote>
-<ol>
-<li>独立完成网络框架、文件、信号量、日志、红黑树、动态内存、内存追踪等模块，代码输出8K</li>
-<li>各模块单元测试行覆盖率为81%~86%</li>
-</ol>
-<p>【困境】</p>
-<p>无大型软件开发经验</p>
-<p>【动作】</p>
-<ol>
-<li>咨询资深网络工程师（NetFramework维护者）。</li>
-</ol>
-<p>【成果】</p>
-<ol>
-<li>积累网络编程经验。</li>
-<li>多线程+回调真tm难用。</li>
-</ol>
-<h3 id="2018-蜂鸟V2-0"><a href="#2018-蜂鸟V2-0" class="headerlink" title="2018 - 蜂鸟V2.0"></a>2018 - 蜂鸟V2.0</h3><ul>
-<li>NetMux</li>
-<li>RTSP</li>
-<li>RPCFramework</li>
-<li>Filestream</li>
-<li>日均代码量230行</li>
-</ul>
-<p>引入新技术并分析优劣：</p>
-<ul>
-<li>侵入式容器</li>
-<li>正则表达式</li>
-</ul>
-<h3 id="2019-蜂鸟V2-0"><a href="#2019-蜂鸟V2-0" class="headerlink" title="2019 - 蜂鸟V2.0"></a>2019 - 蜂鸟V2.0</h3><p>重构、重构、还是重构</p>
-<p>NetMux：2次大重构。</p>
-<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/NetMux%E7%BB%93%E6%9E%84.png" alt="NetMux结构"></p>
-<p>4次重构体现出了典型的软件变更过程：</p>
-<ol>
-<li>瞎JB写：代码满足要求就行；</li>
-<li>第一次重构：Bug太多，代码太乱，看不下去；</li>
-<li>第二次重构：逻辑杂糅导致的添加功能困难；</li>
-</ol>
-<p>恰好能运行 -&gt; 利于修复问题 -&gt; 利于添加需求。</p>
-<h2 id="技术专家的技能点"><a href="#技术专家的技能点" class="headerlink" title="技术专家的技能点"></a>技术专家的技能点</h2><ol>
-<li><p>基础知识。</p>
-<p>工作中多走一步：性能优化方法、网络知识、各种操作系统接口特性、各种算法特性。</p>
-</li>
-<li><p>设计原理。</p>
-<p>对于代码的苛求。</p>
-</li>
-</ol>
-<h2 id="成长速度的壁垒"><a href="#成长速度的壁垒" class="headerlink" title="成长速度的壁垒"></a>成长速度的壁垒</h2><p>为何同时期入职，每个人的成长速度都不一样？</p>
-<ol>
-<li><p>任务编排与个人能力之间的关系</p>
-<p><img src="/2021/10/29/%E5%A6%82%E4%BD%95%E6%8A%8A%E6%8F%A1%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%9C%BA%E4%BC%9A/%E6%88%90%E9%95%BF%E9%80%9F%E5%BA%A6%E7%9A%84%E5%A3%81%E5%9E%92.png" alt="成长速度的壁垒"></p>
-</li>
-<li><p>学习速度与基础积累之间的关系</p>
-</li>
-</ol>
 ]]></content>
   </entry>
   <entry>

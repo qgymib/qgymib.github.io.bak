@@ -91,6 +91,15 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Excel 筛选求和</title>
+    <url>/2021/08/24/excel-%E7%AD%9B%E9%80%89%E6%B1%82%E5%92%8C/</url>
+    <content><![CDATA[<p>使用筛选求和公式 <code>SUBTOTAL</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=SUBTOTAL(109,C2:C8)</span><br></pre></td></tr></table></figure>
+
+<p>109表示函数做求和计算，并忽略隐藏掉的值；C2:C8表示计算求和的区域。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Eclipse Portable</title>
     <url>/2021/02/11/eclipse-portable/</url>
     <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 Eclipse 封装配置。</p>
@@ -103,15 +112,6 @@
       <categories>
         <category>PortableApps</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Excel 筛选求和</title>
-    <url>/2021/08/24/excel-%E7%AD%9B%E9%80%89%E6%B1%82%E5%92%8C/</url>
-    <content><![CDATA[<p>使用筛选求和公式 <code>SUBTOTAL</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=SUBTOTAL(109,C2:C8)</span><br></pre></td></tr></table></figure>
-
-<p>109表示函数做求和计算，并忽略隐藏掉的值；C2:C8表示计算求和的区域。</p>
-]]></content>
   </entry>
   <entry>
     <title>Implicit Fallthrough</title>
@@ -232,6 +232,20 @@
 ]]></content>
   </entry>
   <entry>
+    <title>MyLifeOrganized Portable</title>
+    <url>/2021/02/21/mylifeorganized-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Neovim Portable</title>
     <url>/2021/08/09/neovim-portable/</url>
     <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 NeoVim 封装配置。</p>
@@ -256,20 +270,6 @@
 <li>在 NeovimPortable 终端中执行 <code>npm install -g neovim</code></li>
 <li>在 NeovimPortable 终端中执行 <code>npm install -g yarn</code></li>
 </ol>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>MyLifeOrganized Portable</title>
-    <url>/2021/02/21/mylifeorganized-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
-<span id="more"></span>
-
-<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
 ]]></content>
       <categories>
         <category>PortableApps</category>
@@ -552,12 +552,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>cron 生成网站</title>
-    <url>/2021/11/18/cron-%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p><a href="https://crontab.guru/">crontab guru</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>archlinux 个性化配置</title>
     <url>/2022/04/22/archlinux-%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://wiki.archlinux.org/title/Installation_guide">Installation guide</a></p>
@@ -608,10 +602,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title>lede 开启 hello world</title>
-    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
-    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
+    <title>cron 生成网站</title>
+    <url>/2021/11/18/cron-%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p><a href="https://crontab.guru/">crontab guru</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -665,14 +658,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title>openSUSE 在终端中支持 OneClickInstall</title>
-    <url>/2021/09/29/opensuse-%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E6%94%AF%E6%8C%81-oneclickinstall/</url>
-    <content><![CDATA[<p>openSUSE 中关于 OneClickInstall 的 <a href="https://en.opensuse.org/openSUSE:One_Click_Install_UserFAQ">FAQ</a> 目前是过期的，<code>/sbin/OCICLI</code> 已经不再提供。</p>
-<span id="more"></span>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo zypper install yast2-metapackage-handler</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OneClickInstallCLI &lt;YMP URL&gt;</span><br></pre></td></tr></table></figure>
+    <title>lede 开启 hello world</title>
+    <url>/2021/08/20/lede-%E5%BC%80%E5%90%AF-hello-world/</url>
+    <content><![CDATA[<p>编辑 <code>feeds.conf.default</code> 文件，在最末尾加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src-git helloworld https://github.com/fw876/helloworld</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -703,6 +692,17 @@
 <li>若线程开启了ssp功能，则构造一个新的 shadow stack。</li>
 </ol>
 <h3 id="msvc行为分析"><a href="#msvc行为分析" class="headerlink" title="msvc行为分析"></a>msvc行为分析</h3><p><a href="https://blog.lazym.io/2020/09/21/Unicorn-Devblog-setjmp-longjmp-on-Windows/">Unicorn Devblog: setjmp&#x2F;longjmp on Windows</a> 已经说的很清楚了，不再赘述。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>openSUSE 在终端中支持 OneClickInstall</title>
+    <url>/2021/09/29/opensuse-%E5%9C%A8%E7%BB%88%E7%AB%AF%E4%B8%AD%E6%94%AF%E6%8C%81-oneclickinstall/</url>
+    <content><![CDATA[<p>openSUSE 中关于 OneClickInstall 的 <a href="https://en.opensuse.org/openSUSE:One_Click_Install_UserFAQ">FAQ</a> 目前是过期的，<code>/sbin/OCICLI</code> 已经不再提供。</p>
+<span id="more"></span>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo zypper install yast2-metapackage-handler</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OneClickInstallCLI &lt;YMP URL&gt;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -808,6 +808,49 @@
 ]]></content>
   </entry>
   <entry>
+    <title>使用 ffmpge 合并音视频</title>
+    <url>/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/</url>
+    <content><![CDATA[<p><a href="https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg">https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg</a><br><a href="https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue">https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue</a></p>
+<span id="more"></span>
+
+<h2 id="Merging-video-and-audio-with-audio-re-encoding"><a href="#Merging-video-and-audio-with-audio-re-encoding" class="headerlink" title="Merging video and audio, with audio re-encoding"></a>Merging video and audio, with audio re-encoding</h2><p>See this example, taken from <a href="http://crazedmuleproductions.blogspot.com/2005/12/using-ffmpeg-to-combine-audio-and.html">this blog entry</a> but updated for newer syntax. It should be something to the effect of:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>Here, we assume that the video file does not contain any audio stream yet, and that you want to have the same output format (here, MP4) as the input format.</p>
+<p>The above command transcodes the audio, since MP4s cannot carry PCM audio streams. You can use any other desired audio codec if you want. See the <a href="https://trac.ffmpeg.org/wiki/Encode/AAC">FFmpeg Wiki: AAC Encoding Guide</a> for more info.</p>
+<p>If your audio or video stream is longer, you can add the <code>-shortest</code> option so that ffmpeg will stop encoding once one file ends.</p>
+<h2 id="Copying-the-audio-without-re-encoding"><a href="#Copying-the-audio-without-re-encoding" class="headerlink" title="Copying the audio without re-encoding"></a>Copying the audio without re-encoding</h2><p>If your output container can handle (almost) any codec – like MKV – then you can simply copy both audio and video streams:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv</span><br></pre></td></tr></table></figure>
+
+<h2 id="Replacing-audio-stream"><a href="#Replacing-audio-stream" class="headerlink" title="Replacing audio stream"></a>Replacing audio stream</h2><p>If your input video already contains audio, and you want to replace it, you need to tell ffmpeg which audio stream to take:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>The <a href="https://trac.ffmpeg.org/wiki/Map"><code>-map</code> option</a> makes ffmpeg only use the first video stream from the first input and the first audio stream from the second input for the output file.</p>
+<h2 id="Mix-video-and-audio-from-another-video"><a href="#Mix-video-and-audio-from-another-video" class="headerlink" title="Mix video and audio (from another video)"></a>Mix video and audio (from another video)</h2><h3 id="Overview-of-inputs"><a href="#Overview-of-inputs" class="headerlink" title="Overview of inputs"></a>Overview of inputs</h3><p><code>input_0.mp4</code> has the desired video stream and <code>input_1.mp4</code> has the desired audio stream:</p>
+<p><img src="/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/mapping_diagram.png" alt="mapping diagram"></p>
+<p>In <code>ffmpeg</code> the streams look like this:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4</span><br><span class="line"></span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_0.mp4&#x27;:</span><br><span class="line">  Duration: 00:01:48.50, start: 0.000000, bitrate: 4144 kb/s</span><br><span class="line">    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720, 4014 kb/s, SAR 115:87 DAR 1840:783, 23.98 fps, 23.98 tbr, 16k tbn, 47.95 tbc (default)</span><br><span class="line">    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 124 kb/s (default)</span><br><span class="line"></span><br><span class="line">Input #1, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_1.mp4&#x27;:</span><br><span class="line">  Duration: 00:00:30.05, start: 0.000000, bitrate: 1754 kb/s</span><br><span class="line">    Stream #1:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 720x480 [SAR 8:9 DAR 4:3], 1687 kb/s, 59.94 fps, 59.94 tbr, 60k tbn, 119.88 tbc (default)</span><br><span class="line">    Stream #1:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 55 kb/s (default)</span><br></pre></td></tr></table></figure>
+
+<h3 id="ID-numbers"><a href="#ID-numbers" class="headerlink" title="ID numbers"></a>ID numbers</h3><p><code>ffmpeg</code> refers to input files and streams with index numbers. The format is <code>input_file_id:input_stream_id</code>. Since <code>ffmpeg</code> starts counting from 0, stream <code>1:1</code> refers to the audio from <code>input_1.mp4</code>.</p>
+<h3 id="Stream-specifiers"><a href="#Stream-specifiers" class="headerlink" title="Stream specifiers"></a>Stream specifiers</h3><p>This can be enhanced with <a href="http://ffmpeg.org/ffmpeg.html#Stream-specifiers-1">stream specifiers</a>. For example, you can tell <code>ffmpeg</code> that you want the first video stream from the first input (<code>0:v:0</code>), and the first audio stream from the second input (<code>1:a:0</code>). I prefer this method because it’s more efficient. Also, it is less prone to accidental mapping because <code>1:1</code> can refer to any type of stream, while <code>2:v:3</code> only refers to the fourth video stream of the third input file.</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>The <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option</a> instructs <code>ffmpeg</code> what streams you want. To copy the video from <code>input_0.mp4</code> and audio from <code>input_1.mp4</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:0 -map 1:1 -shortest out.mp4</span><br></pre></td></tr></table></figure>
+
+<p>This next example will do the same thing:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:v:0 -map 1:a:0 -shortest out.mp4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-map 0:v:0</code> can be translated as: from the first input (<code>0</code>), select video stream type (<code>v</code>), first video stream (<code>0</code>)</li>
+<li><code>-map 1:a:0</code> can be translated as: from the second input (<code>1</code>), select audio stream type (<code>a</code>), first audio stream (<code>0</code>)</li>
+</ul>
+<h3 id="Additional-Notes"><a href="#Additional-Notes" class="headerlink" title="Additional Notes"></a>Additional Notes</h3><ul>
+<li>With <code>-c copy</code> the streams will be <a href="http://ffmpeg.org/ffmpeg.html#Stream-copy">stream copied</a>, not re-encoded, so there will be no quality loss. If you want to re-encode, see <a href="https://trac.ffmpeg.org/wiki/Encode/H.264">FFmpeg Wiki: H.264 Encoding Guide</a>.</li>
+<li>The <code>-shortest</code> option will cause the output duration to match the duration of the shortest input stream.</li>
+<li>See the <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option documentation</a> for more info.</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>在 Linux 客户机中启用 HGFS</title>
     <url>/2023/01/31/%E5%9C%A8-linux-%E5%AE%A2%E6%88%B7%E6%9C%BA%E4%B8%AD%E5%90%AF%E7%94%A8-hgfs/</url>
     <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>VMware Workstation 中启用共享文件夹之后，<code>/mnt/hgfs</code>仅会出现一次，重启即消失，需要手动挂载。</p>
@@ -866,49 +909,6 @@
       <categories>
         <category>PortableApps</category>
       </categories>
-  </entry>
-  <entry>
-    <title>使用 ffmpge 合并音视频</title>
-    <url>/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/</url>
-    <content><![CDATA[<p><a href="https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg">https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg</a><br><a href="https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue">https://stackoverflow.com/questions/12938581/ffmpeg-mux-video-and-audio-from-another-video-mapping-issue</a></p>
-<span id="more"></span>
-
-<h2 id="Merging-video-and-audio-with-audio-re-encoding"><a href="#Merging-video-and-audio-with-audio-re-encoding" class="headerlink" title="Merging video and audio, with audio re-encoding"></a>Merging video and audio, with audio re-encoding</h2><p>See this example, taken from <a href="http://crazedmuleproductions.blogspot.com/2005/12/using-ffmpeg-to-combine-audio-and.html">this blog entry</a> but updated for newer syntax. It should be something to the effect of:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>Here, we assume that the video file does not contain any audio stream yet, and that you want to have the same output format (here, MP4) as the input format.</p>
-<p>The above command transcodes the audio, since MP4s cannot carry PCM audio streams. You can use any other desired audio codec if you want. See the <a href="https://trac.ffmpeg.org/wiki/Encode/AAC">FFmpeg Wiki: AAC Encoding Guide</a> for more info.</p>
-<p>If your audio or video stream is longer, you can add the <code>-shortest</code> option so that ffmpeg will stop encoding once one file ends.</p>
-<h2 id="Copying-the-audio-without-re-encoding"><a href="#Copying-the-audio-without-re-encoding" class="headerlink" title="Copying the audio without re-encoding"></a>Copying the audio without re-encoding</h2><p>If your output container can handle (almost) any codec – like MKV – then you can simply copy both audio and video streams:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c copy output.mkv</span><br></pre></td></tr></table></figure>
-
-<h2 id="Replacing-audio-stream"><a href="#Replacing-audio-stream" class="headerlink" title="Replacing audio stream"></a>Replacing audio stream</h2><p>If your input video already contains audio, and you want to replace it, you need to tell ffmpeg which audio stream to take:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4</span><br></pre></td></tr></table></figure>
-
-<p>The <a href="https://trac.ffmpeg.org/wiki/Map"><code>-map</code> option</a> makes ffmpeg only use the first video stream from the first input and the first audio stream from the second input for the output file.</p>
-<h2 id="Mix-video-and-audio-from-another-video"><a href="#Mix-video-and-audio-from-another-video" class="headerlink" title="Mix video and audio (from another video)"></a>Mix video and audio (from another video)</h2><h3 id="Overview-of-inputs"><a href="#Overview-of-inputs" class="headerlink" title="Overview of inputs"></a>Overview of inputs</h3><p><code>input_0.mp4</code> has the desired video stream and <code>input_1.mp4</code> has the desired audio stream:</p>
-<p><img src="/2021/09/18/%E4%BD%BF%E7%94%A8-ffmpge-%E5%90%88%E5%B9%B6%E9%9F%B3%E8%A7%86%E9%A2%91/mapping_diagram.png" alt="mapping diagram"></p>
-<p>In <code>ffmpeg</code> the streams look like this:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4</span><br><span class="line"></span><br><span class="line">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_0.mp4&#x27;:</span><br><span class="line">  Duration: 00:01:48.50, start: 0.000000, bitrate: 4144 kb/s</span><br><span class="line">    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720, 4014 kb/s, SAR 115:87 DAR 1840:783, 23.98 fps, 23.98 tbr, 16k tbn, 47.95 tbc (default)</span><br><span class="line">    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 124 kb/s (default)</span><br><span class="line"></span><br><span class="line">Input #1, mov,mp4,m4a,3gp,3g2,mj2, from &#x27;input_1.mp4&#x27;:</span><br><span class="line">  Duration: 00:00:30.05, start: 0.000000, bitrate: 1754 kb/s</span><br><span class="line">    Stream #1:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 720x480 [SAR 8:9 DAR 4:3], 1687 kb/s, 59.94 fps, 59.94 tbr, 60k tbn, 119.88 tbc (default)</span><br><span class="line">    Stream #1:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 55 kb/s (default)</span><br></pre></td></tr></table></figure>
-
-<h3 id="ID-numbers"><a href="#ID-numbers" class="headerlink" title="ID numbers"></a>ID numbers</h3><p><code>ffmpeg</code> refers to input files and streams with index numbers. The format is <code>input_file_id:input_stream_id</code>. Since <code>ffmpeg</code> starts counting from 0, stream <code>1:1</code> refers to the audio from <code>input_1.mp4</code>.</p>
-<h3 id="Stream-specifiers"><a href="#Stream-specifiers" class="headerlink" title="Stream specifiers"></a>Stream specifiers</h3><p>This can be enhanced with <a href="http://ffmpeg.org/ffmpeg.html#Stream-specifiers-1">stream specifiers</a>. For example, you can tell <code>ffmpeg</code> that you want the first video stream from the first input (<code>0:v:0</code>), and the first audio stream from the second input (<code>1:a:0</code>). I prefer this method because it’s more efficient. Also, it is less prone to accidental mapping because <code>1:1</code> can refer to any type of stream, while <code>2:v:3</code> only refers to the fourth video stream of the third input file.</p>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>The <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option</a> instructs <code>ffmpeg</code> what streams you want. To copy the video from <code>input_0.mp4</code> and audio from <code>input_1.mp4</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:0 -map 1:1 -shortest out.mp4</span><br></pre></td></tr></table></figure>
-
-<p>This next example will do the same thing:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ffmpeg -i input_0.mp4 -i input_1.mp4 -c copy -map 0:v:0 -map 1:a:0 -shortest out.mp4</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-map 0:v:0</code> can be translated as: from the first input (<code>0</code>), select video stream type (<code>v</code>), first video stream (<code>0</code>)</li>
-<li><code>-map 1:a:0</code> can be translated as: from the second input (<code>1</code>), select audio stream type (<code>a</code>), first audio stream (<code>0</code>)</li>
-</ul>
-<h3 id="Additional-Notes"><a href="#Additional-Notes" class="headerlink" title="Additional Notes"></a>Additional Notes</h3><ul>
-<li>With <code>-c copy</code> the streams will be <a href="http://ffmpeg.org/ffmpeg.html#Stream-copy">stream copied</a>, not re-encoded, so there will be no quality loss. If you want to re-encode, see <a href="https://trac.ffmpeg.org/wiki/Encode/H.264">FFmpeg Wiki: H.264 Encoding Guide</a>.</li>
-<li>The <code>-shortest</code> option will cause the output duration to match the duration of the shortest input stream.</li>
-<li>See the <a href="http://ffmpeg.org/ffmpeg.html#Advanced-options"><code>-map</code> option documentation</a> for more info.</li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>如何完全隐藏C对象的私有数据</title>

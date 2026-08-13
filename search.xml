@@ -23,6 +23,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Eclipse Portable</title>
+    <url>/2021/02/11/eclipse-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 Eclipse 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="EclipsePortable-ini"><a href="#EclipsePortable-ini" class="headerlink" title="EclipsePortable.ini"></a>EclipsePortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=eclipse\eclipse.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=-data %PAL:DataDir%\workspace -configuration %PAL:DataDir%\settings\configuration -vmargs -Duser.home=%PAL:DataDir%\settings\home -Djava.io.tmpdir=%PAL:DataDir%\.tmp</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">JAVA_HOME</span>=%PAL:AppDir%\openjdk</span><br><span class="line"><span class="attr">PATH</span>=%JAVA_HOME%\bin<span class="comment">;%PATH%</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%\settings\home</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite2]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite3]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite4]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
+
+<h2 id="DefaultData"><a href="#DefaultData" class="headerlink" title="DefaultData"></a>DefaultData</h2><p>需要创建.tmp空目录，否则eclipse启动失败。</p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Compare of Tinyml compilers</title>
     <url>/2024/01/27/compare-of-tinyml-compilers/</url>
     <content><![CDATA[<table>
@@ -91,26 +105,23 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Eclipse Portable</title>
-    <url>/2021/02/11/eclipse-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 Eclipse 封装配置。</p>
-<span id="more"></span>
-
-<h2 id="EclipsePortable-ini"><a href="#EclipsePortable-ini" class="headerlink" title="EclipsePortable.ini"></a>EclipsePortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=eclipse\eclipse.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=-data %PAL:DataDir%\workspace -configuration %PAL:DataDir%\settings\configuration -vmargs -Duser.home=%PAL:DataDir%\settings\home -Djava.io.tmpdir=%PAL:DataDir%\.tmp</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">JAVA_HOME</span>=%PAL:AppDir%\openjdk</span><br><span class="line"><span class="attr">PATH</span>=%JAVA_HOME%\bin<span class="comment">;%PATH%</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%\settings\home</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite2]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite3]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\pools.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir%\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir%\</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite4]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\home\.p2\profiles.info</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
-
-<h2 id="DefaultData"><a href="#DefaultData" class="headerlink" title="DefaultData"></a>DefaultData</h2><p>需要创建.tmp空目录，否则eclipse启动失败。</p>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Excel 筛选求和</title>
     <url>/2021/08/24/excel-%E7%AD%9B%E9%80%89%E6%B1%82%E5%92%8C/</url>
     <content><![CDATA[<p>使用筛选求和公式 <code>SUBTOTAL</code></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=SUBTOTAL(109,C2:C8)</span><br></pre></td></tr></table></figure>
 
 <p>109表示函数做求和计算，并忽略隐藏掉的值；C2:C8表示计算求和的区域。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Install Arch Linux on a removable medium</title>
+    <url>/2023/07/04/install-arch-linux-on-a-removable-medium/</url>
+    <content><![CDATA[<p>This post is a complement to <a href="https://wiki.archlinux.org/title/Install_Arch_Linux_on_a_removable_medium">Install Arch Linux on a removable medium</a>.</p>
+<p>It is recommend to following introduction of <a href="https://mags.zone/help/arch-usb.html">Arch Linux USB</a>.</p>
+<span id="more"></span>
+
+<h2 id="Disable-hibernation"><a href="#Disable-hibernation" class="headerlink" title="Disable hibernation"></a>Disable hibernation</h2><p>To disable hibernation, use following command:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl mask suspend.target hibernate.target sleep.target</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -127,31 +138,6 @@
 <h3 id="修改编译选项"><a href="#修改编译选项" class="headerlink" title="修改编译选项"></a>修改编译选项</h3><p>编译选项增加 <code>-Wimplicit-fallthrough</code> 或 <code>-Wno-implicit-fallthrough</code> 。</p>
 <h2 id="GCC手册"><a href="#GCC手册" class="headerlink" title="GCC手册"></a>GCC手册</h2><p><a href="https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html">GCC Online Doc</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Install Arch Linux on a removable medium</title>
-    <url>/2023/07/04/install-arch-linux-on-a-removable-medium/</url>
-    <content><![CDATA[<p>This post is a complement to <a href="https://wiki.archlinux.org/title/Install_Arch_Linux_on_a_removable_medium">Install Arch Linux on a removable medium</a>.</p>
-<p>It is recommend to following introduction of <a href="https://mags.zone/help/arch-usb.html">Arch Linux USB</a>.</p>
-<span id="more"></span>
-
-<h2 id="Disable-hibernation"><a href="#Disable-hibernation" class="headerlink" title="Disable hibernation"></a>Disable hibernation</h2><p>To disable hibernation, use following command:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl mask suspend.target hibernate.target sleep.target</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>MyLifeOrganized Portable</title>
-    <url>/2021/02/21/mylifeorganized-portable/</url>
-    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
-<span id="more"></span>
-
-<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
-]]></content>
-      <categories>
-        <category>PortableApps</category>
-      </categories>
   </entry>
   <entry>
     <title>Learning TensorFlow Lite for Microcontrollers</title>
@@ -246,6 +232,35 @@
 ]]></content>
   </entry>
   <entry>
+    <title>MyLifeOrganized Portable</title>
+    <url>/2021/02/21/mylifeorganized-portable/</url>
+    <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 MyLifeOrganized 封装配置。</p>
+<span id="more"></span>
+
+<h2 id="MyLifePrganizedPortable-ini"><a href="#MyLifePrganizedPortable-ini" class="headerlink" title="MyLifePrganizedPortable.ini"></a>MyLifePrganizedPortable.ini</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Launch]</span></span><br><span class="line"><span class="attr">ProgramExecutable</span>=MLO\mlo.exe</span><br><span class="line"><span class="attr">CommandLineArguments</span>=%PAL:DataDir%\organized.ml</span><br><span class="line"><span class="attr">DirectoryMoveOK</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">SupportsUNC</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Activate]</span></span><br><span class="line"><span class="attr">Registry</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">XML</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="section">[Environment]</span></span><br><span class="line"><span class="attr">HOME</span>=%PAL:DataDir%</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryKeys]</span></span><br><span class="line"><span class="attr">MyLifeOrganized.net</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[RegistryCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=HKCU\Software\MyLifeOrganized.net</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesMove]</span></span><br><span class="line"><span class="attr">Roaming.MyLifeOrganized</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">Local.MyLifeOrganized</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FilesMove]</span></span><br><span class="line"><span class="attr">mlo5.keym</span>=%PAL:AppDir%\MLO</span><br><span class="line"></span><br><span class="line"><span class="section">[DirectoriesCleanupIfEmpty]</span></span><br><span class="line"><span class="attr">1</span>=%APPDATA%\MyLifeOrganized</span><br><span class="line"><span class="attr">2</span>=%LOCALAPPDATA%\MyLifeOrganized</span><br><span class="line"></span><br><span class="line"><span class="section">[FileWrite1]</span></span><br><span class="line"><span class="attr">Type</span>=Replace</span><br><span class="line"><span class="attr">File</span>=%PAL:DataDir%\settings\MyLifeOrganized.net.reg</span><br><span class="line"><span class="attr">Find</span>=%PAL:LastDrive%%PAL:LastPackagePartialDir:DoubleBackslash%\\</span><br><span class="line"><span class="attr">Replace</span>=%PAL:Drive%%PAL:PackagePartialDir:DoubleBackslash%\\</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>将 MyLifeOrganized 的注册文件 <code>mlo5.keym</code> 放在 <code>Data</code> 目录下即可。</p>
+]]></content>
+      <categories>
+        <category>PortableApps</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Procedure Call Standard</title>
+    <url>/2021/08/02/procedure-call-standard/</url>
+    <content><![CDATA[<ul>
+<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
+</li>
+<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
+</li>
+<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
+</li>
+<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Neovim Portable</title>
     <url>/2021/08/09/neovim-portable/</url>
     <content><![CDATA[<p>符合 <code>PortableApps.com</code> 格式的 NeoVim 封装配置。</p>
@@ -274,21 +289,6 @@
       <categories>
         <category>PortableApps</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Procedure Call Standard</title>
-    <url>/2021/08/02/procedure-call-standard/</url>
-    <content><![CDATA[<ul>
-<li><p>System V Application Binary Interface Intel386 Architecture Processor Supplement<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf">https://github.com/hjl-tools/x86-psABI/wiki/intel386-psABI-1.1.pdf</a></p>
-</li>
-<li><p>System V Application Binary Interface AMD64 Architecture Processor Supplement (With LP64 and ILP32 Programming Models)<br><a href="https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf">https://github.com/hjl-tools/x86-psABI/wiki/x86-64-psABI-1.0.pdf</a></p>
-</li>
-<li><p>Procedure Call Standard for the ARM® Architecture<br><a href="https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=">https://documentation-service.arm.com/static/5fa183feb209f547eebd2d6e?token=</a></p>
-</li>
-<li><p>Procedure Call Standard for the Arm® 64-bit Architecture (AArch64)<br><a href="https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst">https://github.com/ARM-software/abi-aa/blob/master/aapcs64/aapcs64.rst</a></p>
-</li>
-</ul>
-]]></content>
   </entry>
   <entry>
     <title>Scoop 重建开始菜单项</title>
@@ -339,6 +339,21 @@
     <url>/2021/02/10/unraid-%E6%94%AF%E6%8C%81-intel-gpu-%E7%A1%AC%E8%A7%A3/</url>
     <content><![CDATA[<p>编辑go文件，添加 modprobe i915，使其内容如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Intel GPU</span></span><br><span class="line">modprobe i915</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the Management Utility</span></span><br><span class="line">/usr/local/sbin/emhttp &amp;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Visual Studio 中调试动态数组</title>
+    <url>/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<p>来源：<a href="https://learn.microsoft.com/zh-cn/troubleshoot/developer/visualstudio/cpp/debuggers/expand-pointer-debugger-watch-window">在 Visual C++ 调试器监视窗口中展开数组指针</a></p>
+<span id="more"></span>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我们可能需要在 Visual Studio 中查看一些动态申请的数组内容：</p>
+<p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/variable_to_be_debug.png" alt="variable_to_be_debug"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="Step-1-添加动态数组作为监视变量"><a href="#Step-1-添加动态数组作为监视变量" class="headerlink" title="Step 1. 添加动态数组作为监视变量"></a>Step 1. 添加动态数组作为监视变量</h3><p>右键点击需要查看的动态数组，选择 <em>添加监视</em> 将其加入到监视窗口。</p>
+<p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/add_watchpoint.png" alt="add_watchpoint"></p>
+<h3 id="Step-2-修改监视变量作为数组"><a href="#Step-2-修改监视变量作为数组" class="headerlink" title="Step 2. 修改监视变量作为数组"></a>Step 2. 修改监视变量作为数组</h3><p>在监视窗口中双击对应变量，在变量名最后输入 <code>,4</code> 并按下 <em>Enter</em>。其中数字为动态数组实际长度。</p>
+<p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/double_click.png" alt="double_click"></p>
+<h3 id="Step-3-展开数组查看内容"><a href="#Step-3-展开数组查看内容" class="headerlink" title="Step 3. 展开数组查看内容"></a>Step 3. 展开数组查看内容</h3><p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/finish.png" alt="finish"></p>
 ]]></content>
   </entry>
   <entry>
@@ -447,47 +462,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Visual Studio 中调试动态数组</title>
-    <url>/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<p>来源：<a href="https://learn.microsoft.com/zh-cn/troubleshoot/developer/visualstudio/cpp/debuggers/expand-pointer-debugger-watch-window">在 Visual C++ 调试器监视窗口中展开数组指针</a></p>
-<span id="more"></span>
-
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我们可能需要在 Visual Studio 中查看一些动态申请的数组内容：</p>
-<p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/variable_to_be_debug.png" alt="variable_to_be_debug"></p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="Step-1-添加动态数组作为监视变量"><a href="#Step-1-添加动态数组作为监视变量" class="headerlink" title="Step 1. 添加动态数组作为监视变量"></a>Step 1. 添加动态数组作为监视变量</h3><p>右键点击需要查看的动态数组，选择 <em>添加监视</em> 将其加入到监视窗口。</p>
-<p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/add_watchpoint.png" alt="add_watchpoint"></p>
-<h3 id="Step-2-修改监视变量作为数组"><a href="#Step-2-修改监视变量作为数组" class="headerlink" title="Step 2. 修改监视变量作为数组"></a>Step 2. 修改监视变量作为数组</h3><p>在监视窗口中双击对应变量，在变量名最后输入 <code>,4</code> 并按下 <em>Enter</em>。其中数字为动态数组实际长度。</p>
-<p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/double_click.png" alt="double_click"></p>
-<h3 id="Step-3-展开数组查看内容"><a href="#Step-3-展开数组查看内容" class="headerlink" title="Step 3. 展开数组查看内容"></a>Step 3. 展开数组查看内容</h3><p><img src="/2023/01/06/visual-studio-%E4%B8%AD%E8%B0%83%E8%AF%95%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/finish.png" alt="finish"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Visual Studio 启用 CMake 项目覆盖率</title>
-    <url>/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在按照 <a href="https://learn.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested">Use code coverage to determine how much code is being tested</a> 的方法尝试对 <a href="https://github.com/qgymib/cutest">cutest</a> 进行行覆盖率测试时，发现无法获得行覆盖率结果。</p>
-<span id="more"></span>
-
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>为了不污染项目的 <code>CMakeLists.txt</code>，所使用的解决方法必须仅限于修改 Visual Studio 的 <code>CMakeSettings.json</code> 文件。</p>
-<ul>
-<li>Step 1. 打开 CMakeSettings.json</li>
-</ul>
-<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/open_cmakesettings.png" alt="打开 CMakeSettings.json"></p>
-<ul>
-<li>Step 2. 选中“显示高级变量”</li>
-</ul>
-<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/select_advanced_variable.png" alt="显示高级变量"></p>
-<ul>
-<li>Step 3. 添加 <code>/PROFILE</code> 链接选项</li>
-</ul>
-<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/add_link_flag.png" alt="添加链接选项"></p>
-<p>记得使用 <code>Ctrl-S</code> 保存 <code>CMakeSettings.json</code> 文件。</p>
-<ul>
-<li>Step 4. 执行覆盖率测试</li>
-</ul>
-<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/perform_code_coverage.png" alt="执行覆盖率测试"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>WSL2 访问宿主机服务</title>
     <url>/2021/08/04/wsl2-%E8%AE%BF%E9%97%AE%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%9C%8D%E5%8A%A1/</url>
     <content><![CDATA[<p>默认情况下 wsl2 无法访问宿主机端口，我们可以通过如下步骤使得wsl2能够访问宿主机：</p>
@@ -524,10 +498,29 @@
       </tags>
   </entry>
   <entry>
-    <title>Windows 10 下添加路由表</title>
-    <url>/2021/08/23/windows-10-%E4%B8%8B%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%A1%A8/</url>
-    <content><![CDATA[<p>使用管理员权限执行以下指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route add 10.0.0.0 mask 255.255.0.0 172.16.0.1</span><br></pre></td></tr></table></figure>
+    <title>Visual Studio 启用 CMake 项目覆盖率</title>
+    <url>/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在按照 <a href="https://learn.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested">Use code coverage to determine how much code is being tested</a> 的方法尝试对 <a href="https://github.com/qgymib/cutest">cutest</a> 进行行覆盖率测试时，发现无法获得行覆盖率结果。</p>
+<span id="more"></span>
+
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>为了不污染项目的 <code>CMakeLists.txt</code>，所使用的解决方法必须仅限于修改 Visual Studio 的 <code>CMakeSettings.json</code> 文件。</p>
+<ul>
+<li>Step 1. 打开 CMakeSettings.json</li>
+</ul>
+<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/open_cmakesettings.png" alt="打开 CMakeSettings.json"></p>
+<ul>
+<li>Step 2. 选中“显示高级变量”</li>
+</ul>
+<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/select_advanced_variable.png" alt="显示高级变量"></p>
+<ul>
+<li>Step 3. 添加 <code>/PROFILE</code> 链接选项</li>
+</ul>
+<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/add_link_flag.png" alt="添加链接选项"></p>
+<p>记得使用 <code>Ctrl-S</code> 保存 <code>CMakeSettings.json</code> 文件。</p>
+<ul>
+<li>Step 4. 执行覆盖率测试</li>
+</ul>
+<p><img src="/2023/01/28/visual-studio-%E5%90%AF%E7%94%A8-cmake-%E9%A1%B9%E7%9B%AE%E8%A6%86%E7%9B%96%E7%8E%87/perform_code_coverage.png" alt="执行覆盖率测试"></p>
 ]]></content>
   </entry>
   <entry>
@@ -544,11 +537,24 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Windows 10 下添加路由表</title>
+    <url>/2021/08/23/windows-10-%E4%B8%8B%E6%B7%BB%E5%8A%A0%E8%B7%AF%E7%94%B1%E8%A1%A8/</url>
+    <content><![CDATA[<p>使用管理员权限执行以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">route add 10.0.0.0 mask 255.255.0.0 172.16.0.1</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>Windows 下删除 samba 挂载点</title>
     <url>/2021/02/11/windows-%E4%B8%8B%E5%88%A0%E9%99%A4-samba-%E6%8C%82%E8%BD%BD%E7%82%B9/</url>
     <content><![CDATA[<h2 id="查看当前网络连接"><a href="#查看当前网络连接" class="headerlink" title="查看当前网络连接"></a>查看当前网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use</span><br><span class="line">会记录新的网络连接。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">状态       本地        远程                      网络</span><br><span class="line"></span><br><span class="line"><span class="literal">-------------------------------------------------------------------------------</span></span><br><span class="line">OK           X:        \\<span class="number">192.168</span>.<span class="number">1.221</span>\I<span class="literal">-Userfiles</span>\XDRHW</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">OK           Y:        \\<span class="number">192.168</span>.<span class="number">1.18</span>\<span class="number">592</span>        Microsoft Windows Network</span><br><span class="line">OK           Z:        \\<span class="number">192.168</span>.<span class="number">1.66</span>\<span class="number">6001413</span>        Microsoft Windows Network</span><br><span class="line">OK                     \\<span class="number">192.168</span>.<span class="number">2.209</span>\UserDesktop</span><br><span class="line">                                                Microsoft Windows Network</span><br><span class="line">已断开                 \\<span class="number">192.168</span>.<span class="number">1.100</span>\share       Microsoft Windows Network</span><br></pre></td></tr></table></figure>
 
 <h2 id="删除指定网络连接"><a href="#删除指定网络连接" class="headerlink" title="删除指定网络连接"></a>删除指定网络连接</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> C:\Users\qgymib&gt;net use \\<span class="number">192.168</span>.<span class="number">1.100</span>\share /delete</span><br><span class="line">\\<span class="number">192.168</span>.<span class="number">1.100</span>\share 已经删除。</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>cron 生成网站</title>
+    <url>/2021/11/18/cron-%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p><a href="https://crontab.guru/">crontab guru</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -602,9 +608,53 @@
 ]]></content>
   </entry>
   <entry>
-    <title>cron 生成网站</title>
-    <url>/2021/11/18/cron-%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p><a href="https://crontab.guru/">crontab guru</a></p>
+    <title>cutest 技术分析</title>
+    <url>/2023/01/06/cutest-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又花了一些时间将 C 语言单元测试框架 <a href="https://github.com/qgymib/cutest">cutest</a> 完善了一下，已经基本可以覆盖绝大部分 <a href="https://github.com/google/googletest">googletest</a> 的常用功能。</p>
+<p>由于 <a href="https://github.com/qgymib/cutest">cutest</a> 主要用于 C 语言，为了达到类似 <a href="https://github.com/google/googletest">googletest</a> 的能力，用了不少技术手段。现在来分析一下。</p>
+<h2 id="测试用例自动注册"><a href="#测试用例自动注册" class="headerlink" title="测试用例自动注册"></a>测试用例自动注册</h2><p><a href="https://github.com/qgymib/cutest">cutest</a> 的一大功能是测试用例自动注册，即如下测试代码能够自动注册运行：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">TEST(foo, bar)</span><br><span class="line">&#123;</span><br><span class="line">    ASSERT_NE_STR(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述功能的核心技术是使一段代码在 <code>main()</code> 函数执行之前执行，以便自动注册测试代码。</p>
+<p><a href="https://github.com/qgymib/cutest">cutest</a> 使用了三项技术，通过 <code>TEST_INITIALIZER</code> 宏判断运行环境并选择对应技术。</p>
+<h3 id="C-全局变量初始化"><a href="#C-全局变量初始化" class="headerlink" title="C++全局变量初始化"></a>C++全局变量初始化</h3><p>当处于C++环境中时，<a href="https://github.com/qgymib/cutest">cutest</a> 采用类似 <a href="https://github.com/google/googletest">googletest</a> 中全局类的初始化方法执行，即：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    struct f##_t_ &#123; f##_t_(void) &#123; f(); &#125; &#125;; f##_t_ f##_; \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
+
+<p>如上的代码中定义了一个全局变量结构 <code>s_##fixture##_##name</code>，并在结构初始化函数中调用用户定义函数 <code>f_##fixture##_##name</code>。虽然C++手册中没有明确定义，但是大部分编译器初始化全局变量的时间点在 <code>main()</code> 函数执行之前，这就保证了所有的测试用例在 <code>main()</code> 函数执行之前就已经自动注册。</p>
+<h3 id="GCC-Clang-的构造属性"><a href="#GCC-Clang-的构造属性" class="headerlink" title="GCC&#x2F;Clang 的构造属性"></a>GCC&#x2F;Clang 的构造属性</h3><p>当使用 gcc&#x2F;clang 时，这两种编译器支持 <code>__attribute__((constructor))</code> 属性。使用这个属性修饰的函数会在 <code>main()</code> 函数执行之前执行：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void) __attribute__((constructor)); \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="MSVC-的特殊-section"><a href="#MSVC-的特殊-section" class="headerlink" title="MSVC 的特殊 section"></a>MSVC 的特殊 section</h3><p>Windows平台的可执行文件有一个特殊 secion <code>.CRT$XCU</code>，存放在此 section 中的函数会在 <code>main()</code> 函数启动之前运行：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> section(<span class="string">&quot;.CRT$XCU&quot;</span>,read)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER2_(f,p) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    __declspec(allocate(<span class="string">&quot;.CRT$XCU&quot;</span>)) void (*f##_)(void) = f; \</span></span><br><span class="line"><span class="meta">    __pragma(comment(linker,<span class="string">&quot;/include:&quot;</span> p #f <span class="string">&quot;_&quot;</span>)) \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> _WIN64</span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;_&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>注意这里还需要区分是否是64位运行环境，这是由于不同环境在编译时生成的符号表不同：32位环境生成的符号会自动添加一个下划线。</p>
+<h2 id="参数化测试用例解析"><a href="#参数化测试用例解析" class="headerlink" title="参数化测试用例解析"></a>参数化测试用例解析</h2><p>当定义了参数化用例时，<code>--test_list_tests</code> 命令行选项会输出对用的参数：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">test_p_2_data</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">&#125; <span class="type">test_p_2_data_t</span>;</span><br><span class="line"></span><br><span class="line">TEST_PARAMETERIZED_DEFINE(example, test_p_structure, <span class="type">test_p_2_data_t</span>, &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;);</span><br><span class="line"></span><br><span class="line">TEST_P(example, test_p_structure)</span><br><span class="line">&#123;</span><br><span class="line">    TEST_PARAMETERIZED_SUPPRESS_UNUSED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./example --test_list_tests</span><br><span class="line">example.</span><br><span class="line">  test_p_structure/0  # &lt;test_p_2_data_t&gt; &#123; 1, 2, 3 &#125;</span><br><span class="line">  test_p_structure/1  # &lt;test_p_2_data_t&gt; &#123; 2, 3, 5 &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里存在两个技术难点：</p>
+<ol>
+<li>如何知道这里存在2个用例？</li>
+<li>如何准确输出2个用例的参数内容？</li>
+</ol>
+<h3 id="用例数量统计"><a href="#用例数量统计" class="headerlink" title="用例数量统计"></a>用例数量统计</h3><p>为了准确知道参数化测试的用例数量，我们需要用到可变数组的初始化方法：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> TYPE s_parameterized_userdata[] = &#123; __VA_ARGS__ &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如上代码将用户参数静态初始化为一个数组，则数组元素数量就是用例数量。上述代码展开后就变成：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">test_p_2_data_t</span> s_parameterized_userdata[] = &#123;</span><br><span class="line">    &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>此时 <code>sizeof(s_parameterized_userdata)/sizeof(s_parameterized_userdata[0])</code> 即为用例数量。</p>
+<h3 id="用例参数解析"><a href="#用例参数解析" class="headerlink" title="用例参数解析"></a>用例参数解析</h3><p>用例参数的内容是无法在编译期直接获知的。为了能够输出各个用例的内容，我们需要在运行期解析：</p>
+<ol>
+<li>首先我们通过字符串记录用户参数的完整内容：<code>&quot;&#123; 1, 2, 3 &#125;, &#123; 2, 3, 5 &#125;&quot;</code>。</li>
+<li>随后我们需要在运行期对于这个字符串进行词法分析。这里不用担心分析一场，因为既然能够通过编译，一定说明词法是正确的。词法分析的内容依照优先级分为三类：字符串、结构体、其他。</li>
+<li>依照词法分析结果，选择对用的用户字符串输出。</li>
+</ol>
+<h2 id="终端颜色按场景渲染"><a href="#终端颜色按场景渲染" class="headerlink" title="终端颜色按场景渲染"></a>终端颜色按场景渲染</h2><p>在普通的支持彩色输出的程序中，如果我们将其重定向至文件，可以看到文件中有类似乱码的存在；而类似的问题在 <a href="https://github.com/qgymib/cutest">cutest</a> 中不存在，这是为什么？</p>
+<p>在 Linux 中，为了输出彩色颜色，我们需要添加一些控制字符，例如 <code>\033[0;33m</code> 等，这些特殊字符是无法通过文本编辑器正常显示的，正是它们造成了乱码。</p>
+<p>而 <a href="https://github.com/qgymib/cutest">cutest</a> 通过 <code>isatty()</code> 接口对输出设备进行了判断（代码来源于 <a href="https://github.com/google/googletest">googletest</a>），仅当输出设备为 <code>tty</code> 时，才输出颜色，否则仅输出文本。</p>
+<!-- links -->
 ]]></content>
   </entry>
   <entry>
@@ -653,56 +703,6 @@
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo zypper install yast2-metapackage-handler</span><br></pre></td></tr></table></figure>
 
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">OneClickInstallCLI &lt;YMP URL&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>cutest 技术分析</title>
-    <url>/2023/01/06/cutest-%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近又花了一些时间将 C 语言单元测试框架 <a href="https://github.com/qgymib/cutest">cutest</a> 完善了一下，已经基本可以覆盖绝大部分 <a href="https://github.com/google/googletest">googletest</a> 的常用功能。</p>
-<p>由于 <a href="https://github.com/qgymib/cutest">cutest</a> 主要用于 C 语言，为了达到类似 <a href="https://github.com/google/googletest">googletest</a> 的能力，用了不少技术手段。现在来分析一下。</p>
-<h2 id="测试用例自动注册"><a href="#测试用例自动注册" class="headerlink" title="测试用例自动注册"></a>测试用例自动注册</h2><p><a href="https://github.com/qgymib/cutest">cutest</a> 的一大功能是测试用例自动注册，即如下测试代码能够自动注册运行：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">TEST(foo, bar)</span><br><span class="line">&#123;</span><br><span class="line">    ASSERT_NE_STR(<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上述功能的核心技术是使一段代码在 <code>main()</code> 函数执行之前执行，以便自动注册测试代码。</p>
-<p><a href="https://github.com/qgymib/cutest">cutest</a> 使用了三项技术，通过 <code>TEST_INITIALIZER</code> 宏判断运行环境并选择对应技术。</p>
-<h3 id="C-全局变量初始化"><a href="#C-全局变量初始化" class="headerlink" title="C++全局变量初始化"></a>C++全局变量初始化</h3><p>当处于C++环境中时，<a href="https://github.com/qgymib/cutest">cutest</a> 采用类似 <a href="https://github.com/google/googletest">googletest</a> 中全局类的初始化方法执行，即：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    struct f##_t_ &#123; f##_t_(void) &#123; f(); &#125; &#125;; f##_t_ f##_; \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
-
-<p>如上的代码中定义了一个全局变量结构 <code>s_##fixture##_##name</code>，并在结构初始化函数中调用用户定义函数 <code>f_##fixture##_##name</code>。虽然C++手册中没有明确定义，但是大部分编译器初始化全局变量的时间点在 <code>main()</code> 函数执行之前，这就保证了所有的测试用例在 <code>main()</code> 函数执行之前就已经自动注册。</p>
-<h3 id="GCC-Clang-的构造属性"><a href="#GCC-Clang-的构造属性" class="headerlink" title="GCC&#x2F;Clang 的构造属性"></a>GCC&#x2F;Clang 的构造属性</h3><p>当使用 gcc&#x2F;clang 时，这两种编译器支持 <code>__attribute__((constructor))</code> 属性。使用这个属性修饰的函数会在 <code>main()</code> 函数执行之前执行：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER(f) \</span></span><br><span class="line"><span class="meta">    void f(void) __attribute__((constructor)); \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="MSVC-的特殊-section"><a href="#MSVC-的特殊-section" class="headerlink" title="MSVC 的特殊 section"></a>MSVC 的特殊 section</h3><p>Windows平台的可执行文件有一个特殊 secion <code>.CRT$XCU</code>，存放在此 section 中的函数会在 <code>main()</code> 函数启动之前运行：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> section(<span class="string">&quot;.CRT$XCU&quot;</span>,read)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> TEST_INITIALIZER2_(f,p) \</span></span><br><span class="line"><span class="meta">    void f(void); \</span></span><br><span class="line"><span class="meta">    __declspec(allocate(<span class="string">&quot;.CRT$XCU&quot;</span>)) void (*f##_)(void) = f; \</span></span><br><span class="line"><span class="meta">    __pragma(comment(linker,<span class="string">&quot;/include:&quot;</span> p #f <span class="string">&quot;_&quot;</span>)) \</span></span><br><span class="line"><span class="meta">    void f(void)</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> _WIN64</span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#    <span class="keyword">define</span> TEST_INITIALIZER(f) TEST_INITIALIZER2_(f,<span class="string">&quot;_&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<p>注意这里还需要区分是否是64位运行环境，这是由于不同环境在编译时生成的符号表不同：32位环境生成的符号会自动添加一个下划线。</p>
-<h2 id="参数化测试用例解析"><a href="#参数化测试用例解析" class="headerlink" title="参数化测试用例解析"></a>参数化测试用例解析</h2><p>当定义了参数化用例时，<code>--test_list_tests</code> 命令行选项会输出对用的参数：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">test_p_2_data</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">&#125; <span class="type">test_p_2_data_t</span>;</span><br><span class="line"></span><br><span class="line">TEST_PARAMETERIZED_DEFINE(example, test_p_structure, <span class="type">test_p_2_data_t</span>, &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;);</span><br><span class="line"></span><br><span class="line">TEST_P(example, test_p_structure)</span><br><span class="line">&#123;</span><br><span class="line">    TEST_PARAMETERIZED_SUPPRESS_UNUSED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ./example --test_list_tests</span><br><span class="line">example.</span><br><span class="line">  test_p_structure/0  # &lt;test_p_2_data_t&gt; &#123; 1, 2, 3 &#125;</span><br><span class="line">  test_p_structure/1  # &lt;test_p_2_data_t&gt; &#123; 2, 3, 5 &#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里存在两个技术难点：</p>
-<ol>
-<li>如何知道这里存在2个用例？</li>
-<li>如何准确输出2个用例的参数内容？</li>
-</ol>
-<h3 id="用例数量统计"><a href="#用例数量统计" class="headerlink" title="用例数量统计"></a>用例数量统计</h3><p>为了准确知道参数化测试的用例数量，我们需要用到可变数组的初始化方法：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> TYPE s_parameterized_userdata[] = &#123; __VA_ARGS__ &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>如上代码将用户参数静态初始化为一个数组，则数组元素数量就是用例数量。上述代码展开后就变成：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">test_p_2_data_t</span> s_parameterized_userdata[] = &#123;</span><br><span class="line">    &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;, &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>此时 <code>sizeof(s_parameterized_userdata)/sizeof(s_parameterized_userdata[0])</code> 即为用例数量。</p>
-<h3 id="用例参数解析"><a href="#用例参数解析" class="headerlink" title="用例参数解析"></a>用例参数解析</h3><p>用例参数的内容是无法在编译期直接获知的。为了能够输出各个用例的内容，我们需要在运行期解析：</p>
-<ol>
-<li>首先我们通过字符串记录用户参数的完整内容：<code>&quot;&#123; 1, 2, 3 &#125;, &#123; 2, 3, 5 &#125;&quot;</code>。</li>
-<li>随后我们需要在运行期对于这个字符串进行词法分析。这里不用担心分析一场，因为既然能够通过编译，一定说明词法是正确的。词法分析的内容依照优先级分为三类：字符串、结构体、其他。</li>
-<li>依照词法分析结果，选择对用的用户字符串输出。</li>
-</ol>
-<h2 id="终端颜色按场景渲染"><a href="#终端颜色按场景渲染" class="headerlink" title="终端颜色按场景渲染"></a>终端颜色按场景渲染</h2><p>在普通的支持彩色输出的程序中，如果我们将其重定向至文件，可以看到文件中有类似乱码的存在；而类似的问题在 <a href="https://github.com/qgymib/cutest">cutest</a> 中不存在，这是为什么？</p>
-<p>在 Linux 中，为了输出彩色颜色，我们需要添加一些控制字符，例如 <code>\033[0;33m</code> 等，这些特殊字符是无法通过文本编辑器正常显示的，正是它们造成了乱码。</p>
-<p>而 <a href="https://github.com/qgymib/cutest">cutest</a> 通过 <code>isatty()</code> 接口对输出设备进行了判断（代码来源于 <a href="https://github.com/google/googletest">googletest</a>），仅当输出设备为 <code>tty</code> 时，才输出颜色，否则仅输出文本。</p>
-<!-- links -->
 ]]></content>
   </entry>
   <entry>
@@ -1053,6 +1053,24 @@
 ]]></content>
   </entry>
   <entry>
+    <title>查看 SSD 写入量</title>
+    <url>/2021/07/27/%E6%9F%A5%E7%9C%8B-ssd-%E5%86%99%E5%85%A5%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在Linux下查看SSD写入量并没有十分好用的工具，因此这里列出如何通过SMART信息计算SSD写入量。</p>
+<span id="more"></span>
+
+<h2 id="查看SMART信息"><a href="#查看SMART信息" class="headerlink" title="查看SMART信息"></a>查看SMART信息</h2><p>使用smartctl查看SMART信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[qgymib@archlive ~]$ sudo smartctl -A /dev/sdc</span><br><span class="line">[sudo] password <span class="keyword">for</span> qgymib:</span><br><span class="line">smartctl 7.2 2020-12-30 r5155 [x86_64-linux-5.11.16-arch1-1] (<span class="built_in">local</span> build)</span><br><span class="line">Copyright (C) 2002-20, Bruce Allen, Christian Franke, www.smartmontools.org</span><br><span class="line"></span><br><span class="line">=== START OF READ SMART DATA SECTION ===</span><br><span class="line">SMART Attributes Data Structure revision number: 1</span><br><span class="line">Vendor Specific SMART Attributes with Thresholds:</span><br><span class="line">ID<span class="comment"># ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE</span></span><br><span class="line">  1 Raw_Read_Error_Rate     0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  5 Reallocated_Sector_Ct   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  9 Power_On_Hours          0x0000   100   100   000    Old_age   Offline      -       4</span><br><span class="line"> 12 Power_Cycle_Count       0x0000   100   100   000    Old_age   Offline      -       58</span><br><span class="line">160 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">161 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       69</span><br><span class="line">163 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       25</span><br><span class="line">164 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       716</span><br><span class="line">165 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       2</span><br><span class="line">166 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">167 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">168 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       3000</span><br><span class="line">169 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">175 Program_Fail_Count_Chip 0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">176 Erase_Fail_Count_Chip   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">177 Wear_Leveling_Count     0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">178 Used_Rsvd_Blk_Cnt_Chip  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">181 Program_Fail_Cnt_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">182 Erase_Fail_Count_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">192 Power-Off_Retract_Count 0x0000   100   100   000    Old_age   Offline      -       30</span><br><span class="line">195 Hardware_ECC_Recovered  0x0000   100   100   000    Old_age   Offline      -       988</span><br><span class="line">196 Reallocated_Event_Count 0x0000   100   100   016    Old_age   Offline      -       0</span><br><span class="line">197 Current_Pending_Sector  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">198 Offline_Uncorrectable   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">199 UDMA_CRC_Error_Count    0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">232 Available_Reservd_Space 0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">241 Total_LBAs_Written      0x0000   100   100   000    Old_age   Offline      -       6913</span><br><span class="line">242 Total_LBAs_Read         0x0000   100   100   000    Old_age   Offline      -       4380</span><br><span class="line">245 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       11456</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="计算写入量"><a href="#计算写入量" class="headerlink" title="计算写入量"></a>计算写入量</h2><p>其中 <code>Total_LBAs_Written</code> 即为写入的 <code>LBA</code> 数量。<code>LBA</code> 大小与芯片型号有关，一般来讲，<code>1LBA</code> 可能等于如下几种值：<code>512B</code> &#x2F; <code>32MB</code> &#x2F; <code>1GB</code> 。为了确定 <code>1LBA</code> 的具体大小，可以通过写入特定大小的文件，并观察 <code>Total_LBAs_Written</code> 的变化来确定：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=1G.file bs=1G count=1</span><br></pre></td></tr></table></figure>
+
+<p>此处我的SSD中<code>Total_LBAs_Written</code> 从 <code>6860</code> 增加至 <code>6892</code> ，从而计算可知 <code>1LBA</code> 大小为：</p>
+<p>$$<br>\frac{1024MB}{6892-6860} &#x3D; 32MB<br>$$</p>
+]]></content>
+  </entry>
+  <entry>
     <title>给张越的一封信</title>
     <url>/2021/09/08/%E7%BB%99%E5%BC%A0%E8%B6%8A%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</url>
     <content><![CDATA[<p>Dear 张越，以及其他看这篇文章的小伙伴们大家好，</p>
@@ -1102,24 +1120,6 @@
 <li>Reboot wsl:</li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl.exe -t Ubuntu // (or other e.g. Debian)</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>查看 SSD 写入量</title>
-    <url>/2021/07/27/%E6%9F%A5%E7%9C%8B-ssd-%E5%86%99%E5%85%A5%E9%87%8F/</url>
-    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在Linux下查看SSD写入量并没有十分好用的工具，因此这里列出如何通过SMART信息计算SSD写入量。</p>
-<span id="more"></span>
-
-<h2 id="查看SMART信息"><a href="#查看SMART信息" class="headerlink" title="查看SMART信息"></a>查看SMART信息</h2><p>使用smartctl查看SMART信息：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[qgymib@archlive ~]$ sudo smartctl -A /dev/sdc</span><br><span class="line">[sudo] password <span class="keyword">for</span> qgymib:</span><br><span class="line">smartctl 7.2 2020-12-30 r5155 [x86_64-linux-5.11.16-arch1-1] (<span class="built_in">local</span> build)</span><br><span class="line">Copyright (C) 2002-20, Bruce Allen, Christian Franke, www.smartmontools.org</span><br><span class="line"></span><br><span class="line">=== START OF READ SMART DATA SECTION ===</span><br><span class="line">SMART Attributes Data Structure revision number: 1</span><br><span class="line">Vendor Specific SMART Attributes with Thresholds:</span><br><span class="line">ID<span class="comment"># ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE</span></span><br><span class="line">  1 Raw_Read_Error_Rate     0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  5 Reallocated_Sector_Ct   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">  9 Power_On_Hours          0x0000   100   100   000    Old_age   Offline      -       4</span><br><span class="line"> 12 Power_Cycle_Count       0x0000   100   100   000    Old_age   Offline      -       58</span><br><span class="line">160 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">161 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       69</span><br><span class="line">163 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       25</span><br><span class="line">164 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       716</span><br><span class="line">165 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       2</span><br><span class="line">166 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">167 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">168 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       3000</span><br><span class="line">169 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">175 Program_Fail_Count_Chip 0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">176 Erase_Fail_Count_Chip   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">177 Wear_Leveling_Count     0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">178 Used_Rsvd_Blk_Cnt_Chip  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">181 Program_Fail_Cnt_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">182 Erase_Fail_Count_Total  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">192 Power-Off_Retract_Count 0x0000   100   100   000    Old_age   Offline      -       30</span><br><span class="line">195 Hardware_ECC_Recovered  0x0000   100   100   000    Old_age   Offline      -       988</span><br><span class="line">196 Reallocated_Event_Count 0x0000   100   100   016    Old_age   Offline      -       0</span><br><span class="line">197 Current_Pending_Sector  0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">198 Offline_Uncorrectable   0x0000   100   100   000    Old_age   Offline      -       0</span><br><span class="line">199 UDMA_CRC_Error_Count    0x0000   100   100   050    Old_age   Offline      -       0</span><br><span class="line">232 Available_Reservd_Space 0x0000   100   100   000    Old_age   Offline      -       100</span><br><span class="line">241 Total_LBAs_Written      0x0000   100   100   000    Old_age   Offline      -       6913</span><br><span class="line">242 Total_LBAs_Read         0x0000   100   100   000    Old_age   Offline      -       4380</span><br><span class="line">245 Unknown_Attribute       0x0000   100   100   000    Old_age   Offline      -       11456</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="计算写入量"><a href="#计算写入量" class="headerlink" title="计算写入量"></a>计算写入量</h2><p>其中 <code>Total_LBAs_Written</code> 即为写入的 <code>LBA</code> 数量。<code>LBA</code> 大小与芯片型号有关，一般来讲，<code>1LBA</code> 可能等于如下几种值：<code>512B</code> &#x2F; <code>32MB</code> &#x2F; <code>1GB</code> 。为了确定 <code>1LBA</code> 的具体大小，可以通过写入特定大小的文件，并观察 <code>Total_LBAs_Written</code> 的变化来确定：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=1G.file bs=1G count=1</span><br></pre></td></tr></table></figure>
-
-<p>此处我的SSD中<code>Total_LBAs_Written</code> 从 <code>6860</code> 增加至 <code>6892</code> ，从而计算可知 <code>1LBA</code> 大小为：</p>
-<p>$$<br>\frac{1024MB}{6892-6860} &#x3D; 32MB<br>$$</p>
 ]]></content>
   </entry>
   <entry>
